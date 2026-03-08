@@ -1,33 +1,25 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const slides = [
-  { src: `${base}/images/header_01.webp`, alt: '42°OS KI-Plattform – Vernetzte Datenstruktur visualisiert' },
-  { src: `${base}/images/header_02.webp`, alt: '42°OS On-Premises Plattform – Intelligente digitale Infrastruktur' },
-  { src: `${base}/images/header_03.webp`, alt: '42°OS Agentic AI – Datenstrom und Prozessautomatisierung' },
-];
 ---
 
 <section class="hero">
-  <!-- Fullscreen Background Slider -->
-  <div class="hero-slider">
-    {slides.map((slide, i) => (
-      <div class={`hero-slide ${i === 0 ? 'active' : ''}`} data-slide={i}>
-        <img
-          src={slide.src}
-          alt={slide.alt}
-          class="hero-slide-img"
-          width="1920"
-          height="816"
-          loading={i === 0 ? 'eager' : 'lazy'}
-          fetchpriority={i === 0 ? 'high' : 'auto'}
-        />
-      </div>
-    ))}
+  <!-- Background image (single, static) -->
+  <div class="hero-bg-img">
+    <img
+      src={`${base}/images/header_03.webp`}
+      alt=""
+      class="hero-img"
+      aria-hidden="true"
+      width="1920"
+      height="816"
+      loading="eager"
+      fetchpriority="high"
+    />
     <div class="hero-overlay"></div>
   </div>
 
   <!-- Decorative crosses -->
-  <div class="hero-bg">
+  <div class="hero-crosses">
     <span class="cross" style="top: 80px; left: 12%"></span>
     <span class="cross" style="top: 200px; left: 6%"></span>
     <span class="cross" style="top: 120px; right: 14%"></span>
@@ -61,13 +53,6 @@ const slides = [
       <span class="client-logo">BIO-CIRCLE</span>
     </div>
   </div>
-
-  <!-- Slide indicators -->
-  <div class="hero-indicators">
-    {slides.map((_, i) => (
-      <button class={`hero-dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Slide ${i + 1}`}></button>
-    ))}
-  </div>
 </section>
 
 <style>
@@ -81,25 +66,14 @@ const slides = [
     overflow: hidden;
   }
 
-  /* ── Slider ── */
-  .hero-slider {
+  /* ── Background image ── */
+  .hero-bg-img {
     position: absolute;
     inset: 0;
     z-index: 0;
   }
 
-  .hero-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-  }
-
-  .hero-slide.active {
-    opacity: 1;
-  }
-
-  .hero-slide-img {
+  .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -119,7 +93,7 @@ const slides = [
   }
 
   /* ── Decorative ── */
-  .hero-bg {
+  .hero-crosses {
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -191,40 +165,6 @@ const slides = [
     letter-spacing: 1px;
   }
 
-  /* ── Indicators ── */
-  .hero-indicators {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    position: relative;
-    z-index: 3;
-    margin-top: 40px;
-  }
-
-  .hero-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid var(--color-dark);
-    background: transparent;
-    cursor: pointer;
-    padding: 8px;
-    margin: 0 2px;
-    box-sizing: content-box;
-    transition: background 0.3s, transform 0.3s;
-    opacity: 0.4;
-  }
-
-  .hero-dot.active {
-    background: var(--color-dark);
-    opacity: 1;
-    transform: scale(1.2);
-  }
-
-  .hero-dot:hover {
-    opacity: 0.8;
-  }
-
   @media (max-width: 768px) {
     .hero {
       padding: 60px 0 40px;
@@ -241,42 +181,3 @@ const slides = [
     }
   }
 </style>
-
-<script>
-  // Hero Background Slider – 8s interval with crossfade
-  document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    if (slides.length === 0) return;
-
-    let current = 0;
-    let timer;
-
-    function goTo(index) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = index;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-    }
-
-    function next() {
-      goTo((current + 1) % slides.length);
-    }
-
-    function startTimer() {
-      timer = setInterval(next, 8000);
-    }
-
-    // Dot click navigation
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        clearInterval(timer);
-        goTo(Number(dot.dataset.dot));
-        startTimer();
-      });
-    });
-
-    startTimer();
-  });
-</script>

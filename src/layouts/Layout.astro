@@ -11,7 +11,7 @@ const {
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const canonicalURL = new URL(Astro.url.pathname, 'https://qivox1.github.io').href;
-const ogImage = `https://qivox1.github.io${base}/images/header_01.webp`;
+const ogImage = `https://qivox1.github.io${base}/images/header_03.webp`;
 ---
 
 <!doctype html>
@@ -53,7 +53,7 @@ const ogImage = `https://qivox1.github.io${base}/images/header_01.webp`;
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" /></noscript>
 
     <!-- LCP preload: hero image for homepage -->
-    <link rel="preload" as="image" href={`${base}/images/header_01.webp`} fetchpriority="high" />
+    <link rel="preload" as="image" href={`${base}/images/header_03.webp`} fetchpriority="high" />
 
     <title>{title}</title>
 
