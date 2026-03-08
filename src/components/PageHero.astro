@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  label?: string;
+}
+
+const { title, subtitle, label } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container page-hero-content">
+    {label && <span class="section-label">{label}</span>}
+    <h1 class="page-hero-title" set:html={title} />
+    {subtitle && <p class="page-hero-subtitle">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(180deg, #f0f4f8 0%, #fff 100%);
+  }
+
+  .page-hero-content {
+    max-width: 800px;
+  }
+
+  .page-hero-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .page-hero-title :global(.highlight) {
+    color: var(--color-accent);
+  }
+
+  .page-hero-subtitle {
+    font-size: 18px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    max-width: 650px;
+  }
+</style>

@@ -1,0 +1,367 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const timeSavingsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const errorIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" stroke="currentColor" stroke-width="2"/></svg>`;
+const scaleIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const supportIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+---
+
+<Layout title="Prozessautomatisierung - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Anwendungen', href:'/anwendungen'}, {label:'Prozessautomatisierung'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Prozess</span>automatisierung"
+        subtitle="Routineaufgaben eliminieren, Fachkräfte entlasten"
+      />
+
+      <section class="problem-solution">
+        <div class="problem-solution-grid">
+          <div class="problem-section">
+            <h2>Das Problem</h2>
+            <ul class="problem-list">
+              <li>
+                <strong>40 % Zeitverlust:</strong> Mitarbeiter verbringen täglich Stunden mit manuellen Datenerfassungen, Kopieren und Einsortieren.
+              </li>
+              <li>
+                <strong>Manuelle Fehler:</strong> Tippfehler, Verwechslungen und fehlerhafte Dateneingaben führen zu kostspieligen Korrektionen.
+              </li>
+              <li>
+                <strong>Nicht skalierbar:</strong> Mit mehr Aufträgen wächst die Belastung linear – nur neue Mitarbeiter helfen weiter.
+              </li>
+              <li>
+                <strong>Hohe Betriebskosten:</strong> Routineaufgaben binden Kapazität, die für wertschöpfende Tätigkeiten fehlt.
+              </li>
+            </ul>
+          </div>
+
+          <div class="solution-section">
+            <h2>Die Lösung mit 42°OS</h2>
+            <p>
+              KI-Agenten übernehmen repetitive Aufgaben vollständig. Automatische Datenerfassung aus Emails, Dokumenten oder Systemen. Intelligente Analyse und Verarbeitung. Nahtlose Integration in Ihre bestehenden Prozesse.
+            </p>
+            <div class="solution-features">
+              <div class="feature">
+                <strong>KI-Agenten für Datenerfassung:</strong>
+                <p>Automatisches Extrahieren von Informationen aus unstrukturierten Daten wie Rechnungen, Bestellformulare oder Support-Tickets.</p>
+              </div>
+              <div class="feature">
+                <strong>Intelligente Analyse:</strong>
+                <p>42°OS versteht den Kontext und trifft automatisch richtige Entscheidungen – oft besser und konsistenter als manuelle Bearbeitung.</p>
+              </div>
+              <div class="feature">
+                <strong>No-Code Designer per Spracheingabe:</strong>
+                <p>Workflows definieren Sie einfach per Stimme oder Text. Keine Programmierkenntnisse nötig – Geschäftslogik wird zu Software.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits-section">
+        <h2>Konkrete Ergebnisse</h2>
+        <FeatureGrid columns={4}>
+          <FeatureCard
+            title="40 % Zeitersparnis"
+            text="Ihre Mitarbeiter gewinnen täglich Stunden zurück. Nicht für weitere Routineaufgaben, sondern für kreative, wertschöpfende Arbeit."
+            icon={timeSavingsIcon}
+          />
+          <FeatureCard
+            title="Fehlerquote nahe Null"
+            text="KI macht keine Tippfehler, keine Unaufmerksamkeit. Konsistent, zuverlässig, reproduzierbar. Rückgang von Fehlern um 95 %."
+            icon={errorIcon}
+          />
+          <FeatureCard
+            title="Skalierbarkeit ohne Grenzen"
+            text="Verdoppelt sich Ihre Auftragsmenge, steigen Ihre Kosten nicht proportional. 42°OS kostet gleich, verarbeitet aber doppelt so viel."
+            icon={scaleIcon}
+          />
+          <FeatureCard
+            title="Sofortige Entlastung"
+            text="Innerhalb von Tagen implementiert. Ihre Teams fühlen sofort die Erleichterung. Motivation und Zufriedenheit steigen."
+            icon={supportIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="use-cases-section">
+        <h2>Typische Anwendungsszenarien</h2>
+        <div class="use-cases-grid">
+          <div class="use-case">
+            <h3>Rechnungsverarbeitung</h3>
+            <p>
+              Automatische Erfassung von Rechnungsdaten aus PDFs und E-Mails. Validierung gegen Bestellungen. Automatische Verbuchung im ERP. Keine manuellen Eingriffe mehr nötig.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Bestellbearbeitung</h3>
+            <p>
+              Kundenbestellungen werden automatisch aus E-Mails, Formularen oder EDI extrahiert. 42°OS prüft Verfügbarkeit, erstellt Lieferscheine und informiert automatisch den Versand.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Support-Ticketing</h3>
+            <p>
+              Support-Anfragen werden automatisch kategorisiert und zum richtigen Team weitergeleitet. Einfache Fragen werden von KI-Agenten direkt beantwortet.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Datenberichte</h3>
+            <p>
+              Täglich oder wöchentlich werden automatisch Berichte aus verschiedenen Datenquellen erstellt, analysiert und an Entscheidungsträger verteilt. Immer aktuell, nie verspätet.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Vertragsverwaltung</h3>
+            <p>
+              Verträge werden automatisch analysiert, wichtige Termine extrahiert und Verlängerungsprozesse eingeleitet. Keine versäumten Fristen mehr.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Personalverwaltung</h3>
+            <p>
+              Urlaubsanträge, Zeitblätter und andere HR-Formulare werden automatisch verarbeitet und genehmigt – oder an die richtige Person weitergeleitet, wenn manuelle Prüfung erforderlich ist.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="implementation-section">
+        <h2>Implementation in 3 Schritten</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Prozess analysieren</h3>
+            <p>Unser Team analysiert Ihren aktuellen Prozess, identifiziert Engpässe und automatisierbare Schritte.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Workflow definieren</h3>
+            <p>Sie beschreiben den gewünschten neuen Ablauf – mit unserem No-Code Designer oder einfach per Spracheingabe.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Live gehen</h3>
+            <p>Wir konfigurieren die Integration mit Ihren Systemen. Nach kurzer Testphase läuft die Automatisierung produktiv.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .problem-solution {
+    margin: 80px 0;
+  }
+
+  .problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .problem-section h2,
+  .solution-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+
+  .problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .problem-list li {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .problem-list li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .problem-list strong {
+    color: var(--color-dark);
+  }
+
+  .solution-section p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .solution-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .solution-features .feature {
+    background: #f0f4f8;
+    border-left: 4px solid var(--color-accent);
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .solution-features .feature strong {
+    color: var(--color-dark);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .solution-features .feature p {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .benefits-section {
+    margin: 100px 0;
+  }
+
+  .benefits-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .use-cases-section {
+    margin: 100px 0;
+  }
+
+  .use-cases-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .use-case {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .use-case h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .use-case p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .implementation-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .implementation-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .step {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .problem-solution-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .benefits-section h2,
+    .use-cases-section h2,
+    .implementation-section h2 {
+      font-size: 28px;
+    }
+
+    .implementation-section {
+      padding: 40px 20px;
+    }
+  }
+</style>

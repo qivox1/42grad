@@ -1,0 +1,130 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const steps = [
+  { num: '1', title: 'Designen', text: 'Erstellen Sie Ihren Workflow per Spracheingabe im No-Code-Designer – ohne eine Zeile Code.', img: `${base}/images/designen.webp` },
+  { num: '2', title: 'Automatisieren', text: 'KI-Agenten übernehmen die Arbeit: Daten erfassen, analysieren, Entscheidungen vorbereiten.', img: `${base}/images/automatisieren.webp` },
+  { num: '3', title: 'Ergebnisse', text: 'Erhalten Sie fertige Reports, Dashboards und Benachrichtigungen – in Echtzeit.', img: `${base}/images/ergebnisse.webp` },
+];
+---
+
+<section id="solutions" class="solutions">
+  <div class="container">
+    <h2 class="solutions-title"><span class="highlight">So einfach</span> funktioniert 42°OS.</h2>
+    <p class="solutions-subtitle">
+      Drei Schritte von der Idee zum autonomen Geschäftsprozess – ohne Programmierkenntnisse.
+    </p>
+
+    <div class="steps-grid">
+      {steps.map(step => (
+        <div class="step-card">
+          <div class="step-image">
+            <img src={step.img} alt={step.title} loading="lazy" />
+            <span class="step-badge">{step.num}</span>
+          </div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .solutions {
+    padding: var(--section-padding);
+    background: var(--color-bg-light);
+  }
+
+  .solutions-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .solutions-title .highlight {
+    color: var(--color-accent);
+  }
+
+  .solutions-subtitle {
+    font-size: 16px;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .step-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 0 0 32px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s;
+    overflow: hidden;
+  }
+
+  .step-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+
+  .step-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+    background: #f0f4f8;
+  }
+
+  .step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .step-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 20px 32px 12px;
+    color: var(--color-dark);
+  }
+
+  .step-card p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

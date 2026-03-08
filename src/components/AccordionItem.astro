@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  open?: boolean;
+}
+const { title, open = false } = Astro.props;
+---
+
+<details class="accordion-item" open={open}>
+  <summary>
+    <span class="accordion-title">{title}</span>
+    <span class="accordion-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </summary>
+  <div class="accordion-content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .accordion-item {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  .accordion-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .accordion-icon {
+    color: var(--color-text-muted);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .accordion-item[open] .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    padding: 0 24px 20px;
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+</style>

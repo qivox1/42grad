@@ -1,0 +1,84 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const values = [
+  { num: '01', title: 'On-Premises', text: '100% Kontrolle über Ihre Daten. Keine Cloud-Abhängigkeit. Ihre Infrastruktur, Ihre Regeln.' },
+  { num: '02', title: 'Skalierbar', text: 'Von ersten Pilotprozessen bis zur unternehmensweiten Automatisierung – 42°OS wächst mit Ihnen.' },
+  { num: '03', title: 'No-Code', text: 'Visual Workflow Designer und Agent-Bibliothek – ohne Programmierkenntnisse einsatzbereit.' },
+  { num: '04', title: 'Made in Germany', text: 'Entwickelt in Ostwestfalen. DSGVO-konform. Faire Vertragsbedingungen.' },
+];
+---
+
+<section class="values">
+  <div class="container values-grid">
+    <div class="values-left">
+      <h2 class="values-title">Technologie, der Sie<br />vertrauen können.</h2>
+      <a href={base + '/#contact'} class="btn-accent values-btn">Jetzt Kontakt aufnehmen</a>
+    </div>
+
+    <div class="values-right">
+      {values.map(value => (
+        <div class="value-item">
+          <span class="value-num">{value.num}.</span>
+          <div>
+            <h3>{value.title}</h3>
+            <p>{value.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .values {
+    padding: var(--section-padding);
+    background: var(--color-bg-light);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .values-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 32px;
+  }
+
+  .value-item {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .value-item:first-child { padding-top: 0; }
+
+  .value-num {
+    font-size: 16px;
+    color: var(--color-accent);
+    font-weight: 700;
+    min-width: 30px;
+  }
+
+  .value-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .value-item p {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .values-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>

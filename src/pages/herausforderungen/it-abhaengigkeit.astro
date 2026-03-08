@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ChallengePage from '../../components/ChallengePage.astro';
+---
+
+<Layout title="IT-Abhängigkeit reduzieren - 42°OS">
+  <Header />
+  <ChallengePage
+    title="IT-Abhängigkeit"
+    subtitle="Jede Prozessänderung erfordert ein IT-Ticket? 42°OS gibt Fachabteilungen die Kontrolle zurück."
+    problem="In vielen Unternehmen ist die IT-Abteilung der Flaschenhals für Prozessänderungen. Jede Anpassung – sei es ein neuer Report, ein geänderter Workflow oder eine neue Automatisierung – erfordert IT-Ressourcen, die ohnehin knapp sind. Die Folge: wochenlange Wartezeiten, wachsende Ticket-Backlogs und eine zunehmende Kluft zwischen Fachabteilungen und IT. Innovation wird ausgebremst."
+    solution="42°OS demokratisiert Prozessautomatisierung mit einem No-Code-Ansatz. Fachabteilungen können per Spracheingabe eigene Workflows erstellen und anpassen – ohne eine Zeile Code, ohne IT-Ticket. Die IT behält dabei die Kontrolle über Infrastruktur und Sicherheit, während Fachabteilungen eigenständig agieren können. Das Ergebnis: schnellere Innovation bei gleichbleibender Governance."
+    benefits={[
+      'No-Code-Workflow-Design per Spracheingabe für Fachabteilungen',
+      'Entlastung der IT-Abteilung von Routine-Anfragen',
+      'Von Wochen auf Minuten: dramatisch verkürzte Umsetzungszeiten',
+      'Governance und Kontrolle bleiben bei der IT – Agilität geht an die Fachabteilungen',
+    ]}
+  />
+  <Footer />
+</Layout>

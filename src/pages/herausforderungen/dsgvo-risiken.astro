@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ChallengePage from '../../components/ChallengePage.astro';
+---
+
+<Layout title="DSGVO-Risiken eliminieren - 42°OS">
+  <Header />
+  <ChallengePage
+    title="DSGVO-Risiken"
+    subtitle="Cloud-KI und DSGVO-Compliance schließen sich oft aus. 42°OS löst diesen Widerspruch."
+    problem="Die Nutzung von Cloud-basierten KI-Diensten birgt erhebliche DSGVO-Risiken. Personenbezogene Daten verlassen die eigene Infrastruktur und werden auf Servern Dritter verarbeitet – oft außerhalb der EU. Geschäftsführer haften persönlich für Datenschutzverstöße. Viele Mittelständler verzichten deshalb ganz auf KI-Lösungen und verpassen den Anschluss an den Wettbewerb."
+    solution="42°OS löst das Dilemma zwischen KI-Innovation und Datenschutz. Die gesamte Plattform läuft On-Premises auf Ihrer eigenen Infrastruktur. Kein Datentransfer an Dritte, keine Cloud-Abhängigkeit, keine DSGVO-Grauzone. Lokale LLM-Ausführung garantiert, dass Ihre sensiblen Daten Ihr Unternehmen nie verlassen. Multi-Layer Security schützt auf allen Ebenen."
+    benefits={[
+      '100% On-Premises: Daten verlassen nie Ihre Infrastruktur',
+      'Lokale LLM-Ausführung ohne Datentransfer an Dritte',
+      'DSGVO-Compliance by Design – keine Grauzone',
+      'Persönliche Haftungsrisiken für Geschäftsführer eliminiert',
+    ]}
+  />
+  <Footer />
+</Layout>

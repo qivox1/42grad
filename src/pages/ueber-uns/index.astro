@@ -1,0 +1,352 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const sovereigntyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const transparencyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>`;
+const innovationIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10h6M9 14h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" stroke="currentColor" stroke-width="2"/></svg>`;
+---
+
+<Layout title="Über 42 Grad - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Über uns'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Über</span> 42 Grad"
+        subtitle="Das KI-Betriebssystem für den Mittelstand – Made in Ostwestfalen"
+      />
+
+      <section class="brand-story">
+        <div class="story-content">
+          <h2>Unsere Geschichte</h2>
+          <p>
+            42 Grad wurde gegründet mit einer klaren Vision: den deutschen Mittelstand mit einer KI-Plattform zu befähigen, die Datenhoheit, Sicherheit und Innovation vereint. Wir verstanden ein großes Unbehagen: Viele mittelständische Unternehmen zögern, KI zu nutzen, weil sie nicht bereit sind, ihre Daten an große Cloud-Provider zu übergeben oder sich in proprietäre Systeme zu sperren.
+          </p>
+          <p>
+            Das war der Ausgangspunkt. Wir fragten: Warum gibt es keine KI-Plattform, die vollständig On-Premises läuft, DSGVO-konform ist und echte Geschäftsprozesse automatisiert? Die Antwort: Es gab sie nicht. Also haben wir sie gebaut.
+          </p>
+          <p>
+            42°OS ist nicht einfach ein weiteres SaaS-Tool. Es ist eine vollständig dezentrale Plattform, die auf Ihren Systemen läuft. Ihre Daten gehören Ihnen – 100 %. Keine Cloud-Abhängigkeit, keine versteckten Kosten, keine überraschenden Gebührenerhöhungen. Made in Germany nach europäischen Standards, mit transparenten Businessmodellen und echtem Support für mittelständische Herausforderungen.
+          </p>
+          <p>
+            Heute arbeiten wir mit echten Kunden zusammen – Pilotanwender und strategische Partner, die bereits sehen, wie 42°OS ihre Prozesse automatisiert, ihre Teams entlastet und ihre Wettbewerbsfähigkeit stärkt. Und wir erweitern ständig, was möglich ist.
+          </p>
+        </div>
+      </section>
+
+      <section class="stats-section">
+        <h2>Unsere Zahlen</h2>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-label">Gründung</div>
+            <div class="stat-value">Q4 2024</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">KI/ML-Experten</div>
+            <div class="stat-value">6+</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Pilotanwender</div>
+            <div class="stat-value">5</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Strategische Partner</div>
+            <div class="stat-value">4</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="values-section">
+        <h2>Unsere Werte</h2>
+        <FeatureGrid columns={4}>
+          <FeatureCard
+            title="Digitale Souveränität"
+            text="On-Premises, nicht SaaS. Ihre Daten gehören Ihnen. Keine Cloud-Abhängigkeit, keine versteckten Abhängigkeiten. Sie haben die Kontrolle."
+            icon={sovereigntyIcon}
+          />
+          <FeatureCard
+            title="Transparenz & Fairness"
+            text="Keine Black-Box-Algorithmen. Sie verstehen, wie 42°OS funktioniert. Faire Preismodelle, ehrliche Kommunikation, keine Überraschungen."
+            icon={transparencyIcon}
+          />
+          <FeatureCard
+            title="Innovation mit Verantwortung"
+            text="Wir entwickeln KI-Features, die wirklich helfen. Nicht für Hype, sondern für echte Geschäftsprobleme. Mit Sicherheit und Verantwortung."
+            icon={innovationIcon}
+          />
+          <FeatureCard
+            title="Made in Germany"
+            text="Entwickelt in Ostwestfalen nach europäischen Standards. DSGVO-konform von Grund auf. Das ist kein Marketing-Gimmick – das ist unsere DNA."
+            icon={germanyIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="team-preview-section">
+        <h2>Das Gründungsteam</h2>
+        <div class="team-preview-grid">
+          <div class="team-card">
+            <h3>Jonas Fröhleke</h3>
+            <p class="role">CEO & Co-Founder</p>
+            <p class="bio">
+              MBA & Engineering (Business Engineering) mit 12+ Jahren Expertise in Industrieautomatisierung. Jonas verbindet technisches Know-how mit unternehmerischer Vision und versteht die Herausforderungen des Mittelstands.
+            </p>
+          </div>
+          <div class="team-card">
+            <h3>Johann-Georg Vogelhuber</h3>
+            <p class="role">CTO & Co-Founder</p>
+            <p class="bio">
+              Dipl.-Mathematiker mit 20+ Jahren Software-Entwicklung und KI-Systemdesign. Ehemals Head of AI bei GAMOMAT. Johann-Georg ist der Architekt hinter 42°OS und treibt Innovation voran.
+            </p>
+          </div>
+        </div>
+        <div class="team-cta">
+          <p>Lerne mehr über unser Team und die Menschen, die 42 Grad prägen.</p>
+          <a href={base + '/ueber-uns/team'} class="btn-accent">Zum Team</a>
+        </div>
+      </section>
+
+      <section class="mission-section">
+        <h2>Unsere Mission</h2>
+        <div class="mission-content">
+          <p>
+            Wir glauben, dass der deutsche Mittelstand das Rückgrat unserer Wirtschaft ist. Doch viele mittelständische Unternehmen können nicht mit großen Konzernen und Tech-Unternehmen konkurrieren, weil sie keinen Zugang zu modernen, souveränen KI-Technologien haben.
+          </p>
+          <p>
+            42°OS ändert das. Wir ermöglichen es mittelständischen Unternehmen, ihre Geschäftsprozesse zu automatisieren – schnell, sicher und wirtschaftlich. Wir geben ihnen die gleichen Werkzeuge wie die Großen, nur besser: autonärer, kontrollierter, transparenter.
+          </p>
+          <p>
+            Unsere Mission ist es, den Mittelstand mit KI-Technologien auszustatten, die ihre Datenhoheit bewahren, ihre Unabhängigkeit stärken und ihnen ermöglichen, mit Großkonzernen zu konkurrieren. Das ist mehr als Business – das ist Verantwortung.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .brand-story {
+    margin: 80px 0;
+    max-width: 900px;
+  }
+
+  .story-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 32px;
+  }
+
+  .story-content p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .story-content p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .stats-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .stats-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 28px;
+  }
+
+  .stat {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .stat-value {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .values-section {
+    margin: 100px 0;
+  }
+
+  .values-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .team-preview-section {
+    margin: 100px 0;
+  }
+
+  .team-preview-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .team-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .team-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .team-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .team-card .role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+
+  .team-card .bio {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .team-cta {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 16px;
+  }
+
+  .team-cta p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+  }
+
+  .team-cta .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .team-cta .btn-accent:hover {
+    background: #52d696;
+  }
+
+  .mission-section {
+    margin: 100px 0;
+    background: #0F2B46;
+    border-radius: 20px;
+    padding: 60px 40px;
+    color: #fff;
+  }
+
+  .mission-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+
+  .mission-content {
+    max-width: 800px;
+  }
+
+  .mission-content p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .mission-content p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .brand-story {
+      margin: 60px 0;
+    }
+
+    .stats-section,
+    .values-section,
+    .team-preview-section,
+    .mission-section {
+      padding: 40px 20px;
+    }
+
+    .stats-section h2,
+    .values-section h2,
+    .team-preview-section h2,
+    .mission-section h2,
+    .story-content h2 {
+      font-size: 28px;
+    }
+
+    .team-preview-grid {
+      gap: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,293 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<Layout title="Videos & Demos - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Ressourcen', href:'/ressourcen'}, {label:'Videos'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Videos</span> & Demos"
+        subtitle="Erleben Sie 42°OS in Aktion"
+      />
+
+      <section class="intro-section">
+        <p>
+          Sehen Sie, wie 42°OS funktioniert. Kurze, prägnante Videos zeigen die wichtigsten Funktionen und Architekturelementen der Plattform.
+        </p>
+      </section>
+
+      <section class="videos-section">
+        <div class="videos-grid">
+          <div class="video-card">
+            <div class="video-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7l-7 5 7 5V7z" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="video-info">
+              <h3>42°OS Plattform-Überblick</h3>
+              <p class="duration">90 Sekunden</p>
+              <p class="description">
+                Eine kurze Einführung in 42°OS. Was ist die Plattform? Wie funktioniert sie? Welche Hauptkomponenten sind wichtig?
+              </p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7l-7 5 7 5V7z" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="video-info">
+              <h3>Sicherheitsfeatures im Detail</h3>
+              <p class="duration">90 Sekunden</p>
+              <p class="description">
+                Wie sichert 42°OS Ihre Daten? On-Premises-Architektur, Verschlüsselung, DSGVO-Konformität – alle Sicherheitsaspekte erklärt.
+              </p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7l-7 5 7 5V7z" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="video-info">
+              <h3>No-Code Workflow Designer</h3>
+              <p class="duration">60 Sekunden</p>
+              <p class="description">
+                Wie erstellen Sie Automatisierungen ohne Code? Sehen Sie den Designer in Aktion – per Spracheingabe oder visueller Konfiguration.
+              </p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7l-7 5 7 5V7z" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="video-info">
+              <h3>Supervisor & State Machine Agent</h3>
+              <p class="duration">60 Sekunden</p>
+              <p class="description">
+                Verstehen Sie die KI-Agenten, die den Kern von 42°OS bilden. Wie funktionieren Supervisor-Agenten und State Machine Agents?
+              </p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7l-7 5 7 5V7z" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="video-info">
+              <h3>KI-basierte Assistenzfunktionen</h3>
+              <p class="duration">60 Sekunden</p>
+              <p class="description">
+                Wie unterstützen KI-Assistenten Ihre Teams? Intelligente Vorschläge, automatische Optimierung, kontinuierliches Lernen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="coming-soon-section">
+        <div class="coming-soon-content">
+          <h2>Weitere Videos folgen in Kürze</h2>
+          <p>
+            Wir sind dabei, weitere Video-Inhalte zu produzieren. Tiefere Dives in spezifische Anwendungsfälle, Tutorials und Implementierungs-Guides. Bleiben Sie dran!
+          </p>
+          <div class="upcoming-list">
+            <h3>In Planung:</h3>
+            <ul>
+              <li>Prozessautomatisierung in der Praxis – ein konkretes Beispiel</li>
+              <li>Dokumentenmanagement – von der Erfassung bis zur Archivierung</li>
+              <li>Integration mit ERP-Systemen – Schritt für Schritt</li>
+              <li>Deployment-Optionen – On-Premises, Private Cloud, Kubernetes</li>
+              <li>Kundenberichte – wie echte Mittelständler 42°OS nutzen</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .intro-section {
+    margin: 60px 0 80px;
+    max-width: 700px;
+  }
+
+  .intro-section p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .videos-section {
+    margin: 80px 0;
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .video-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.08);
+  }
+
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #0F2B46 0%, #1a3d52 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(102, 228, 169, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .video-card:hover .video-placeholder::before {
+    opacity: 1;
+  }
+
+  .video-placeholder svg {
+    width: 64px;
+    height: 64px;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .video-info {
+    padding: 24px;
+  }
+
+  .video-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .video-info .duration {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .video-info .description {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .coming-soon-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .coming-soon-content {
+    max-width: 700px;
+  }
+
+  .coming-soon-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+
+  .coming-soon-content p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .upcoming-list h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+  }
+
+  .upcoming-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .upcoming-list li {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .upcoming-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .coming-soon-section {
+      padding: 40px 20px;
+    }
+
+    .coming-soon-content h2 {
+      font-size: 28px;
+    }
+  }
+</style>

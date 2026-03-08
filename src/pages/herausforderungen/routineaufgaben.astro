@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ChallengePage from '../../components/ChallengePage.astro';
+---
+
+<Layout title="Routineaufgaben automatisieren - 42°OS">
+  <Header />
+  <ChallengePage
+    title="Routineaufgaben"
+    subtitle="Fachkräfte verschwenden bis zu 40% ihrer Zeit mit wiederkehrenden Aufgaben. 42°OS gibt ihnen diese Zeit zurück."
+    problem="In vielen mittelständischen Unternehmen verbringen qualifizierte Mitarbeiter einen erheblichen Teil ihrer Arbeitszeit mit Routineaufgaben: Daten übertragen, Berichte erstellen, E-Mails sortieren, Informationen zusammensuchen. Diese Tätigkeiten binden wertvolle Ressourcen und verhindern, dass Fachkräfte sich auf strategische und wertschöpfende Aufgaben konzentrieren können. In Zeiten des Fachkräftemangels ist das ein Wettbewerbsnachteil."
+    solution="42°OS setzt KI-Agenten ein, die Routineaufgaben vollständig automatisieren – direkt auf Ihrer Infrastruktur. Per Spracheingabe im No-Code-Designer erstellen Sie Workflows, die Daten erfassen, analysieren und Ergebnisse in Echtzeit liefern. Ihre Fachkräfte werden von repetitiven Tätigkeiten befreit und können sich auf das konzentrieren, was wirklich zählt: Innovation und Kundenbeziehungen."
+    benefits={[
+      'Bis zu 40% Zeitersparnis pro Mitarbeiter bei Routinetätigkeiten',
+      'Automatische Datenerfassung, -verarbeitung und Berichterstellung',
+      'No-Code-Workflow-Design per Spracheingabe – ohne IT-Kenntnisse',
+      'Sofortige Entlastung Ihrer Fachkräfte für strategische Aufgaben',
+    ]}
+  />
+  <Footer />
+</Layout>

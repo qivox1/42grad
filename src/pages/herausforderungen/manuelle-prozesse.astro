@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ChallengePage from '../../components/ChallengePage.astro';
+---
+
+<Layout title="Manuelle Prozesse automatisieren - 42°OS">
+  <Header />
+  <ChallengePage
+    title="Manuelle Prozesse"
+    subtitle="Manuelle Prozesse sind fehleranfällig und nicht skalierbar. 42°OS macht sie intelligent und zuverlässig."
+    problem="Manuelle Geschäftsprozesse sind das unsichtbare Risiko im Mittelstand. Jeder händische Schritt birgt Fehlerquellen: falsche Dateneingaben, vergessene Freigaben, inkonsistente Abläufe. Mit wachsendem Geschäftsvolumen skalieren manuelle Prozesse nicht mit – sie werden zum Engpass. Die Folge: steigende Fehlerquoten, längere Durchlaufzeiten und frustrierte Mitarbeiter."
+    solution="42°OS transformiert manuelle Prozesse in intelligente, automatisierte Workflows. KI-Agenten übernehmen die Datenerfassung, Analyse und Entscheidungsvorbereitung. Die Plattform lernt aus Ihren Prozessen und optimiert sich kontinuierlich. Alles läuft On-Premises auf Ihrer eigenen Infrastruktur – ohne Abhängigkeit von externen Cloud-Diensten."
+    benefits={[
+      'Eliminierung menschlicher Fehler durch automatisierte Prozessabläufe',
+      'Unbegrenzte Skalierbarkeit ohne zusätzlichen Personalaufwand',
+      'Kontinuierliche Prozessoptimierung durch selbstlernende KI-Agenten',
+      'Vollständige Nachvollziehbarkeit aller Prozessschritte und Entscheidungen',
+    ]}
+  />
+  <Footer />
+</Layout>

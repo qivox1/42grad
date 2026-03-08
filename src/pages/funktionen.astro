@@ -1,0 +1,419 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="Funktionen von 42°OS">
+  <Header />
+  <main class="page">
+
+    <PageHero
+      title='<span class="highlight">Umfassende Funktionen</span> für autonome Prozesse'
+      subtitle="Von der Workflow-Erstellung per Spracheingabe bis zur Echtzeit-Überwachung – alles auf Ihrer eigenen Infrastruktur."
+      label="Funktionen"
+    />
+
+    <!-- Überblick -->
+    <section id="ueberblick" class="func-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Überblick</span>
+          <h2>Alles, was Sie für <span class="highlight">autonome Prozesse</span> brauchen</h2>
+        </div>
+        <div class="overview-grid">
+          <div class="overview-card">
+            <span class="overview-num">01</span>
+            <h3>Designen</h3>
+            <p>Workflows per Spracheingabe erstellen</p>
+          </div>
+          <div class="overview-card">
+            <span class="overview-num">02</span>
+            <h3>Automatisieren</h3>
+            <p>KI-Agenten übernehmen die Arbeit</p>
+          </div>
+          <div class="overview-card">
+            <span class="overview-num">03</span>
+            <h3>Kontrollieren</h3>
+            <p>Human-in-the-Loop bei kritischen Entscheidungen</p>
+          </div>
+          <div class="overview-card">
+            <span class="overview-num">04</span>
+            <h3>Ergebnisse</h3>
+            <p>Reports, Dashboards und Benachrichtigungen in Echtzeit</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- No-Code Workflow Designer -->
+    <section id="no-code-designer" class="func-section func-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">No-Code Workflow Designer</span>
+          <h2><span class="highlight">No-Code</span> Workflow Designer</h2>
+          <p class="section-intro">Erstellen Sie komplexe Automatisierungen per Spracheingabe – ohne eine Zeile Code, ohne IT-Ticket.</p>
+        </div>
+        <div class="two-col">
+          <div class="col-card">
+            <h3>So funktioniert es</h3>
+            <p>Beschreiben Sie einfach in natürlicher Sprache, was Ihr Prozess tun soll. 42°OS übersetzt Ihre Anforderungen automatisch in einen strukturierten Workflow mit definierten Schritten, Bedingungen und Agenten-Zuordnung.</p>
+            <p>Der visuelle Editor zeigt den Workflow in Echtzeit. Sie können per Drag-and-Drop anpassen, Bedingungen hinzufügen und den Ablauf vor dem Start testen.</p>
+          </div>
+          <div class="col-card">
+            <h3>Kernfunktionen</h3>
+            <ul class="check-list">
+              <li>Workflow-Erstellung per natürlicher Sprache</li>
+              <li>Visueller Drag-and-Drop-Editor</li>
+              <li>Echtzeit-Vorschau und Testmodus</li>
+              <li>Automatische Agent-Zuordnung</li>
+              <li>Bedingte Logik und Verzweigungen</li>
+              <li>Versionierung und Rollback</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Template-Ökosystem -->
+    <section id="template-oekosystem" class="func-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Template-Ökosystem</span>
+          <h2><span class="highlight">Template</span>-Ökosystem</h2>
+          <p class="section-intro">Vorgefertigte Workflow-Vorlagen für schnelle Implementierung – branchenspezifisch und individuell anpassbar.</p>
+        </div>
+        <div class="feature-cards-3">
+          <div class="fcard">
+            <h3>Branchenvorlagen</h3>
+            <p>Fertige Templates für Fertigung, Logistik, Finanzen, Versicherung, Handel und mehr. Jedes Template basiert auf bewährten Prozessmustern und Best Practices.</p>
+          </div>
+          <div class="fcard">
+            <h3>Schnelle Implementierung</h3>
+            <p>Statt wochenlanger Entwicklung starten Sie in Stunden. Wählen Sie ein Template, passen Sie es an Ihre Anforderungen an und starten Sie sofort.</p>
+          </div>
+          <div class="fcard">
+            <h3>Individuelle Anpassung</h3>
+            <p>Jedes Template ist vollständig anpassbar. Ändern Sie Schritte, Bedingungen und Agenten-Konfigurationen – alles per No-Code-Designer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agentic AI -->
+    <section id="agentic-ai" class="func-section func-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Agentic AI</span>
+          <h2><span class="highlight">Agentic</span> AI</h2>
+          <p class="section-intro">Autonome KI-Agenten, die innerhalb definierter Grenzen eigenständig arbeiten – mit menschlicher Kontrolle an kritischen Punkten.</p>
+        </div>
+        <div class="two-col">
+          <div class="col-card col-card--dark">
+            <h3>Autonome Ausführung</h3>
+            <p>KI-Agenten arbeiten selbstständig innerhalb klar definierter Prozessgrenzen. Sie erfassen Daten, analysieren Inhalte, bereiten Entscheidungen vor und erstellen Berichte – ohne manuelle Eingriffe.</p>
+            <p>Jeder Agent ist auf eine spezifische Aufgabe optimiert und lernt kontinuierlich aus den Ergebnissen.</p>
+          </div>
+          <div class="col-card">
+            <h3>Menschliche Kontrolle</h3>
+            <p>Bei kritischen Entscheidungen greift das Human-in-the-Loop-Prinzip. Sie definieren, welche Schritte eine menschliche Freigabe erfordern. Der Agent pausiert, informiert den zuständigen Mitarbeiter und wartet auf Bestätigung.</p>
+            <p>So behalten Sie die Kontrolle, ohne auf die Effizienzvorteile der Automatisierung zu verzichten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hybrid Automation -->
+    <section id="hybrid-automation" class="func-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Hybrid Automation</span>
+          <h2><span class="highlight">Hybrid</span> Automation</h2>
+          <p class="section-intro">Die optimale Kombination aus KI-Effizienz und menschlichem Urteilsvermögen.</p>
+        </div>
+        <div class="feature-cards-3">
+          <div class="fcard">
+            <h3>Human-in-the-Loop</h3>
+            <p>Definieren Sie Kontrollpunkte in jedem Workflow. Bei sensiblen Entscheidungen pausiert der Prozess und fordert menschliche Validierung an.</p>
+          </div>
+          <div class="fcard">
+            <h3>Validierungs-Dashboard</h3>
+            <p>Ein übersichtliches Dashboard zeigt alle offenen Validierungsanfragen. Mitarbeiter prüfen, bestätigen oder korrigieren – mit vollständiger Nachvollziehbarkeit.</p>
+          </div>
+          <div class="fcard">
+            <h3>Lückenloser Audit-Trail</h3>
+            <p>Jede Entscheidung – ob durch KI oder Mensch – wird dokumentiert. Vollständige Transparenz für Compliance, Revision und Prozessoptimierung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 50+ Agenten -->
+    <section id="agenten" class="func-section func-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">50+ Agenten</span>
+          <h2><span class="highlight">50+</span> spezialisierte KI-Agenten</h2>
+          <p class="section-intro">Für jeden Prozessschritt der richtige Agent – von Datenerfassung über Analyse bis zur Kommunikation.</p>
+        </div>
+        <div class="agent-grid">
+          <div class="agent-card">
+            <div class="agent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="1.5"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Datenerfassung</h3>
+            <p>Automatisches Erfassen und Strukturieren von Daten aus verschiedensten Quellen</p>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Analyse</h3>
+            <p>KI-gestützte Auswertung und Mustererkennung in großen Datenmengen</p>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4zM9 9h6v6H9z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Dokumente</h3>
+            <p>Klassifikation, Extraktion und Archivierung von Dokumenten aller Art</p>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Kommunikation</h3>
+            <p>Automatisierte Benachrichtigungen, Reports und Stakeholder-Kommunikation</p>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Monitoring</h3>
+            <p>Echtzeit-Überwachung von Prozessen, KPIs und Systemzuständen</p>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Reporting</h3>
+            <p>Automatische Erstellung von Berichten, Dashboards und Entscheidungsvorlagen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scheduling & Dry Run -->
+    <section id="scheduling" class="func-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Scheduling & Dry Run</span>
+          <h2><span class="highlight">Scheduling</span> & Dry Run</h2>
+          <p class="section-intro">Planen, testen, optimieren – bevor ein Workflow in Produktion geht.</p>
+        </div>
+        <div class="two-col">
+          <div class="col-card">
+            <h3>Zeitplanung</h3>
+            <p>Starten Sie Workflows zu definierten Zeitpunkten oder auf Basis von Ereignissen. Tägliche, wöchentliche oder monatliche Ausführung – flexibel konfigurierbar über eine intuitive Oberfläche.</p>
+            <p>Kombinieren Sie zeitbasierte Auslöser mit ereignisgesteuerten Triggern für maximale Flexibilität.</p>
+          </div>
+          <div class="col-card">
+            <h3>Dry Run / Testläufe</h3>
+            <p>Testen Sie jeden Workflow vor dem Produktiveinsatz in einer sicheren Sandbox-Umgebung. Der Dry-Run-Modus simuliert die vollständige Ausführung, ohne reale Daten zu verändern.</p>
+            <p>Analysieren Sie Performance, identifizieren Sie Engpässe und optimieren Sie den Ablauf – bevor er live geht.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- No-Code App Builder -->
+    <section id="app-builder" class="func-section func-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">No-Code App Builder</span>
+          <h2><span class="highlight">No-Code</span> App Builder</h2>
+          <p class="section-intro">Erstellen Sie eigene Business-Anwendungen direkt auf der 42°OS-Plattform – ohne Programmierung.</p>
+        </div>
+        <div class="feature-cards-3">
+          <div class="fcard">
+            <h3>Formulare & Eingabemasken</h3>
+            <p>Erstellen Sie individuelle Formulare per Drag-and-Drop. Validierung, bedingte Felder und automatische Datenanbindung inklusive.</p>
+          </div>
+          <div class="fcard">
+            <h3>Dashboards</h3>
+            <p>Konfigurieren Sie Echtzeit-Dashboards mit Charts, KPIs und Statusanzeigen. Daten aus Workflows fließen automatisch ein.</p>
+          </div>
+          <div class="fcard">
+            <h3>Eigene Anwendungen</h3>
+            <p>Kombinieren Sie Formulare, Dashboards und Workflows zu vollständigen Business-Anwendungen – ohne eine Zeile Code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page { padding-top: 20px; }
+
+  .func-section { padding: 80px 0; }
+  .func-section--alt { background: var(--color-bg-light); }
+
+  .section-header {
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-header .highlight { color: var(--color-accent); }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .overview-card {
+    background: var(--color-dark);
+    border-radius: 16px;
+    padding: 32px;
+    color: #fff;
+  }
+
+  .overview-num {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .overview-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+  .overview-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .col-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 36px;
+  }
+
+  .col-card--dark {
+    background: var(--color-dark);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .col-card--dark h3 { color: #fff; }
+  .col-card--dark p { color: rgba(255,255,255,0.8); }
+
+  .col-card h3 { font-size: 18px; font-weight: 700; color: var(--color-dark); margin-bottom: 16px; }
+  .col-card p { font-size: 15px; color: var(--color-text-light); line-height: 1.7; margin-bottom: 12px; }
+
+  .check-list { list-style: none; padding: 0; margin: 0; }
+  .check-list li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  .check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .feature-cards-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .fcard {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .fcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.08);
+  }
+
+  .fcard h3 { font-size: 17px; font-weight: 700; color: var(--color-dark); margin-bottom: 10px; }
+  .fcard p { font-size: 14px; color: var(--color-text-light); line-height: 1.7; }
+
+  .agent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .agent-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .agent-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.08);
+  }
+
+  .agent-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--color-dark);
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--color-accent);
+  }
+
+  .agent-card h3 { font-size: 16px; font-weight: 700; color: var(--color-dark); margin-bottom: 8px; }
+  .agent-card p { font-size: 13px; color: var(--color-text-light); line-height: 1.6; }
+
+  @media (max-width: 1024px) {
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-cards-3, .agent-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .two-col, .overview-grid, .feature-cards-3, .agent-grid { grid-template-columns: 1fr; }
+    .func-section { padding: 60px 0; }
+  }
+</style>

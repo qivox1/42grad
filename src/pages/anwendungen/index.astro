@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const processIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h4v4H3v-4zm6-6h4v14h-4V6zm6-2h4v16h-4V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const documentIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const qualityIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" stroke="currentColor" stroke-width="2"/></svg>`;
+---
+
+<Layout title="Anwendungen - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Anwendungen'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Anwendungen</span> für den Mittelstand"
+        subtitle="Entdecken Sie, wie 42°OS Ihre Geschäftsprozesse transformiert"
+      />
+
+      <section class="applications-grid">
+        <FeatureGrid columns={3}>
+          <FeatureCard
+            title="Prozessautomatisierung"
+            text="Automatisieren Sie Routineaufgaben durch KI-Agenten. Entlasten Sie Ihre Fachkräfte von zeitaufwendigen, manuellen Prozessen und steigern Sie die Produktivität um bis zu 40 %."
+            href={base + '/anwendungen/prozessautomatisierung'}
+            icon={processIcon}
+          />
+          <FeatureCard
+            title="Dokumentenmanagement"
+            text="Intelligente Erfassung, Klassifikation und Archivierung von Dokumenten mit KI. DSGVO-konform, sicher und vollständig automatisiert."
+            href={base + '/anwendungen/dokumentenmanagement'}
+            icon={documentIcon}
+          />
+          <FeatureCard
+            title="Qualitätssicherung"
+            text="Automatische Qualitätskontrolle in Echtzeit. KI-Agenten überwachen Prozesse kontinuierlich und erkennen Abweichungen sofort."
+            href={base + '/anwendungen/qualitaetssicherung'}
+            icon={qualityIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="use-cases-section">
+        <h2>Warum 42°OS für den Mittelstand?</h2>
+        <div class="use-cases-content">
+          <p>
+            Der deutsche Mittelstand steht vor großen Herausforderungen: Fachkräftemangel, steigende Anforderungen an Digitalisierung und Compliance, aber begrenzte IT-Ressourcen. 42°OS bietet die Lösung – eine KI-Plattform, die speziell für diese Anforderungen entwickelt wurde.
+          </p>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <h3>Keine Abhängigkeit von Cloud-Providern</h3>
+              <p>On-Premises-Betrieb garantiert volle Kontrolle über Ihre Daten. Ihre Geschäftsgeheimnisse bleiben bei Ihnen.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Made in Germany – DSGVO-konform</h3>
+              <p>Entwickelt in Ostwestfalen nach europäischen Standards. Compliance ist nicht optional, sondern eingebaut.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Praktisch umgesetzt, nicht nur Versprechen</h3>
+              <p>Mit echten Pilotanwendern und strategischen Partnern beweist 42°OS bereits heute, dass automatisierte Prozesse funktionieren.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Planbare Kosten</h3>
+              <p>Jahreslizenzen statt unvorhersehbare Cloud-Gebühren. Bessere Budgetsicherheit für mittlere Unternehmen.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .applications-grid {
+    margin: 80px 0;
+  }
+
+  .use-cases-section {
+    margin: 100px 0;
+  }
+
+  .use-cases-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 40px;
+  }
+
+  .use-cases-content {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  .use-cases-content p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .benefit-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .benefit-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .benefit-item p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .use-cases-section h2 {
+      font-size: 28px;
+    }
+
+    .use-cases-content {
+      padding: 30px;
+    }
+  }
+</style>

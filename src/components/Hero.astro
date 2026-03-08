@@ -1,0 +1,272 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const slides = [
+  `${base}/images/header_01.webp`,
+  `${base}/images/header_02.webp`,
+  `${base}/images/header_03.webp`,
+];
+---
+
+<section class="hero">
+  <!-- Fullscreen Background Slider -->
+  <div class="hero-slider">
+    {slides.map((src, i) => (
+      <div class={`hero-slide ${i === 0 ? 'active' : ''}`} data-slide={i}>
+        <img src={src} alt="" class="hero-slide-img" loading={i === 0 ? 'eager' : 'lazy'} />
+      </div>
+    ))}
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Decorative crosses -->
+  <div class="hero-bg">
+    <span class="cross" style="top: 80px; left: 12%"></span>
+    <span class="cross" style="top: 200px; left: 6%"></span>
+    <span class="cross" style="top: 120px; right: 14%"></span>
+    <span class="cross" style="top: 280px; right: 8%"></span>
+    <span class="cross" style="bottom: 100px; left: 20%"></span>
+    <span class="cross" style="bottom: 60px; right: 20%"></span>
+  </div>
+
+  <div class="container hero-content">
+    <span class="section-label">On-Premises KI-Plattform</span>
+    <h1 class="hero-title">
+      42°OS On-Premises-Plattform<br /><span class="highlight-mint">für autonome Geschäftsprozesse</span>
+    </h1>
+    <p class="hero-subtitle">
+      Ermöglicht volle Datenhoheit und schafft Prozesse,<br />
+      die sicher, souverän und beliebig skalierbar sind
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-accent">Demo vereinbaren</a>
+      <a href="#solutions" class="btn-outline">Mehr erfahren</a>
+    </div>
+  </div>
+
+  <div class="container hero-clients">
+    <p class="clients-label">Internationale Unternehmen vertrauen uns</p>
+    <div class="clients-logos">
+      <span class="client-logo">heroal</span>
+      <span class="client-logo">K60</span>
+      <span class="client-logo">REME</span>
+      <span class="client-logo">DarKo</span>
+      <span class="client-logo">BIO-CIRCLE</span>
+    </div>
+  </div>
+
+  <!-- Slide indicators -->
+  <div class="hero-indicators">
+    {slides.map((_, i) => (
+      <button class={`hero-dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Slide ${i + 1}`}></button>
+    ))}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 100px 0 60px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* ── Slider ── */
+  .hero-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  .hero-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      rgba(255, 255, 255, 0.75) 100%
+    );
+    z-index: 1;
+  }
+
+  /* ── Decorative ── */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* ── Content ── */
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+    line-height: 1.15;
+  }
+
+  .highlight-mint {
+    color: var(--color-accent);
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: var(--color-text-light);
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ── Clients ── */
+  .hero-clients {
+    margin-top: 80px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  .clients-label {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .clients-logos {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .client-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    letter-spacing: 1px;
+  }
+
+  /* ── Indicators ── */
+  .hero-indicators {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    margin-top: 40px;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-dark);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s, transform 0.3s;
+    opacity: 0.4;
+  }
+
+  .hero-dot.active {
+    background: var(--color-dark);
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .hero-dot:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 60px 0 40px;
+      min-height: 70vh;
+    }
+    .hero-subtitle br {
+      display: none;
+    }
+    .hero-buttons {
+      flex-direction: column;
+    }
+    .clients-logos {
+      gap: 24px;
+    }
+  }
+</style>
+
+<script>
+  // Hero Background Slider – 8s interval with crossfade
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    if (slides.length === 0) return;
+
+    let current = 0;
+    let timer;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function next() {
+      goTo((current + 1) % slides.length);
+    }
+
+    function startTimer() {
+      timer = setInterval(next, 8000);
+    }
+
+    // Dot click navigation
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(Number(dot.dataset.dot));
+        startTimer();
+      });
+    });
+
+    startTimer();
+  });
+</script>

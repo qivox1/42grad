@@ -1,0 +1,81 @@
+---
+const reasons = [
+  { title: 'Lokale LLM-Ausführung', text: 'Volle Datenhoheit durch lokale KI-Modelle auf Ihrer eigenen Infrastruktur.' },
+  { title: 'Multi-Layer Security', text: 'Verschlüsselung und rollenbasierte Zugriffskontrolle (RBAC) für maximale Sicherheit.' },
+  { title: 'Docker-basierte Architektur', text: 'REST APIs, Webhook Support und containerisierte Microservices für nahtlose Integration.' },
+];
+---
+
+<section class="why-us">
+  <div class="container">
+    <h2 class="why-us-title"><span class="highlight">Warum</span> 42°OS?</h2>
+
+    <div class="why-us-grid">
+      {reasons.map(reason => (
+        <div class="reason-card">
+          <div class="reason-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>{reason.title}</h3>
+          <p>{reason.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-us { padding: var(--section-padding); }
+
+  .why-us-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+
+  .why-us-title .highlight { color: var(--color-accent); }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .reason-card {
+    padding: 36px;
+    background: var(--color-bg-light);
+    border-radius: 12px;
+  }
+
+  .reason-icon {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .reason-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .reason-card p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .why-us-grid { grid-template-columns: 1fr; }
+  }
+</style>

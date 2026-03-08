@@ -1,0 +1,186 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const navItems = [
+  { label: 'Home', href: base + '/' },
+  {
+    label: 'Plattform', href: base + '/plattform',
+    children: [
+      { label: 'Architektur', href: base + '/plattform#architektur' },
+      { label: 'Workflow Engine', href: base + '/plattform#workflow-engine' },
+      { label: 'Wissensmanagement', href: base + '/plattform#wissensmanagement' },
+      { label: 'Sicherheit', href: base + '/plattform#sicherheit' },
+      { label: 'Compliance', href: base + '/plattform#compliance' },
+      { label: 'Konnektoren', href: base + '/plattform#konnektoren' },
+    ],
+  },
+  {
+    label: 'Anwendungen', href: base + '/anwendungen',
+    children: [
+      { label: 'Prozessautomatisierung', href: base + '/anwendungen/prozessautomatisierung' },
+      { label: 'Dokumentenmanagement', href: base + '/anwendungen/dokumentenmanagement' },
+      { label: 'Qualitätssicherung', href: base + '/anwendungen/qualitaetssicherung' },
+    ],
+  },
+  {
+    label: 'Funktionen', href: base + '/funktionen',
+    children: [
+      { label: 'No-Code Designer', href: base + '/funktionen#no-code-designer' },
+      { label: 'Template-Ökosystem', href: base + '/funktionen#template-oekosystem' },
+      { label: 'Agentic AI', href: base + '/funktionen#agentic-ai' },
+      { label: 'Hybrid Automation', href: base + '/funktionen#hybrid-automation' },
+      { label: '50+ Agenten', href: base + '/funktionen#agenten' },
+      { label: 'Scheduling & Dry Run', href: base + '/funktionen#scheduling' },
+      { label: 'No-Code App Builder', href: base + '/funktionen#app-builder' },
+    ],
+  },
+  {
+    label: 'Ressourcen', href: base + '/ressourcen',
+    children: [
+      { label: 'Videos & Demos', href: base + '/ressourcen/videos' },
+      { label: 'Blog', href: base + '/ressourcen/blog' },
+      { label: 'Dokumentation', href: 'https://docs.42-grad.com', external: true },
+    ],
+  },
+  {
+    label: 'Über uns', href: base + '/ueber-uns',
+    children: [
+      { label: 'Team', href: base + '/ueber-uns/team' },
+      { label: 'Karriere', href: base + '/ueber-uns/karriere' },
+    ],
+  },
+];
+---
+
+<header class="header">
+  <div class="container header-inner">
+    <a href={base + '/'} class="logo">
+      <img src={`${base}/images/logo-dark.webp`} alt="42 Grad" class="logo-img" />
+    </a>
+
+    <nav class="nav">
+      {navItems.map(item => (
+        <div class={`nav-item ${item.children ? 'has-dropdown' : ''}`}>
+          <a href={item.href} class="nav-link">{item.label}</a>
+          {item.children && (
+            <div class="dropdown">
+              {item.children.map(child => (
+                <a
+                  href={child.href}
+                  class="dropdown-link"
+                  target={child.external ? '_blank' : undefined}
+                  rel={child.external ? 'noopener noreferrer' : undefined}
+                >
+                  {child.label}
+                  {child.external && (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="margin-left:4px"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  )}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+
+    <a href={base + '/kontakt'} class="btn-accent header-cta">Kontakt aufnehmen</a>
+
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    height: 72px;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo-img { width: 150px; height: auto; }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav-item { position: relative; }
+
+  .nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-dark);
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-link:hover {
+    background: var(--color-bg-light);
+    color: var(--color-accent);
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s ease;
+    z-index: 200;
+  }
+
+  .has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--color-text-light);
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .dropdown-link:hover {
+    background: var(--color-bg-light);
+    color: var(--color-dark);
+  }
+
+  .header-cta {
+    font-size: 13px;
+    padding: 10px 24px;
+    white-space: nowrap;
+  }
+
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+  .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--color-dark); border-radius: 1px; }
+
+  @media (max-width: 1100px) {
+    .nav { display: none; }
+    .header-cta { display: none; }
+    .mobile-toggle { display: flex; }
+  }
+</style>

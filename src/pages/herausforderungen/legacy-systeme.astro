@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ChallengePage from '../../components/ChallengePage.astro';
+---
+
+<Layout title="Legacy-Systeme integrieren - 42°OS">
+  <Header />
+  <ChallengePage
+    title="Legacy-Systeme"
+    subtitle="Heterogene IT-Landschaften mit Legacy-Systemen sind kaum abzusichern. 42°OS bringt Ordnung ins Chaos."
+    problem="Gewachsene IT-Landschaften mit einem Mix aus modernen und veralteten Systemen sind die Realität im Mittelstand. Legacy-Systeme lassen sich schwer integrieren, kaum absichern und nicht skalieren. Sie schaffen Datensilos, verhindern Automatisierung und treiben die Wartungskosten in die Höhe. Ein kompletter Austausch ist oft weder finanziell noch operativ machbar."
+    solution="42°OS basiert auf einer Docker-Container-Architektur, die sich nahtlos in bestehende IT-Landschaften integriert. Die Plattform verbindet Legacy-Systeme mit modernen KI-Workflows, ohne dass bestehende Systeme ausgetauscht werden müssen. Standardisierte Schnittstellen und modulare Microservices ermöglichen eine schrittweise Modernisierung bei laufendem Betrieb."
+    benefits={[
+      'Docker-basierte Architektur für nahtlose Integration in bestehende Systeme',
+      'Schrittweise Modernisierung ohne Big-Bang-Migration',
+      'Standardisierte APIs verbinden Legacy-Systeme mit KI-Workflows',
+      'Reduzierte Wartungskosten durch intelligente Automatisierung',
+    ]}
+  />
+  <Footer />
+</Layout>

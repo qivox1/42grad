@@ -1,0 +1,523 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const monitorIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v12H3V6zm0 12h18v2H3v-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 20h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const checkIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const alertIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 20h20L12 2zm0 16v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 9v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const logIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm3 2h8v1H8V7zm0 2h8v1H8V9zm0 2h8v1H8v-1zm0 2h5v1H8v-1z" stroke="currentColor" stroke-width="2"/></svg>`;
+---
+
+<Layout title="Qualitätssicherung - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Anwendungen', href:'/anwendungen'}, {label:'Qualitätssicherung'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Automatische</span> Qualitätssicherung"
+        subtitle="Konsistente Qualität durch KI-gestützte Kontrolle"
+      />
+
+      <section class="problem-solution">
+        <div class="problem-solution-grid">
+          <div class="problem-section">
+            <h2>Das Problem</h2>
+            <ul class="problem-list">
+              <li>
+                <strong>Manuelle QS ist langsam:</strong> Qualitätsprüfung durch Menschen ist zeitaufwendig und kann nicht dauerhaft alle Prozesse überwachen.
+              </li>
+              <li>
+                <strong>Subjektive Entscheidungen:</strong> Unterschiedliche Prüfer, unterschiedliche Ergebnisse. Wenig Konsistenz und Nachvollziehbarkeit.
+              </li>
+              <li>
+                <strong>Späte Fehlererkennung:</strong> Fehler werden oft erst am Ende des Prozesses erkannt – wenn Korrektur teuer wird.
+              </li>
+              <li>
+                <strong>Lückenhafte Dokumentation:</strong> Was wurde wann geprüft? Oft unklar. Audit-Nachweise sind mühsam zu erbringen.
+              </li>
+            </ul>
+          </div>
+
+          <div class="solution-section">
+            <h2>Die Lösung mit 42°OS</h2>
+            <p>
+              KI-Agenten überwachen Ihre Prozesse in Echtzeit. Sie prüfen automatisch auf Abweichungen, erkennen Anomalien sofort und dokumentieren alles lückenlos. Keine Fehler werden mehr übersehen.
+            </p>
+            <div class="solution-features">
+              <div class="feature">
+                <strong>Echtzeit-Überwachung:</strong>
+                <p>42°OS beobachtet jeden Schritt des Prozesses kontinuierlich. Probleme werden sofort erkannt, nicht erst am Ende.</p>
+              </div>
+              <div class="feature">
+                <strong>KI-basierte Prüfungen:</strong>
+                <p>Die KI wendet komplexe Prüfregeln automatisch an. Konsistent, nachvollziehbar, fehlerfrei – viel präziser als manuelle Kontrolle.</p>
+              </div>
+              <div class="feature">
+                <strong>Automatische Eskalation:</strong>
+                <p>Kritische Abweichungen werden sofort an die richtigen Personen weitergeleitet. Schnelle Reaktion, bevor größerer Schaden entsteht.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits-section">
+        <h2>Konkrete Funktionen</h2>
+        <FeatureGrid columns={2}>
+          <FeatureCard
+            title="Echtzeit-Überwachung"
+            text="Jede Transaktion, jedes Dokument, jeder Prozessschritt wird in Echtzeit überprüft. Anomalien werden sofort erkannt – nicht erst später in einem Report."
+            icon={monitorIcon}
+          />
+          <FeatureCard
+            title="Automatische Prüfung"
+            text="Hunderte von Prüfregeln werden parallel angewandt. Datenvalidität, Regelkonformität, Logik-Checks – alle werden automatisch durchgeführt."
+            icon={checkIcon}
+          />
+          <FeatureCard
+            title="Früherkennung von Abweichungen"
+            text="KI-gestützte Anomalieerkennung identifiziert auch subtile Abweichungen vom Normal-Verhalten. Fehler, bevor sie größer werden."
+            icon={alertIcon}
+          />
+          <FeatureCard
+            title="Lückenlose Dokumentation"
+            text="Jede Prüfung wird mit Zeitstempel, Regeln und Ergebnis dokumentiert. Audit-sicher und vollständig nachverfolgbar für Revisionen."
+            icon={logIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="use-cases-section">
+        <h2>Typische Anwendungsszenarien</h2>
+        <div class="use-cases-grid">
+          <div class="use-case">
+            <h3>Produktion & Qualitätskontrolle</h3>
+            <p>
+              In Echtzeit wird überprüft: Entsprechen die gefertigten Teile den Spezifikationen? Sensoren liefern Messdaten, KI-Agenten prüfen automatisch gegen Toleranzen. Fehlerhafte Teile werden sofort aussortiert.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Rechnungsverarbeitung</h3>
+            <p>
+              Jede Eingangsrechnung wird automatisch auf Plausibilität geprüft. Wurden Bankdaten korrekt erfasst? Entspricht die Rechnung dem Auftrag? Abweichungen werden sofort geklärt.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Datenqualität & Datenverwaltung</h3>
+            <p>
+              Alle eingehenden Daten werden auf Vollständigkeit, Format und Logik geprüft. Ungültige oder fehlende Daten werden automatisch gekennzeichnet und geben sofort eine Rückmeldung.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Compliance & Regulatorische Anforderungen</h3>
+            <p>
+              Automatische Prüfung gegen Compliance-Regeln. Sind alle erforderlichen Felder gesetzt? Wurden Genehmigungen erhalten? Fehlen wichtige Dokumente? Alles wird automatisch überwacht.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Finanz- & Controlling</h3>
+            <p>
+              Automatische Überprüfung von Finanzprozessen. Stimmen Buchungen mit Belegen überein? Sind Genehmigungslimits eingehalten? Abweichungen werden sofort gemeldet.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Lieferketten-Tracking</h3>
+            <p>
+              Überwachung von Lieferterminen und -qualitäten. Verzögerte oder fehlerhafte Lieferungen werden sofort erkannt. Automatische Eskalation an Einkauf und Lieferanten.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics-section">
+        <h2>Messbare Verbesserungen</h2>
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="metric-title">Fehlerquote</div>
+            <div class="metric-value">-95 %</div>
+            <p>Fehler werden früher erkannt und oft gar nicht erst produziert</p>
+          </div>
+          <div class="metric">
+            <div class="metric-title">QS-Kosten</div>
+            <div class="metric-value">-60 %</div>
+            <p>Weniger manuelle Kontrolle, automatisierte Prüfung, höhere Effizienz</p>
+          </div>
+          <div class="metric">
+            <div class="metric-title">Prozesszeit</div>
+            <div class="metric-value">-40 %</div>
+            <p>Keine Warteschlangen für QS-Prüfung, alles läuft parallel ab</p>
+          </div>
+          <div class="metric">
+            <div class="metric-title">Kundenreklamationen</div>
+            <div class="metric-value">-80 %</div>
+            <p>Fehler erreichen Kunden nicht mehr – weil sie vorher erkannt werden</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="implementation-section">
+        <h2>Wie 42°OS Qualität sichert</h2>
+        <div class="implementation-grid">
+          <div class="impl-step">
+            <h3>1. Daten erfassen</h3>
+            <p>
+              KI-Agenten erfassen alle relevanten Daten aus Ihren Prozessen – maschinelle Sensoren, Dokumentdaten, Systemlogs, Nutzereingaben.
+            </p>
+          </div>
+          <div class="impl-step">
+            <h3>2. Regeln definieren</h3>
+            <p>
+              Sie definieren Qualitätskriterien und Prüfregeln. Was ist akzeptabel, was nicht? 42°OS wendet diese Regeln automatisch an.
+            </p>
+          </div>
+          <div class="impl-step">
+            <h3>3. Kontinuierlich überwachen</h3>
+            <p>
+              42°OS läuft 24/7 und überwacht Ihre Prozesse. Jeder Datenpunkt wird geprüft, jede Abweichung wird erkannt.
+            </p>
+          </div>
+          <div class="impl-step">
+            <h3>4. Aktionen automatisieren</h3>
+            <p>
+              Bei Abweichungen werden automatisch Aktionen eingeleitet: E-Mails, Tickets, Eskalationen, automatische Korrektionen – wie Sie es definieren.
+            </p>
+          </div>
+          <div class="impl-step">
+            <h3>5. Lernen & optimieren</h3>
+            <p>
+              42°OS lernt aus Erfahrung. Je länger es läuft, desto besser wird es, Anomalien zu erkennen. Kontinuierliche Verbesserung ohne Ihr Zutun.
+            </p>
+          </div>
+          <div class="impl-step">
+            <h3>6. Audit & Bericht</h3>
+            <p>
+              Alle Prüfungen werden dokumentiert. Audits und Inspektionen werden einfach – Sie haben komplette, automatische Nachweise.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="roi-section">
+        <h2>Return on Investment</h2>
+        <div class="roi-content">
+          <p>
+            Automatische Qualitätssicherung mit 42°OS zahlt sich schnell aus. Weniger Fehlerquoten, niedrigere Kosten, zufriedenere Kunden. In typischem Anwendungsfall amortisiert sich die Investition innerhalb von 12-18 Monaten.
+          </p>
+          <div class="roi-factors">
+            <div class="factor">
+              <strong>Fehlerkosten senken:</strong>
+              <p>Jeder vermiedene Fehler spart durchschnittlich 500-5000 EUR an Kosten für Nachbearbeitung, Reparaturen oder Kulanzleistungen.</p>
+            </div>
+            <div class="factor">
+              <strong>Personal-Ressourcen freigeben:</strong>
+              <p>Ihre QS-Teams können sich auf strategische Aufgaben konzentrieren statt auf monotone Routine-Prüfungen.</p>
+            </div>
+            <div class="factor">
+              <strong>Kundenzufriedenheit erhöhen:</strong>
+              <p>Weniger Fehler bei Kunden = bessere Bewertungen, höhere Wiederholungsrate, weniger Reputationsschaden.</p>
+            </div>
+            <div class="factor">
+              <strong>Compliance erreichen:</strong>
+              <p>Automatische Dokumentation erfüllt strenge Audit-Anforderungen. Keine teuren Nacharbeiten bei Inspektionen.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .problem-solution {
+    margin: 80px 0;
+  }
+
+  .problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .problem-section h2,
+  .solution-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+
+  .problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .problem-list li {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .problem-list li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .problem-list strong {
+    color: var(--color-dark);
+  }
+
+  .solution-section p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .solution-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .solution-features .feature {
+    background: #f0f4f8;
+    border-left: 4px solid var(--color-accent);
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .solution-features .feature strong {
+    color: var(--color-dark);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .solution-features .feature p {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .benefits-section {
+    margin: 100px 0;
+  }
+
+  .benefits-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .use-cases-section {
+    margin: 100px 0;
+  }
+
+  .use-cases-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .use-case {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .use-case h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .use-case p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .metrics-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .metrics-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+  }
+
+  .metric {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .metric-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .metric-value {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .metric p {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .implementation-section {
+    margin: 100px 0;
+  }
+
+  .implementation-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .implementation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .impl-step {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .impl-step h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .impl-step p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .roi-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #0F2B46 0%, #1a3d52 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+    color: #fff;
+  }
+
+  .roi-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+
+  .roi-content p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .roi-factors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+  }
+
+  .factor {
+    background: rgba(102, 228, 169, 0.1);
+    border: 1px solid rgba(102, 228, 169, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .factor strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .factor p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .problem-solution-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .benefits-section h2,
+    .use-cases-section h2,
+    .metrics-section h2,
+    .implementation-section h2,
+    .roi-section h2 {
+      font-size: 28px;
+    }
+
+    .metrics-section,
+    .roi-section {
+      padding: 40px 20px;
+    }
+  }
+</style>

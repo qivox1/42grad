@@ -1,0 +1,279 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const videosIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 7l-7 5 7 5V7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/></svg>`;
+const blogIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2"/><path d="M6 8h12M6 12h12M6 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const studiesIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2h16v20H4V2z" stroke="currentColor" stroke-width="2"/><path d="M7 14h10M7 18h6M7 6h10v4H7V6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 13h6M9 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+---
+
+<Layout title="Ressourcen - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Ressourcen'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Ressourcen</span> & Wissen"
+        subtitle="Vertiefen Sie Ihr Wissen über 42°OS"
+      />
+
+      <section class="resources-grid">
+        <FeatureGrid columns={2}>
+          <FeatureCard
+            title="Videos & Demos"
+            text="Erleben Sie 42°OS in Aktion. Kurze Demonstrationen zeigen, wie die Plattform funktioniert – von der Architektur bis zur praktischen Anwendung."
+            href={base + '/ressourcen/videos'}
+            icon={videosIcon}
+          />
+          <FeatureCard
+            title="Blog"
+            text="Insights, Updates und Wissenswertes rund um KI im Mittelstand. Expert-Artikel über Technologie, Best Practices und Erfolgsgeschichten."
+            href={base + '/ressourcen/blog'}
+            icon={blogIcon}
+          />
+          <FeatureCard
+            title="Case Studies"
+            text="Lernen Sie von echten Anwendungsfällen. Wie andere mittelständische Unternehmen 42°OS nutzen, um ihre Prozesse zu automatisieren."
+            href={base + '/anwendungen'}
+            icon={studiesIcon}
+          />
+          <FeatureCard
+            title="Dokumentation"
+            text="Technische Dokumentation für Entwickler und System-Administratoren. API-Referenzen, Deployment-Guides und Best Practices."
+            href="https://docs.42-grad.com"
+            icon={docsIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="learning-path-section">
+        <h2>Dein Lernpfad zu 42°OS</h2>
+        <div class="learning-path">
+          <div class="path-step">
+            <div class="step-number">1</div>
+            <h3>Überblick erhalten</h3>
+            <p>
+              Starten Sie mit Videos und unserem Blog. Verstehen Sie die Grundidee hinter 42°OS und wie die Plattform funktioniert.
+            </p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="path-step">
+            <div class="step-number">2</div>
+            <h3>Anwendungsfälle erkunden</h3>
+            <p>
+              Schauen Sie sich die Anwendungen an. Prozessautomatisierung, Dokumentenmanagement, Qualitätssicherung – wie löst 42°OS diese Probleme?
+            </p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="path-step">
+            <div class="step-number">3</div>
+            <h3>Technisch tiefer einsteigen</h3>
+            <p>
+              Mit der Dokumentation und technischen Artikeln verstehen Sie die Architektur und wie Sie 42°OS implementieren und konfigurieren.
+            </p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="path-step">
+            <div class="step-number">4</div>
+            <h3>Eine Demo vereinbaren</h3>
+            <p>
+              Bereit, 42°OS selbst zu erleben? Kontaktieren Sie uns für eine unverbindliche Demo und erfahren Sie, wie es für Ihr Unternehmen funktioniert.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2>Häufig gestellte Fragen</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Ist 42°OS wirklich On-Premises?</h3>
+            <p>
+              Ja, 100 %. 42°OS läuft vollständig auf Ihren Systemen – auf Ihren Servern, in Ihrer Private Cloud oder bei Ihrem Hosting-Provider Ihrer Wahl. Ihre Daten verlassen Ihr Netzwerk nicht.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Ist 42°OS DSGVO-konform?</h3>
+            <p>
+              Ja. Datenschutz ist von Grund auf in 42°OS eingebaut. Verschlüsselung, Audit-Logs, Benutzerkontrolle – alles ist konzipiert für DSGVO-Konformität. Made in Germany, nach europäischen Standards.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Benötige ich Programmierkenntnisse?</h3>
+            <p>
+              Nein. Der No-Code Workflow Designer ermöglicht es Ihnen, Automatisierungen per Spracheingabe oder visueller Konfiguration zu erstellen. Sie brauchen keine Programmierkenntnisse.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Wie lange dauert die Implementierung?</h3>
+            <p>
+              Das hängt von der Komplexität ab. Einfache Automatisierungen können innerhalb von Tagen live gehen. Komplexere Szenarien brauchen 2-4 Wochen. Unser Team unterstützt Sie bei der gesamten Implementierung.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Welche Systeme kann 42°OS integrieren?</h3>
+            <p>
+              42°OS hat 50+ vorkonfigurierte Konnektoren für ERP, CRM, Datenbanken und Cloud-Services. Mit unseren APIs können Sie fast alle Systeme integrieren.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Wie ist die Preisstruktur?</h3>
+            <p>
+              Transparente Jahreslizenzen, keine versteckten Kosten. Pricing ist basierend auf Nutzung und Skalierung. Kontaktieren Sie uns für ein individuelles Angebot.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .resources-grid {
+    margin: 80px 0;
+  }
+
+  .learning-path-section {
+    margin: 100px 0;
+  }
+
+  .learning-path-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .learning-path {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+
+  .path-step {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 12px;
+  }
+
+  .path-step h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .path-step p {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .step-arrow {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--color-accent);
+  }
+
+  @media (min-width: 1024px) {
+    .learning-path {
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 0;
+      align-items: center;
+    }
+
+    .step-arrow {
+      display: flex;
+      padding: 0 16px;
+      height: 100%;
+    }
+
+    .path-step {
+      margin: 0;
+    }
+  }
+
+  .faq-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .faq-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .faq-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .faq-item p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .learning-path-section h2,
+    .faq-section h2 {
+      font-size: 28px;
+    }
+
+    .faq-section {
+      padding: 40px 20px;
+    }
+  }
+</style>

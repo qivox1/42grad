@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ChallengePage from '../../components/ChallengePage.astro';
+---
+
+<Layout title="Fehlende Transparenz überwinden - 42°OS">
+  <Header />
+  <ChallengePage
+    title="Fehlende Transparenz"
+    subtitle="Ohne Einblick in Prozessleistung und Engpässe fliegen Sie blind. 42°OS bringt Licht ins Dunkel."
+    problem="Viele Unternehmen haben keinen klaren Überblick über die tatsächliche Performance ihrer Geschäftsprozesse. Wo entstehen Verzögerungen? Welche Prozesse verbrauchen die meisten Ressourcen? Wo liegen die Engpässe? Ohne diese Transparenz sind fundierte Optimierungsentscheidungen unmöglich. Stattdessen werden Entscheidungen aus dem Bauch heraus getroffen – mit entsprechend unvorhersehbaren Ergebnissen."
+    solution="42°OS liefert Echtzeit-Dashboards und automatische Reports über alle Ihre Geschäftsprozesse. KI-gestützte Analysen identifizieren Engpässe, bevor sie zu Problemen werden. Sie erhalten volle Transparenz über Durchlaufzeiten, Ressourcenverbrauch und Prozessqualität – alles auf Ihrer eigenen Infrastruktur mit garantierter Datenhoheit."
+    benefits={[
+      'Echtzeit-Dashboards mit vollständiger Prozessübersicht',
+      'KI-gestützte Erkennung von Engpässen und Optimierungspotenzial',
+      'Automatische Reports und Benachrichtigungen bei Abweichungen',
+      'Datenbasierte Entscheidungsgrundlagen statt Bauchgefühl',
+    ]}
+  />
+  <Footer />
+</Layout>

@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Impressum - 42grad GmbH">
+  <Header />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        42grad GmbH<br />
+        Thaddäusstraße 23<br />
+        33415 Verl
+      </p>
+
+      <h2>Vertreten durch</h2>
+      <p>Jonas Fröhleke, Johann-Georg Vogelhuber</p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: +49 5246 82831 0<br />
+        E-Mail: info@42-grad.com
+      </p>
+
+      <h2>Handelsregister</h2>
+      <p>
+        Registergericht: Amtsgericht Gütersloh<br />
+        Registernummer: HRB 13777
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
+        DE404724429
+      </p>
+
+      <h2>Streitschlichtung</h2>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>
+      </p>
+      <p>
+        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 80px 0 100px;
+  }
+
+  .legal-page h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 40px;
+  }
+
+  .legal-page h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .legal-page p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .legal-page a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .legal-page a:hover {
+    color: #52d696;
+  }
+</style>

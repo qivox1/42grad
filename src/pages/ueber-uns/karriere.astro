@@ -1,0 +1,395 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const techIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const agileIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h4v4H3V9zm6 0h4v4H9V9zm6 0h4v4h-4V9zM3 3h4v4H3V3zm6 0h4v4H9V3zm6 0h4v4h-4V3zM3 15h4v4H3v-4zm6 0h4v4H9v-4zm6 0h4v4h-4v-4z" stroke="currentColor" stroke-width="2"/></svg>`;
+const responsibilityIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10h6M9 14h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const locationIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" stroke="currentColor" stroke-width="2"/></svg>`;
+---
+
+<Layout title="Karriere - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Über uns', href:'/ueber-uns'}, {label:'Karriere'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Karriere</span> bei 42 Grad"
+        subtitle="Gestalte die Zukunft der KI für den Mittelstand"
+      />
+
+      <section class="why-section">
+        <h2>Warum 42 Grad?</h2>
+        <div class="why-content">
+          <div class="why-item">
+            <h3>Ein Start-up mit Tiefe</h3>
+            <p>
+              Wir sind neu, aber nicht unreif. Mit erfahrenen Gründern und einer klaren Vision bauen wir an etwas, das wirklich funktioniert – nicht nur Hype. Die Energie eines Start-ups, die Kompetenz eines etablierten Teams.
+            </p>
+          </div>
+          <div class="why-item">
+            <h3>Authentische KI-Herausforderungen</h3>
+            <p>
+              Bei 42 Grad arbeitest Du an echten KI-Systemen, die echte Geschäftsprobleme lösen. Nicht an hypothetischen Experimenten oder Marketing-Demos, sondern an Produktionsystems, die Geld verdienen und Prozesse automatisieren.
+            </p>
+          </div>
+          <div class="why-item">
+            <h3>Mittelstandsorientierung</h3>
+            <p>
+              Wir bauen nicht für BigTech, sondern für den Mittelstand. Das bedeutet: Praktische Lösungen, schnelle Implementierung, echte Kundenprobleme. Deine Arbeit hat sofort sichtbare Auswirkungen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits-section">
+        <h2>Was wir bieten</h2>
+        <FeatureGrid columns={4}>
+          <FeatureCard
+            title="Modernste KI-Technologie"
+            text="Arbeite mit den neuesten Machine Learning, Large Language Models und KI-Systemen. Tiefe technische Herausforderungen, nicht nur Oberflächenkram."
+            icon={techIcon}
+          />
+          <FeatureCard
+            title="Agiles Arbeitsumfeld"
+            text="Schnelle Entscheidungen, kurze Abstimmungswege, echte Autonomie. Du machst Dinge, die zählen. Keine Bürokratie, keine endlosen Meetings."
+            icon={agileIcon}
+          />
+          <FeatureCard
+            title="Echte Verantwortung"
+            text="Deine Arbeit hat Gewicht. Du bist nicht ein Radchen im großen Getriebe, sondern prägen aktiv die Zukunft von 42°OS."
+            icon={responsibilityIcon}
+          />
+          <FeatureCard
+            title="Standort Ostwestfalen"
+            text="Arbeite von unserem Office in der wachsenden Tech-Region Ostwestfalen aus. Starke lokale Vernetzung, gute Work-Life-Balance."
+            icon={locationIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="positions-section">
+        <h2>Offene Positionen</h2>
+        <p class="section-intro">
+          Wir wachsen vorsichtig und suchen nach den besten Talenten. Folgende Rollen sind derzeit offen:
+        </p>
+
+        <div class="positions-grid">
+          <div class="position">
+            <h3>Senior Backend Developer (Python/AI)</h3>
+            <div class="position-details">
+              <p>
+                Du bringst 5+ Jahre Erfahrung in Python-Entwicklung mit. Du kennst Dich mit Large Language Models, Vector Databases, und Microservices aus. Bonus-Punkte für Kubernetes und containerisierte Systeme.
+              </p>
+              <p>
+                Deine Aufgaben: Architektur und Entwicklung der 42°OS Backend-Infrastruktur, Optimierung von KI-Agenten, Integration von LLMs, System-Skalierung.
+              </p>
+            </div>
+          </div>
+
+          <div class="position">
+            <h3>Frontend Developer (React/TypeScript)</h3>
+            <div class="position-details">
+              <p>
+                Du hast 4+ Jahre Erfahrung mit modernem Frontend-Development. React und TypeScript sind für Dich kein Thema – sie sind Werkzeuge, die Du meisterst. Du verstehst, wie User-Interfaces komplexe Systeme zugänglich machen.
+              </p>
+              <p>
+                Deine Aufgaben: Entwicklung des 42°OS Web-Frontends, No-Code Workflow Designer UI, Benutzerfreundliche Visualisierung von KI-Agenten und Prozessen.
+              </p>
+            </div>
+          </div>
+
+          <div class="position">
+            <h3>DevOps Engineer</h3>
+            <div class="position-details">
+              <p>
+                Du hast praktische Erfahrung mit Docker, Kubernetes und CI/CD-Pipelines. Du verstehst On-Premises-Deployments und kannst komplexe Infrastrukturen aufbauen und warten.
+              </p>
+              <p>
+                Deine Aufgaben: Infrastruktur-Architektur für On-Premises-Deployments, Kubernetes-Orchestrierung, Monitoring und Logging, Sicherheit und Compliance.
+              </p>
+            </div>
+          </div>
+
+          <div class="position">
+            <h3>AI/ML Engineer</h3>
+            <div class="position-details">
+              <p>
+                Du hast tiefe Erfahrung mit Machine Learning und KI-Systemen. Du kennst Dich mit LLM Fine-Tuning, RAG-Systemen und Prompt-Engineering aus. Python ist Deine tägliche Sprache.
+              </p>
+              <p>
+                Deine Aufgaben: Entwicklung von KI-Agenten, Optimierung von LLM-Performance, Prompt-Engineering, Integration von Custom Models.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="apply-section">
+        <h2>Interessiert?</h2>
+        <div class="apply-content">
+          <p>
+            Wenn eine Rolle zu Dir passt – oder wenn Du nicht perfekt zu einer Position passt, aber dennoch interessiert bist – dann schreib uns eine Initiative. Wir lieben es, wenn talentierte Menschen uns kontaktieren, auch wenn sie nicht genau in eine offene Position passen.
+          </p>
+          <div class="apply-contact">
+            <p>
+              <strong>Kontakt:</strong><br>
+              <a href="mailto:karriere@42-grad.com">karriere@42-grad.com</a>
+            </p>
+            <p>
+              Schreib uns einfach über Dich, was Du machst und warum Dich 42 Grad interessiert. Wir schauen uns alles an.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="culture-highlight-section">
+        <h2>Unsere Kultur</h2>
+        <div class="culture-highlights">
+          <div class="highlight-card">
+            <h3>Kompetenz zählt, nicht Titel</h3>
+            <p>
+              Was Du kannst, zählt. Nicht, wo Du vorher gearbeitet hast. Jeder im Team wird für seine Fachkompetenz respektiert.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h3>Schnelle Entscheidungen</h3>
+            <p>
+              Wir sind flach organisiert. Entscheidungen werden schnell getroffen und Deine Stimme wird gehört.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h3>Fokussiert arbeiten</h3>
+            <p>
+              Deep Work vor Meetings. Wir minimieren Ablenkungen, damit Du konzentriert an Hard Problems arbeiten kannst.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h3>Kontinuierliches Lernen</h3>
+            <p>
+              Budgets für Courses, Konferenzen und Entwicklung. Wir unterstützen Dein Wachstum.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h3>Remote-freundlich</h3>
+            <p>
+              Unser Office ist in Ostwestfalen, aber wir sind flexibel. Wenn Remote besser für Dich funktioniert, können wir das arbeiten.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h3>Faire Bezahlung</h3>
+            <p>
+              Wir zahlen Marktpreise. Keine Überraschungen, keine versteckten Deals. Fair und transparent.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .why-section {
+    margin: 80px 0;
+  }
+
+  .why-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .why-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  .why-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .why-item p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .benefits-section {
+    margin: 100px 0;
+  }
+
+  .benefits-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .positions-section {
+    margin: 100px 0;
+  }
+
+  .positions-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 32px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .positions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .position {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .position h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+  }
+
+  .position-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .position-details p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .apply-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .apply-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 32px;
+  }
+
+  .apply-content {
+    max-width: 700px;
+  }
+
+  .apply-content p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .apply-contact {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .apply-contact p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .apply-contact a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .apply-contact a:hover {
+    opacity: 0.8;
+  }
+
+  .culture-highlight-section {
+    margin: 100px 0;
+  }
+
+  .culture-highlight-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .culture-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .highlight-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .highlight-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .highlight-card p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .why-section h2,
+    .benefits-section h2,
+    .positions-section h2,
+    .apply-section h2,
+    .culture-highlight-section h2 {
+      font-size: 28px;
+    }
+
+    .apply-section {
+      padding: 40px 20px;
+    }
+  }
+</style>

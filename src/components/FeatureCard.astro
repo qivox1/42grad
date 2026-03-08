@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  href?: string;
+  icon?: string;
+}
+
+const { title, text, href, icon } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag class={`feature-card ${href ? 'feature-card--link' : ''}`} href={href}>
+  {icon && <div class="feature-icon" set:html={icon} />}
+  <h3>{title}</h3>
+  <p>{text}</p>
+  {href && (
+    <span class="feature-arrow">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  )}
+</Tag>
+
+<style>
+  .feature-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card--link {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .feature-card--link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.08);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-dark);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--color-accent);
+  }
+
+  .feature-icon :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .feature-arrow {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-accent);
+    margin-top: 16px;
+    transition: transform 0.2s;
+  }
+
+  .feature-card--link:hover .feature-arrow {
+    transform: translateX(4px);
+  }
+</style>

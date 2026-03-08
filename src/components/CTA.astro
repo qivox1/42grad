@@ -1,0 +1,90 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="cta">
+  <div class="container cta-inner">
+    <div class="cta-content">
+      <h2 class="cta-title">
+        <span class="highlight">Bereit für autonome</span> Geschäftsprozesse?
+      </h2>
+      <p class="cta-text">
+        Entdecken Sie, wie 42°OS Ihre Prozesse automatisiert – sicher, souverän und skalierbar. Vereinbaren Sie jetzt eine unverbindliche Demo.
+      </p>
+      <a href={base + '/#contact'} class="btn-accent cta-btn">Demo vereinbaren</a>
+    </div>
+
+    <div class="cta-features">
+      <div class="cta-feature">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>On-Premises = 100% Kontrolle</span>
+      </div>
+      <div class="cta-feature">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>Made in Germany, DSGVO-konform</span>
+      </div>
+      <div class="cta-feature">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>Planbare Jahreslizenz</span>
+      </div>
+      <div class="cta-feature">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>No-Code Workflow Designer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta { padding: 80px 0; }
+
+  .cta-inner {
+    background: var(--color-dark);
+    border-radius: 24px;
+    padding: 80px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    color: #fff;
+  }
+
+  .cta-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .cta-title .highlight { color: var(--color-accent); }
+
+  .cta-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  .cta-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cta-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .cta-inner {
+      grid-template-columns: 1fr;
+      padding: 40px 30px;
+    }
+  }
+</style>

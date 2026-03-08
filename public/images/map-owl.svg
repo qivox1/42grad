@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" fill="none">
+  <!-- Germany outline - dotted style like Exora template -->
+  <g stroke="#0F2B46" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6">
+    <!-- Simplified Germany outline -->
+    <path d="M370 50 L400 55 L420 45 L450 60 L470 55 L490 70 L510 65 L530 80 L520 100 L540 110 L555 130 L570 125 L585 140 L575 160 L590 175 L580 195 L600 210 L590 230 L575 225 L560 240 L570 260 L555 275 L540 270 L530 290 L515 300 L520 320 L505 335 L490 330 L475 345 L460 340 L450 360 L435 370 L420 365 L410 380 L395 390 L385 410 L370 420 L360 440 L345 450 L330 445 L320 460 L305 470 L290 465 L275 480 L260 490 L250 510 L235 520 L225 540 L210 550 L200 540 L190 555 L175 560 L165 545 L155 530 L165 515 L155 500 L170 485 L165 470 L180 455 L175 440 L190 425 L185 410 L200 395 L210 375 L225 360 L220 345 L235 330 L245 310 L255 295 L250 280 L265 265 L275 245 L285 230 L280 215 L295 200 L305 180 L315 165 L310 150 L325 135 L335 115 L345 100 L340 85 L355 70 L370 50Z"/>
+  </g>
+
+  <!-- Dotted fill pattern for Germany -->
+  <g fill="#6BA4FF" opacity="0.15">
+    <!-- Scattered dots across Germany shape -->
+    <circle cx="350" cy="100" r="2"/>
+    <circle cx="380" cy="90" r="2"/>
+    <circle cx="410" cy="85" r="2"/>
+    <circle cx="440" cy="95" r="2"/>
+    <circle cx="470" cy="90" r="2"/>
+    <circle cx="500" cy="100" r="2"/>
+    <circle cx="330" cy="130" r="2"/>
+    <circle cx="360" cy="120" r="2"/>
+    <circle cx="390" cy="115" r="2"/>
+    <circle cx="420" cy="110" r="2"/>
+    <circle cx="450" cy="120" r="2"/>
+    <circle cx="480" cy="115" r="2"/>
+    <circle cx="510" cy="125" r="2"/>
+    <circle cx="540" cy="135" r="2"/>
+    <circle cx="320" cy="160" r="2"/>
+    <circle cx="350" cy="150" r="2"/>
+    <circle cx="380" cy="145" r="2"/>
+    <circle cx="410" cy="140" r="2"/>
+    <circle cx="440" cy="150" r="2"/>
+    <circle cx="470" cy="145" r="2"/>
+    <circle cx="500" cy="155" r="2"/>
+    <circle cx="530" cy="160" r="2"/>
+    <circle cx="560" cy="170" r="2"/>
+    <circle cx="310" cy="190" r="2"/>
+    <circle cx="340" cy="180" r="2"/>
+    <circle cx="370" cy="175" r="2"/>
+    <circle cx="400" cy="170" r="2"/>
+    <circle cx="430" cy="180" r="2"/>
+    <circle cx="460" cy="175" r="2"/>
+    <circle cx="490" cy="185" r="2"/>
+    <circle cx="520" cy="190" r="2"/>
+    <circle cx="550" cy="195" r="2"/>
+    <circle cx="580" cy="200" r="2"/>
+    <circle cx="300" cy="220" r="2"/>
+    <circle cx="330" cy="210" r="2"/>
+    <circle cx="360" cy="205" r="2"/>
+    <circle cx="390" cy="200" r="2"/>
+    <circle cx="420" cy="210" r="2"/>
+    <circle cx="450" cy="205" r="2"/>
+    <circle cx="480" cy="215" r="2"/>
+    <circle cx="510" cy="220" r="2"/>
+    <circle cx="540" cy="225" r="2"/>
+    <circle cx="570" cy="235" r="2"/>
+    <circle cx="290" cy="250" r="2"/>
+    <circle cx="320" cy="240" r="2"/>
+    <circle cx="350" cy="235" r="2"/>
+    <circle cx="380" cy="230" r="2"/>
+    <circle cx="410" cy="240" r="2"/>
+    <circle cx="440" cy="235" r="2"/>
+    <circle cx="470" cy="245" r="2"/>
+    <circle cx="500" cy="250" r="2"/>
+    <circle cx="530" cy="260" r="2"/>
+    <circle cx="560" cy="265" r="2"/>
+    <circle cx="275" cy="280" r="2"/>
+    <circle cx="305" cy="270" r="2"/>
+    <circle cx="335" cy="265" r="2"/>
+    <circle cx="365" cy="260" r="2"/>
+    <circle cx="395" cy="270" r="2"/>
+    <circle cx="425" cy="265" r="2"/>
+    <circle cx="455" cy="275" r="2"/>
+    <circle cx="485" cy="280" r="2"/>
+    <circle cx="515" cy="290" r="2"/>
+    <circle cx="540" cy="285" r="2"/>
+    <circle cx="260" cy="310" r="2"/>
+    <circle cx="290" cy="300" r="2"/>
+    <circle cx="320" cy="295" r="2"/>
+    <circle cx="350" cy="290" r="2"/>
+    <circle cx="380" cy="300" r="2"/>
+    <circle cx="410" cy="295" r="2"/>
+    <circle cx="440" cy="305" r="2"/>
+    <circle cx="470" cy="310" r="2"/>
+    <circle cx="500" cy="320" r="2"/>
+    <circle cx="520" cy="315" r="2"/>
+    <circle cx="250" cy="340" r="2"/>
+    <circle cx="280" cy="330" r="2"/>
+    <circle cx="310" cy="325" r="2"/>
+    <circle cx="340" cy="320" r="2"/>
+    <circle cx="370" cy="330" r="2"/>
+    <circle cx="400" cy="325" r="2"/>
+    <circle cx="430" cy="340" r="2"/>
+    <circle cx="460" cy="345" r="2"/>
+    <circle cx="490" cy="340" r="2"/>
+    <circle cx="240" cy="370" r="2"/>
+    <circle cx="270" cy="360" r="2"/>
+    <circle cx="300" cy="355" r="2"/>
+    <circle cx="330" cy="350" r="2"/>
+    <circle cx="360" cy="360" r="2"/>
+    <circle cx="390" cy="365" r="2"/>
+    <circle cx="420" cy="370" r="2"/>
+    <circle cx="450" cy="365" r="2"/>
+    <circle cx="230" cy="400" r="2"/>
+    <circle cx="260" cy="390" r="2"/>
+    <circle cx="290" cy="385" r="2"/>
+    <circle cx="320" cy="380" r="2"/>
+    <circle cx="350" cy="390" r="2"/>
+    <circle cx="380" cy="395" r="2"/>
+    <circle cx="410" cy="385" r="2"/>
+    <circle cx="220" cy="430" r="2"/>
+    <circle cx="250" cy="420" r="2"/>
+    <circle cx="280" cy="415" r="2"/>
+    <circle cx="310" cy="410" r="2"/>
+    <circle cx="340" cy="420" r="2"/>
+    <circle cx="370" cy="425" r="2"/>
+    <circle cx="210" cy="460" r="2"/>
+    <circle cx="240" cy="450" r="2"/>
+    <circle cx="270" cy="445" r="2"/>
+    <circle cx="300" cy="440" r="2"/>
+    <circle cx="330" cy="450" r="2"/>
+    <circle cx="355" cy="445" r="2"/>
+    <circle cx="200" cy="490" r="2"/>
+    <circle cx="230" cy="480" r="2"/>
+    <circle cx="260" cy="475" r="2"/>
+    <circle cx="290" cy="470" r="2"/>
+    <circle cx="310" cy="465" r="2"/>
+    <circle cx="195" cy="520" r="2"/>
+    <circle cx="220" cy="510" r="2"/>
+    <circle cx="245" cy="505" r="2"/>
+    <circle cx="270" cy="495" r="2"/>
+    <circle cx="190" cy="545" r="2"/>
+    <circle cx="210" cy="540" r="2"/>
+    <circle cx="235" cy="530" r="2"/>
+  </g>
+
+  <!-- OWL region highlight (Ostwestfalen-Lippe area, roughly NW Germany) -->
+  <g opacity="0.5">
+    <path d="M340 140 L380 135 L400 145 L410 135 L430 145 L425 160 L435 175 L420 185 L400 180 L385 190 L370 180 L355 185 L345 170 L350 155 L340 140Z"
+      fill="#6BA4FF" fill-opacity="0.2" stroke="#6BA4FF" stroke-width="2" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Location pin at Verl/OWL -->
+  <g transform="translate(385, 155)">
+    <circle r="6" fill="#6BA4FF" opacity="0.8"/>
+    <circle r="3" fill="#fff"/>
+    <circle r="12" fill="#6BA4FF" opacity="0.15">
+      <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.05;0.2" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

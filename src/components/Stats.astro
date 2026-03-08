@@ -1,0 +1,119 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const stats = [
+  { number: 'Q4.2024', label: 'Gründung' },
+  { number: '6+', label: 'Entwickler mit KI/ML' },
+  { number: '5', label: 'Pilotanwender' },
+  { number: '4', label: 'Strategische Partner' },
+];
+---
+
+<section id="technology" class="stats">
+  <div class="stats-map-bg">
+    <img src={`${base}/images/owl-background.webp`} alt="" class="map-image" aria-hidden="true" />
+  </div>
+
+  <div class="container stats-content">
+    <div class="stats-left">
+      <h2 class="stats-title"><span class="highlight">Technologie</span> aus<br />Ostwestfalen</h2>
+      <p class="stats-desc">Made in Germany. DSGVO-konform. Skalierbar von ersten Pilotprozessen bis zur unternehmensweiten Automatisierung.</p>
+      <a href="#contact" class="btn-accent stats-btn">Demo anfragen</a>
+    </div>
+
+    <div class="stats-right">
+      <div class="stats-numbers">
+        {stats.map(stat => (
+          <div class="stat-item">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats {
+    padding: var(--section-padding);
+    background: var(--color-bg-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-map-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 55%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .map-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+  }
+
+  .stats-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .stats-title .highlight {
+    color: var(--color-accent);
+  }
+
+  .stats-desc {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .stats-numbers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .stat-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .stats-content { grid-template-columns: 1fr; }
+    .stats-numbers { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

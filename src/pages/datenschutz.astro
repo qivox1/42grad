@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Datenschutzerklärung - 42grad GmbH">
+  <Header />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Datenschutzerklärung</h1>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        42grad GmbH<br />
+        Thaddäusstraße 23<br />
+        33415 Verl<br />
+        E-Mail: info@42-grad.com<br />
+        Telefon: +49 5246 82831 0
+      </p>
+
+      <h2>2. Datenschutzbeauftragter</h2>
+      <p>
+        heyData GmbH<br />
+        Schützenstraße 5<br />
+        10117 Berlin<br />
+        E-Mail: <a href="mailto:datenschutz@heydata.eu">datenschutz@heydata.eu</a>
+      </p>
+
+      <h2>3. Rechtsgrundlagen der Verarbeitung</h2>
+      <p>
+        Die Verarbeitung personenbezogener Daten erfolgt auf Basis folgender Rechtsgrundlagen der DSGVO:
+      </p>
+      <p>
+        Art. 6 Abs. 1 lit. a DSGVO – Einwilligung der betroffenen Person<br />
+        Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung oder vorvertragliche Maßnahmen<br />
+        Art. 6 Abs. 1 lit. c DSGVO – Rechtliche Verpflichtung<br />
+        Art. 6 Abs. 1 lit. f DSGVO – Berechtigtes Interesse
+      </p>
+
+      <h2>4. Datenübermittlung in Drittländer</h2>
+      <p>
+        Sofern Daten in Länder außerhalb des EWR übermittelt werden, geschieht dies auf Grundlage von Angemessenheitsbeschlüssen der EU-Kommission oder unter Verwendung von EU-Standardvertragsklauseln.
+      </p>
+
+      <h2>5. Ihre Rechte</h2>
+      <p>
+        Als betroffene Person haben Sie folgende Rechte:
+      </p>
+      <p>
+        Recht auf Auskunft (Art. 15 DSGVO)<br />
+        Recht auf Berichtigung (Art. 16 DSGVO)<br />
+        Recht auf Löschung (Art. 17 DSGVO)<br />
+        Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)<br />
+        Recht auf Datenübertragbarkeit (Art. 20 DSGVO)<br />
+        Widerspruchsrecht (Art. 21 DSGVO)<br />
+        Recht auf Widerruf einer erteilten Einwilligung
+      </p>
+      <p>
+        Zur Ausübung Ihrer Rechte wenden Sie sich bitte an den oben genannten Verantwortlichen oder den Datenschutzbeauftragten.
+      </p>
+
+      <h2>6. Erhebung von Daten beim Besuch der Website</h2>
+      <p>
+        Beim Aufruf unserer Website werden durch den Browser automatisch Informationen an den Server gesendet (Server-Logfiles). Diese umfassen unter anderem IP-Adresse, Browser-Typ und -Version, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners sowie Zeitpunkt der Serveranfrage.
+      </p>
+      <p>
+        Diese Daten werden maximal 14 Tage gespeichert und anschließend gelöscht. Die Speicherung erfolgt auf Grundlage unseres berechtigten Interesses an der Sicherheit und Optimierung unseres Angebots (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+      <p>Hosting-Anbieter: IONOS SE, Deutschland.</p>
+
+      <h2>7. Kontaktformular und Kommunikation</h2>
+      <p>
+        Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, werden die von Ihnen mitgeteilten Daten zur Bearbeitung Ihrer Anfrage gespeichert. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an der Beantwortung Ihrer Anfrage (Art. 6 Abs. 1 lit. f DSGVO) oder zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO).
+      </p>
+
+      <h2>8. Newsletter</h2>
+      <p>
+        Für den Versand unseres Newsletters nutzen wir den Dienst Pipedrive (Sitz: Estland). Die Abmeldung ist jederzeit über den Abmeldelink in jeder E-Mail möglich. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+      </p>
+
+      <h2>9. Drittanbieter-Dienste</h2>
+      <p>
+        <strong>Pipedrive:</strong> Wir nutzen Pipedrive als Lead-Management-Plattform zur Verarbeitung von Kontakt- und Kommunikationsdaten.<br />
+        <strong>LinkedIn:</strong> Wir unterhalten ein Profil auf LinkedIn. Informationen zur Datenverarbeitung durch LinkedIn finden Sie in deren Datenschutzerklärung.
+      </p>
+
+      <h2>10. Bewerbungen</h2>
+      <p>
+        Bewerberdaten werden nach Abschluss des Bewerbungsverfahrens sechs Monate nach Ablehnung gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Bei Einwilligung in die Aufnahme in unseren Talentpool erfolgt die Speicherung für bis zu ein Jahr.
+      </p>
+
+      <h2>11. Terminbuchung</h2>
+      <p>
+        Für die Terminvereinbarung können Drittanbieter-Tools eingesetzt werden. Dabei werden die von Ihnen eingegebenen Daten zur Terminabstimmung verarbeitet.
+      </p>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 80px 0 100px;
+  }
+
+  .legal-page h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 40px;
+  }
+
+  .legal-page h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .legal-page p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .legal-page a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .legal-page a:hover {
+    color: #52d696;
+  }
+
+  .legal-page strong {
+    color: var(--color-dark);
+  }
+</style>

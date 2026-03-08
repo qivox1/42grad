@@ -1,0 +1,63 @@
+---
+interface Props {
+  labelLeft?: string;
+  labelRight?: string;
+  dark?: boolean;
+}
+const { labelLeft, labelRight, dark = false } = Astro.props;
+---
+
+<div class={`content-section ${dark ? 'content-section--dark' : ''}`}>
+  <div class="content-col">
+    {labelLeft && <span class="block-label">{labelLeft}</span>}
+    <slot name="left" />
+  </div>
+  <div class={`content-col ${dark ? 'content-col--accent' : ''}`}>
+    {labelRight && <span class="block-label">{labelRight}</span>}
+    <slot name="right" />
+  </div>
+</div>
+
+<style>
+  .content-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 60px 0;
+  }
+
+  .content-col {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .content-col--accent {
+    background: var(--color-dark);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .content-col--accent :global(p) { color: rgba(255,255,255,0.8); }
+
+  .block-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+  }
+
+  :global(.content-col p) {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 768px) {
+    .content-section { grid-template-columns: 1fr; }
+  }
+</style>

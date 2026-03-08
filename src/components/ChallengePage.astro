@@ -1,0 +1,218 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+interface Props {
+  title: string;
+  subtitle: string;
+  problem: string;
+  solution: string;
+  benefits: string[];
+}
+
+const { title, subtitle, problem, solution, benefits } = Astro.props;
+---
+
+<main class="challenge-page">
+  <section class="challenge-hero">
+    <div class="container">
+      <a href={base + '/#herausforderungen'} class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Zurück zur Übersicht
+      </a>
+      <h1 class="challenge-title">{title}</h1>
+      <p class="challenge-subtitle">{subtitle}</p>
+    </div>
+  </section>
+
+  <section class="challenge-content">
+    <div class="container challenge-grid">
+      <div class="challenge-block">
+        <span class="block-label">Das Problem</span>
+        <p>{problem}</p>
+      </div>
+      <div class="challenge-block challenge-block--accent">
+        <span class="block-label">Die 42°OS Lösung</span>
+        <p>{solution}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="challenge-benefits">
+    <div class="container">
+      <h2>Ihre Vorteile mit 42°OS</h2>
+      <div class="benefits-grid">
+        {benefits.map((benefit, i) => (
+          <div class="benefit-item">
+            <span class="benefit-num">{String(i + 1).padStart(2, '0')}</span>
+            <p>{benefit}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="challenge-cta">
+    <div class="container challenge-cta-inner">
+      <h2>Bereit, diese Herausforderung zu lösen?</h2>
+      <p>Vereinbaren Sie eine unverbindliche Demo und erleben Sie, wie 42°OS Ihre Prozesse transformiert.</p>
+      <a href={base + '/#contact'} class="btn-accent">Demo vereinbaren</a>
+    </div>
+  </section>
+</main>
+
+<style>
+  .challenge-page {
+    padding-top: 40px;
+  }
+
+  .challenge-hero {
+    padding: 60px 0 40px;
+    background: linear-gradient(180deg, #f0f4f8 0%, #fff 100%);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--color-accent);
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .back-link:hover { opacity: 0.7; }
+
+  .challenge-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .challenge-subtitle {
+    font-size: 18px;
+    color: var(--color-text-light);
+    max-width: 650px;
+    line-height: 1.7;
+  }
+
+  .challenge-content {
+    padding: 80px 0;
+  }
+
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .challenge-block {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .challenge-block--accent {
+    background: var(--color-dark);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .block-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+  }
+
+  .challenge-block p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .challenge-block--accent p {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .challenge-benefits {
+    padding: 80px 0;
+    background: var(--color-bg-light);
+  }
+
+  .challenge-benefits h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .benefit-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .benefit-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .benefit-item p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text-light);
+  }
+
+  .challenge-cta {
+    padding: 80px 0;
+  }
+
+  .challenge-cta-inner {
+    text-align: center;
+    background: var(--color-dark);
+    border-radius: 20px;
+    padding: 60px 40px;
+    color: #fff;
+  }
+
+  .challenge-cta-inner h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .challenge-cta-inner p {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .challenge-grid { grid-template-columns: 1fr; }
+  }
+</style>

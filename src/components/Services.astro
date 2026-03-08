@@ -1,0 +1,113 @@
+---
+const services = [
+  {
+    title: 'Digitale Souveränität',
+    description: '100% Datenhoheit. DSGVO-konform. On-Premises auf Ihrer Infrastruktur. Keine Abhängigkeit von US-Cloud-Anbietern.',
+    icon: 'shield',
+  },
+  {
+    title: 'Intelligente Automatisierung',
+    description: 'KI-gestützte Workflows. No-Code-Assistenz für alle Fachbereiche. Signifikante Zeitersparnis bei Routineprozessen.',
+    icon: 'robot',
+  },
+  {
+    title: 'Transparente Kosten',
+    description: 'Planbare Jahreslizenz. Keine Pay-per-Use-Fallen. Kosten wachsen nicht überproportional mit Ihrer Nutzung.',
+    icon: 'euro',
+  },
+];
+---
+
+<section id="about" class="services">
+  <div class="container">
+    <h2 class="services-title"><span class="highlight">Unser</span> Anspruch.</h2>
+
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="service-card">
+          <div class="service-icon">
+            {service.icon === 'shield' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            )}
+            {service.icon === 'robot' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v4"/>
+                <circle cx="8" cy="16" r="1"/>
+                <circle cx="16" cy="16" r="1"/>
+              </svg>
+            )}
+            {service.icon === 'euro' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#66E4A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12h6M8 9h6M9 15h5"/>
+              </svg>
+            )}
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services { padding: var(--section-padding); }
+
+  .services-title {
+    text-align: center;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 60px;
+  }
+
+  .highlight { color: var(--color-accent); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .service-card {
+    padding: 40px 32px;
+    background: var(--color-dark);
+    border-radius: 16px;
+    color: #fff;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { transform: translateY(-4px); }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(102, 228, 169, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-accent);
+  }
+
+  .service-card p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>

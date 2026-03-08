@@ -1,0 +1,411 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTA from '../../components/CTA.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout title="Das Team - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Über uns', href: base + '/ueber-uns'}, {label:'Team'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Das</span> Team"
+        subtitle="Die Menschen hinter 42°OS"
+      />
+
+      <section class="team-section">
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-image">
+              <img src={`${base}/images/jonas.webp`} alt="Jonas Fröhleke" />
+            </div>
+            <div class="member-content">
+              <h2>Jonas Fröhleke</h2>
+              <p class="role">CEO & Co-Founder</p>
+              <div class="member-details">
+                <p>
+                  Jonas Fröhleke studierte Business Engineering und kombiniert technische Tiefe mit unternehmerischem Denken. Mit über 12 Jahren Erfahrung in Industrieautomatisierung und Digitalisierungsprojekten versteht Jonas die Herausforderungen, denen sich mittelständische Unternehmen gegenübersehen.
+                </p>
+                <p>
+                  Seine Vision für 42°OS: Eine Plattform, die echte Probleme löst, ohne dabei Kompromisse bei Sicherheit oder Datenhoheit einzugehen. Jonas treibt die Geschäftsstrategie voran und stellt sicher, dass 42°OS bleibt, was es sein soll – eine Lösung für den Mittelstand, von jemandem, der den Mittelstand versteht.
+                </p>
+              </div>
+              <div class="member-highlights">
+                <div class="highlight">
+                  <strong>Fokus:</strong>
+                  <span>Geschäftsstrategie, Kundenbeziehungen, Produktvision</span>
+                </div>
+                <div class="highlight">
+                  <strong>Erfahrung:</strong>
+                  <span>Industrieautomatisierung, ERP-Implementierung, Change Management</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-image">
+              <img src={`${base}/images/georg.webp`} alt="Johann-Georg Vogelhuber" />
+            </div>
+            <div class="member-content">
+              <h2>Johann-Georg Vogelhuber</h2>
+              <p class="role">CTO & Co-Founder</p>
+              <div class="member-details">
+                <p>
+                  Johann-Georg ist ein Mathematiker und Softwarearchitekt mit 20+ Jahren Erfahrung in KI und komplexen Systemdesign. Er war Head of AI bei GAMOMAT und hat dort aufgebaut, wie große Systeme skalieren und wie KI wirklich funktioniert – nicht in Marketingtexten, sondern in der Praxis.
+                </p>
+                <p>
+                  Seine Mission mit 42°OS ist es, KI-Technologie zu demokratisieren – nicht für große Tech-Konzerne, sondern für mittelständische Unternehmen, die es verdienen, von echter KI zu profitieren. Johann-Georg leitet die technische Entwicklung und stellt sicher, dass 42°OS die beste verfügbare Architektur ist.
+                </p>
+              </div>
+              <div class="member-highlights">
+                <div class="highlight">
+                  <strong>Fokus:</strong>
+                  <span>Architektur, KI-Systeme, Skalierbarkeit, Sicherheit</span>
+                </div>
+                <div class="highlight">
+                  <strong>Erfahrung:</strong>
+                  <span>Machine Learning, Distributed Systems, System Design, KI-Infrastruktur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="commitment-section">
+        <h2>Unser Anspruch</h2>
+        <div class="commitment-content">
+          <p>
+            Das Team von 42 Grad arbeitet täglich daran, eine Plattform zu schaffen, die den Mittelstand befähigt. Das bedeutet: Qualität vor Quantität. Echte Lösungen vor hyped Features. Sicherheit vor Convenience.
+          </p>
+          <p>
+            Wir sind klein, aber fokussiert. Jeder im Team versteht die Materie tief und arbeitet mit Leidenschaft. Das ermöglicht es uns, schnell und effizient zu entwickeln, ohne dabei Kompromisse zu machen.
+          </p>
+          <p>
+            Mit unseren Pilotanwendern und strategischen Partnern co-entwickeln wir 42°OS im Echteinsatz. Wir hören auf Feedback, wir iterieren schnell und wir bringen nur Features raus, die wirklich funktionieren. Das ist der 42 Grad-Weg.
+          </p>
+          <div class="values-grid">
+            <div class="value">
+              <h3>Kompetenz</h3>
+              <p>Deep Tech, nicht Oberflächlichkeit. Jeder im Team versteht, was er oder sie tut – tief.</p>
+            </div>
+            <div class="value">
+              <h3>Ehrlichkeit</h3>
+              <p>Wir sagen, was funktioniert und was nicht. Keine falschen Versprechungen, keine Black-Box-Marketing.</p>
+            </div>
+            <div class="value">
+              <h3>Kundenerfolg</h3>
+              <p>Unser Erfolg ist Ihr Erfolg. Wir investieren, bis Ihre Prozesse wirklich automatisiert sind.</p>
+            </div>
+            <div class="value">
+              <h3>Kontinuierliche Verbesserung</h3>
+              <p>Jeden Tag besser als gestern. Keine Ruhe, bis alles perfekt läuft.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="culture-section">
+        <h2>Unsere Kultur</h2>
+        <div class="culture-grid">
+          <div class="culture-card">
+            <h3>Autonome Teams</h3>
+            <p>
+              Jeder Gründer und Entwickler hat Eigenverantwortung. Wir vertrauen auf Kompetenz und machen keine Mikromanagement-Spiele.
+            </p>
+          </div>
+          <div class="culture-card">
+            <h3>Deep Work</h3>
+            <p>
+              Keine endlosen Meetings. Wir fokussieren auf konzentrierte Arbeit an Problemen, die wirklich zählen.
+            </p>
+          </div>
+          <div class="culture-card">
+            <h3>Knowledge Sharing</h3>
+            <p>
+              Wir lernen voneinander. Regelmäßige Tech-Talks, Code Reviews und der freie Austausch von Ideen sind Teil unserer DNA.
+            </p>
+          </div>
+          <div class="culture-card">
+            <h3>Made in Ostwestfalen</h3>
+            <p>
+              Wir arbeiten von unserem Office in Ostwestfalen aus – mit schneller Reaktion auf Kundenanfragen und starker lokaler Wurzel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="join-section">
+        <h2>Werde Teil des Teams</h2>
+        <p>
+          Wenn Du an echten KI-Technologien arbeiten möchtest, auf tiefe technische Probleme stößt und mit Menschen zusammenarbeiten willst, die ihre Sache verstehen – dann könnten Sie eine gute Ergänzung für 42 Grad sein.
+        </p>
+        <p>
+          Wir wachsen vorsichtig und selektiv. Qualität vor Quantität. Wenn Du interessiert bist, schau Dir unsere offenen Positionen an oder schreib uns eine Initiative.
+        </p>
+        <div class="join-cta">
+          <a href={base + '/ueber-uns/karriere'} class="btn-accent">Offene Positionen</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .team-section {
+    margin: 80px 0;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .team-member {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .member-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    aspect-ratio: 1 / 1;
+  }
+
+  .member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .member-content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .member-content .role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+  }
+
+  .member-details {
+    margin-bottom: 28px;
+  }
+
+  .member-details p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .member-details p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .member-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .highlight {
+    font-size: 14px;
+    color: var(--color-text-light);
+  }
+
+  .highlight strong {
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .highlight span {
+    display: block;
+    margin-top: 4px;
+    color: var(--color-text-light);
+  }
+
+  .commitment-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .commitment-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 32px;
+  }
+
+  .commitment-content {
+    max-width: 900px;
+  }
+
+  .commitment-content p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .value {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .value h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .value p {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .culture-section {
+    margin: 100px 0;
+  }
+
+  .culture-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .culture-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .culture-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .culture-card p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .join-section {
+    margin: 100px 0;
+    background: #0F2B46;
+    border-radius: 20px;
+    padding: 60px 40px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .join-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+
+  .join-section p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .join-cta {
+    margin-top: 40px;
+  }
+
+  .join-cta .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .join-cta .btn-accent:hover {
+    background: #52d696;
+  }
+
+  @media (max-width: 768px) {
+    .team-member {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 28px;
+    }
+
+    .commitment-section,
+    .culture-section,
+    .join-section {
+      padding: 40px 20px;
+    }
+
+    .commitment-section h2,
+    .culture-section h2,
+    .join-section h2 {
+      font-size: 28px;
+    }
+  }
+</style>

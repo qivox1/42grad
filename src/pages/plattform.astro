@@ -1,0 +1,375 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import AccordionItem from '../components/AccordionItem.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="Die 42°OS Plattform">
+  <Header />
+  <main class="page">
+
+    <PageHero
+      title='<span class="highlight">Die 42°OS</span> Plattform'
+      subtitle="On-Premises KI-Plattform für autonome Geschäftsprozesse – mit 100% Datenhoheit, DSGVO-Konformität und planbaren Kosten."
+      label="Plattform"
+    />
+
+    <!-- Architektur -->
+    <section id="architektur" class="platform-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">01 — Architektur</span>
+          <h2>Modulare <span class="highlight">On-Premises</span>-Architektur</h2>
+          <p class="section-intro">Die gesamte Plattform läuft auf Ihrer eigenen Infrastruktur – in Docker-Containern, modular aufgebaut und beliebig skalierbar.</p>
+        </div>
+        <div class="two-col">
+          <div class="col-card">
+            <h3>So funktioniert es</h3>
+            <p>42°OS basiert auf einer Docker-Container-Architektur, die sich nahtlos in Ihre bestehende IT-Landschaft integriert. Jede Komponente – von der Workflow Engine über die KI-Agenten bis zum Monitoring – läuft als eigenständiger Microservice. Das bedeutet: Sie können einzelne Module unabhängig aktualisieren, skalieren oder anpassen, ohne das Gesamtsystem zu beeinträchtigen.</p>
+            <p>Die lokale LLM-Ausführung garantiert, dass Ihre Daten Ihr Unternehmen nie verlassen. Es gibt keine Abhängigkeit von externen Cloud-Anbietern – weder für die Verarbeitung noch für die Speicherung.</p>
+          </div>
+          <div class="col-card col-card--dark">
+            <h3>Ihre Vorteile</h3>
+            <ul>
+              <li><strong>100% Datenhoheit:</strong> Kein Byte verlässt Ihre Infrastruktur</li>
+              <li><strong>Beliebig skalierbar:</strong> Vom Pilotprojekt zur unternehmensweiten Lösung</li>
+              <li><strong>Provider-unabhängig:</strong> Keine Abhängigkeit von US-Cloud-Anbietern</li>
+              <li><strong>Planbare Kosten:</strong> Jahreslizenz statt nutzungsbasierter Abrechnung</li>
+              <li><strong>Legacy-kompatibel:</strong> Integration in bestehende IT-Landschaften</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow Engine -->
+    <section id="workflow-engine" class="platform-section platform-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">02 — Workflow Engine</span>
+          <h2>Intelligente <span class="highlight">Workflow Engine</span></h2>
+          <p class="section-intro">Agent-basierte Ausführung, visueller Designer und eine wachsende Template-Bibliothek – alles per Spracheingabe steuerbar.</p>
+        </div>
+        <div class="feature-cards-3">
+          <div class="fcard">
+            <div class="fcard-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 18.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12 8.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM5.5 13a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 13a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" stroke="currentColor" stroke-width="1.5"/><path d="M12 8.5v7M7 11.5h10" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Visueller Designer</h3>
+            <p>Erstellen Sie komplexe Workflows per Spracheingabe oder Drag-and-Drop. Kein Code, keine IT-Kenntnisse erforderlich. Fachabteilungen werden eigenständig.</p>
+          </div>
+          <div class="fcard">
+            <div class="fcard-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2a4 4 0 014 4c0 1.95-2 4-4 6-2-2-4-4.05-4-6a4 4 0 014-4z" stroke="currentColor" stroke-width="1.5"/><path d="M17 17a5 5 0 00-10 0" stroke="currentColor" stroke-width="1.5"/><path d="M12 22v-4M8 22h8" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Agent-Orchestrierung</h3>
+            <p>Über 50 spezialisierte KI-Agenten arbeiten koordiniert zusammen. Jeder Agent ist auf eine bestimmte Aufgabe optimiert – von Datenerfassung über Analyse bis zur Berichterstellung.</p>
+          </div>
+          <div class="fcard">
+            <div class="fcard-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Template-Bibliothek</h3>
+            <p>Vorgefertigte Workflow-Vorlagen für gängige Geschäftsprozesse. Branchenspezifische Templates verkürzen die Implementierungszeit auf Stunden statt Wochen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wissensmanagement -->
+    <section id="wissensmanagement" class="platform-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">03 — Wissensmanagement</span>
+          <h2>Intelligentes <span class="highlight">Wissensmanagement</span></h2>
+          <p class="section-intro">RAG-Technologie und lokale LLMs erschließen das gesamte Wissen Ihres Unternehmens – sicher, schnell und ohne Cloud.</p>
+        </div>
+        <div class="two-col">
+          <div class="col-card">
+            <h3>RAG-Technologie</h3>
+            <p>Retrieval-Augmented Generation (RAG) verbindet die Leistungsfähigkeit großer Sprachmodelle mit dem spezifischen Wissen Ihres Unternehmens. 42°OS indexiert Ihre Dokumente, Datenbanken und Wissenssysteme und macht sie für KI-Agenten zugänglich – ohne dass Daten Ihre Infrastruktur verlassen.</p>
+          </div>
+          <div class="col-card">
+            <h3>Lokale LLMs</h3>
+            <p>Die Sprachmodelle laufen direkt auf Ihrer Hardware. Das bedeutet: keine Latenz durch Cloud-Aufrufe, keine Datenübertragung an Dritte, volle Kontrolle über Modellversion und Konfiguration. Sie bestimmen, welche Modelle eingesetzt werden und wie sie trainiert sind.</p>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Das Ergebnis:</strong> Ihre Mitarbeiter erhalten in Sekundenschnelle präzise Antworten aus dem gesamten Unternehmenswissen – über eine einfache Sprachschnittstelle, DSGVO-konform und ohne externes Datenrisiko.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sicherheit -->
+    <section id="sicherheit" class="platform-section platform-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">04 — Sicherheit</span>
+          <h2><span class="highlight">7-Schichten</span>-Sicherheitskonzept</h2>
+          <p class="section-intro">Mehrstufiger Schutz für Ihre sensiblen Daten – von der Zugriffskontrolle bis zum Incident Response.</p>
+        </div>
+        <div class="accordion-list">
+          <AccordionItem title="1. Zugriffskontrolle & Authentifizierung" open={true}>
+            <p>Rollenbasierte Zugriffskontrolle (RBAC), Multi-Faktor-Authentifizierung und Single Sign-On. Jeder Nutzer sieht nur die Daten und Prozesse, die für seine Rolle relevant sind.</p>
+          </AccordionItem>
+          <AccordionItem title="2. Datenverschlüsselung">
+            <p>AES-256-Verschlüsselung für gespeicherte Daten, TLS 1.3 für Datenübertragung. Verschlüsselung sowohl at rest als auch in transit – ohne Kompromisse.</p>
+          </AccordionItem>
+          <AccordionItem title="3. Netzwerk-Isolation">
+            <p>Die gesamte Plattform läuft in Ihrem lokalen Netzwerk. Keine eingehenden oder ausgehenden Verbindungen zu externen Servern nötig. Vollständige Air-Gap-Fähigkeit.</p>
+          </AccordionItem>
+          <AccordionItem title="4. Audit-Logging">
+            <p>Lückenlose Protokollierung aller Systemaktivitäten: Zugriffe, Änderungen, Datenverarbeitungen. Revisionssichere Dokumentation für Compliance-Anforderungen.</p>
+          </AccordionItem>
+          <AccordionItem title="5. Bedrohungserkennung">
+            <p>Echtzeit-Monitoring mit automatischer Anomalie-Erkennung. Verdächtige Aktivitäten werden sofort erkannt und gemeldet, bevor Schaden entstehen kann.</p>
+          </AccordionItem>
+          <AccordionItem title="6. Compliance-Monitoring">
+            <p>Automatische Prüfung auf Einhaltung von DSGVO-Anforderungen, internen Richtlinien und Branchenstandards. Compliance-Reports auf Knopfdruck.</p>
+          </AccordionItem>
+          <AccordionItem title="7. Incident Response">
+            <p>Definierte Reaktionsprozesse bei Sicherheitsvorfällen. Automatische Benachrichtigungen, Eskalationsstufen und dokumentierte Maßnahmenpläne.</p>
+          </AccordionItem>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance -->
+    <section id="compliance" class="platform-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">05 — Compliance</span>
+          <h2><span class="highlight">DSGVO-konform.</span> Made in Germany.</h2>
+          <p class="section-intro">Keine Grauzone, keine Kompromisse. 42°OS ist von Grund auf für den deutschen Datenschutz konzipiert.</p>
+        </div>
+        <div class="feature-cards-4">
+          <div class="fcard">
+            <h3>DSGVO by Design</h3>
+            <p>Datenschutz ist kein Nachgedanke, sondern Architekturprinzip. Jede Funktion wurde mit Blick auf DSGVO-Konformität entwickelt.</p>
+          </div>
+          <div class="fcard">
+            <h3>Datenresidenz Deutschland</h3>
+            <p>Alle Daten bleiben auf Ihrer Infrastruktur in Deutschland. Kein Transfer in Drittländer, kein Cloud Act-Risiko.</p>
+          </div>
+          <div class="fcard">
+            <h3>Keine US-Cloud</h3>
+            <p>Vollständige Unabhängigkeit von US-amerikanischen Cloud-Diensten. Keine Hintertüren, keine Datenweitergabe.</p>
+          </div>
+          <div class="fcard">
+            <h3>Haftungsrisiken eliminiert</h3>
+            <p>Geschäftsführer haften persönlich für Datenschutzverstöße. 42°OS eliminiert das Risiko durch konsequente On-Premises-Verarbeitung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Konnektoren -->
+    <section id="konnektoren" class="platform-section platform-section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">06 — Konnektoren</span>
+          <h2><span class="highlight">Konnektoren</span> für Ihre Systeme</h2>
+          <p class="section-intro">Nahtlose Integration in Ihre bestehende IT-Landschaft über standardisierte Schnittstellen.</p>
+        </div>
+        <div class="feature-cards-3">
+          <div class="fcard">
+            <h3>REST APIs</h3>
+            <p>Standardisierte REST-Schnittstellen für die Integration mit jedem modernen System. Dokumentierte Endpoints, einfache Authentifizierung.</p>
+          </div>
+          <div class="fcard">
+            <h3>Webhook Support</h3>
+            <p>Ereignisgesteuerte Kommunikation in Echtzeit. 42°OS reagiert automatisch auf Änderungen in verbundenen Systemen.</p>
+          </div>
+          <div class="fcard">
+            <h3>Vorkonfigurierte Konnektoren</h3>
+            <p>Fertige Integrationen für gängige ERP-, CRM- und Datenbanksysteme. Plug-and-Play-Anbindung ohne aufwendige Entwicklung.</p>
+          </div>
+          <div class="fcard">
+            <h3>ERP-Systeme</h3>
+            <p>SAP, Microsoft Dynamics, Sage und weitere ERP-Systeme direkt anbinden. Automatisieren Sie Prozesse über Systemgrenzen hinweg.</p>
+          </div>
+          <div class="fcard">
+            <h3>Datenbanken</h3>
+            <p>SQL, NoSQL, Data Warehouses – 42°OS verbindet sich mit allen gängigen Datenbanktypen für automatisierte Datenverarbeitung.</p>
+          </div>
+          <div class="fcard">
+            <h3>Legacy-Systeme</h3>
+            <p>Auch ältere Systeme ohne moderne APIs lassen sich über Adapter und Datei-Schnittstellen integrieren. Keine Big-Bang-Migration nötig.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page { padding-top: 20px; }
+
+  .platform-section {
+    padding: 80px 0;
+  }
+
+  .platform-section--alt {
+    background: var(--color-bg-light);
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-header .highlight {
+    color: var(--color-accent);
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .col-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 36px;
+  }
+
+  .col-card--dark {
+    background: var(--color-dark);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .col-card--dark h3 { color: #fff; }
+  .col-card--dark p, .col-card--dark li { color: rgba(255,255,255,0.8); }
+
+  .col-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+  }
+
+  .col-card p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .col-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .col-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .col-card ul li:last-child { border-bottom: none; }
+
+  /* Feature cards 3-col */
+  .feature-cards-3, .feature-cards-4 {
+    display: grid;
+    gap: 24px;
+  }
+
+  .feature-cards-3 { grid-template-columns: repeat(3, 1fr); }
+  .feature-cards-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .fcard {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .fcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.08);
+  }
+
+  .fcard-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-dark);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--color-accent);
+  }
+
+  .fcard h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+  }
+
+  .fcard p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    background: var(--color-dark);
+    border-radius: 16px;
+    padding: 32px 40px;
+    color: #fff;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+
+  /* Accordion */
+  .accordion-list {
+    max-width: 800px;
+  }
+
+  @media (max-width: 1024px) {
+    .feature-cards-3 { grid-template-columns: repeat(2, 1fr); }
+    .feature-cards-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .feature-cards-3, .feature-cards-4 { grid-template-columns: 1fr; }
+    .platform-section { padding: 60px 0; }
+  }
+</style>

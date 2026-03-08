@@ -1,0 +1,413 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+const classificationIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h7v7H4V4zm9-2h7v7h-7V2zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const searchIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+const lockIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" stroke="currentColor" stroke-width="2"/></svg>`;
+const workflowIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h6v6H4V4zm7 0h6v6h-6V4zm7 0h2v6h-2V4zM4 12h6v6H4v-6zm7 0h6v6h-6v-6zm7 0h2v6h-2v-6zM4 20h6v2H4v-2zm7 0h6v2h-6v-2zm7 0h2v2h-2v-2z" stroke="currentColor" stroke-width="2"/></svg>`;
+---
+
+<Layout title="Dokumentenmanagement - 42°OS">
+  <Header />
+  <main class="page">
+    <div class="container">
+      <Breadcrumb items={[{label:'Anwendungen', href:'/anwendungen'}, {label:'Dokumentenmanagement'}]} />
+
+      <PageHero
+        title="<span class='highlight'>Intelligentes</span> Dokumentenmanagement"
+        subtitle="KI-gestützte Verarbeitung, Klassifikation und Archivierung"
+      />
+
+      <section class="problem-solution">
+        <div class="problem-solution-grid">
+          <div class="problem-section">
+            <h2>Das Problem</h2>
+            <ul class="problem-list">
+              <li>
+                <strong>Manuelle Sortierung:</strong> Tausende Dokumente müssen täglich von Hand kategorisiert, sortiert und gespeichert werden.
+              </li>
+              <li>
+                <strong>Zeitaufwendige Suche:</strong> Wichtige Informationen sind in Dokumenten vergraben. Suchen nach bestimmten Inhalten dauert Stunden.
+              </li>
+              <li>
+                <strong>Compliance-Anforderungen:</strong> DSGVO, Aufbewahrungsfristen, Audit-Trails – vieles wird manuell verwaltet und fehleranfällig.
+              </li>
+              <li>
+                <strong>Keine Wissensverwertung:</strong> Wertvollen Informationen in alten Dokumenten werden übersehen oder wiederholt recherchiert.
+              </li>
+            </ul>
+          </div>
+
+          <div class="solution-section">
+            <h2>Die Lösung mit 42°OS</h2>
+            <p>
+              42°OS erfasst alle eingehenden Dokumente automatisch, klassifiziert sie mit KI-Agenten und archiviert sie DSGVO-konform. Intelligente Suche findet relevante Informationen sekündlich. Alle Prozesse sind vollständig dokumentiert und auditierbar.
+            </p>
+            <div class="solution-features">
+              <div class="feature">
+                <strong>Automatische Erfassung:</strong>
+                <p>Alle Dokumenttypen – PDFs, Bilder, Scans, E-Mail-Anhänge – werden automatisch erfasst und verarbeitet.</p>
+              </div>
+              <div class="feature">
+                <strong>KI-gestützte Klassifikation:</strong>
+                <p>Dokumente werden automatisch erkannt, kategorisiert und mit relevanten Metadaten versehen – ohne manuelle Eingriffe.</p>
+              </div>
+              <div class="feature">
+                <strong>Sichere Archivierung:</strong>
+                <p>Verschlüsselte Speicherung, Versionsverwaltung und automatische Compliance-Kontrollen. Auf Ihren Systemen, nicht in der Cloud.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits-section">
+        <h2>Konkrete Funktionen</h2>
+        <FeatureGrid columns={2}>
+          <FeatureCard
+            title="Automatische Klassifikation"
+            text="Die KI erkennt sofort: Ist das eine Rechnung, ein Vertrag, eine Bestellung? Dokumente landen automatisch in der richtigen Kategorie. Keine manuellen Sortierungen mehr."
+            icon={classificationIcon}
+          />
+          <FeatureCard
+            title="Intelligente Suche"
+            text="Suchen Sie nach Inhalten, nicht nach Dateinamen. 42°OS findet alle Dokumente zu einem Kundenauftrag, einer Person oder einem Projekt – sofort und präzise."
+            icon={searchIcon}
+          />
+          <FeatureCard
+            title="DSGVO-konforme Archivierung"
+            text="Automatische Aufbewahrung nach gesetzlichen Vorgaben. Löschung abgelaufener Dokumente ohne manuelle Eingriffe. Vollständige Compliance ohne Zusatzaufwand."
+            icon={lockIcon}
+          />
+          <FeatureCard
+            title="Workflow-Integration"
+            text="Automatische Weitergabe an nächste Bearbeitungsschritte. Ein gescannter Rechnungseingang löst sofort die Verarbeitung aus – ohne Verzögerung."
+            icon={workflowIcon}
+          />
+        </FeatureGrid>
+      </section>
+
+      <section class="use-cases-section">
+        <h2>Typische Anwendungsszenarien</h2>
+        <div class="use-cases-grid">
+          <div class="use-case">
+            <h3>Rechnungsverwaltung</h3>
+            <p>
+              Alle Eingangsrechnungen werden gescannt, automatisch klassifiziert, verbucht und archiviert. Mit vollem Audit-Trail für Revisionen und Steuerprüfungen.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Vertragsmanagement</h3>
+            <p>
+              Verträge werden erfasst, analysiert und mit wichtigen Metadaten versehen. Kündigungsfristen werden automatisch überwacht und erinnert.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Compliance & Audit</h3>
+            <p>
+              Alle Dokumente sind zentral archiviert mit vollständiger Nachverfolgung. Audits und Inspektionen werden drastisch vereinfacht – alle Unterlagen sofort verfügbar.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Kundenkorrespondenz</h3>
+            <p>
+              E-Mails und Schreiben werden automatisch pro Kunde archiviert. Komplette Kommunikationshistorie für jeden Kunden ist sofort einsehbar.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Personalakten</h3>
+            <p>
+              Bewerbungsunterlagen, Verträge und Personalien werden automatisch katalogisiert. Einfach nach Mitarbeitern suchen, alle Dokumente sind sofort verfügbar.
+            </p>
+          </div>
+          <div class="use-case">
+            <h3>Projektdokumentation</h3>
+            <p>
+              Alle Projektdokumente – Angebote, Änderungsaufträge, Lieferscheine, Rechnungen – werden automatisch pro Projekt organisiert und verlinkt.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits-detailed-section">
+        <h2>Messbare Ergebnisse</h2>
+        <div class="results-grid">
+          <div class="result">
+            <div class="result-number">95 %</div>
+            <p>Weniger manuelle Klassifikationsarbeit</p>
+          </div>
+          <div class="result">
+            <div class="result-number">10x</div>
+            <p>Schneller Informationen finden</p>
+          </div>
+          <div class="result">
+            <div class="result-number">100 %</div>
+            <p>Compliance-Sicherheit</p>
+          </div>
+          <div class="result">
+            <div class="result-number">0</div>
+            <p>Verlorene Dokumente</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="technical-section">
+        <h2>Technische Highlights</h2>
+        <div class="technical-grid">
+          <div class="tech-card">
+            <h3>OCR & Dokumentenerkennung</h3>
+            <p>Erkennt Text in gescannten Dokumenten und Bildern mit über 99 % Genauigkeit. Auch handgeschriebene Notizen können verarbeitet werden.</p>
+          </div>
+          <div class="tech-card">
+            <h3>NLP & Semantische Suche</h3>
+            <p>Versteht natürliche Sprache. Suchen nach "Kundenbeschwerden aus Q4" findet automatisch alle relevanten Dokumente.</p>
+          </div>
+          <div class="tech-card">
+            <h3>End-to-End-Verschlüsselung</h3>
+            <p>Alle Daten sind verschlüsselt – in Transit und im Ruhezustand. Nur Sie haben die Schlüssel. Niemand sonst kann auf Ihre Dokumente zugreifen.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Automatische Backups</h3>
+            <p>Regelmäßige redundante Backups auf Ihren Systemen. Im Falle eines Datenverlust können Dokumente wiederhergestellt werden.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 20px;
+  }
+
+  .problem-solution {
+    margin: 80px 0;
+  }
+
+  .problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .problem-section h2,
+  .solution-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+
+  .problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .problem-list li {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .problem-list li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .problem-list strong {
+    color: var(--color-dark);
+  }
+
+  .solution-section p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .solution-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .solution-features .feature {
+    background: #f0f4f8;
+    border-left: 4px solid var(--color-accent);
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .solution-features .feature strong {
+    color: var(--color-dark);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .solution-features .feature p {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .benefits-section {
+    margin: 100px 0;
+  }
+
+  .benefits-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .use-cases-section {
+    margin: 100px 0;
+  }
+
+  .use-cases-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .use-case {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .use-case h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .use-case p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .benefits-detailed-section {
+    margin: 100px 0;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f8 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+  }
+
+  .benefits-detailed-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+  }
+
+  .result {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .result-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .result p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .technical-section {
+    margin: 100px 0;
+  }
+
+  .technical-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+  }
+
+  .technical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .tech-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .tech-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .tech-card p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .problem-solution-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .benefits-section h2,
+    .use-cases-section h2,
+    .benefits-detailed-section h2,
+    .technical-section h2 {
+      font-size: 28px;
+    }
+
+    .benefits-detailed-section {
+      padding: 40px 20px;
+    }
+  }
+</style>

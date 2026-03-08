@@ -1,0 +1,191 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const challenges = [
+  { title: 'Routineaufgaben', text: 'Fachkräfte verschwenden bis zu 40% ihrer Zeit mit Routineaufgaben.', slug: 'routineaufgaben' },
+  { title: '', text: '42°OS ist eine On-Premises-Plattform, die KI und intelligente Automatisierung auf Ihrer eigenen Infrastruktur ermöglicht – mit 100% Datenhoheit.', slug: '' },
+  { title: 'Manuelle Prozesse', text: 'Manuelle Prozesse sind fehleranfällig und nicht skalierbar.', slug: 'manuelle-prozesse' },
+  { title: 'Fehlende Transparenz', text: 'Fehlende Transparenz über Prozessleistung und Engpässe.', slug: 'fehlende-transparenz' },
+  { title: 'IT-Abhängigkeit', text: 'Abhängigkeit von der IT für jede Prozessänderung.', slug: 'it-abhaengigkeit' },
+  { title: 'DSGVO-Risiken', text: 'DSGVO-Compliance und persönliche Haftungsrisiken durch Cloud-Nutzung.', slug: 'dsgvo-risiken' },
+  { title: 'Legacy-Systeme', text: 'Heterogene IT-Landschaft mit Legacy-Systemen kaum abzusichern.', slug: 'legacy-systeme' },
+];
+---
+
+<section id="herausforderungen" class="mission">
+  <div class="mission-bg">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=700&fit=crop&crop=center" alt="Modern architecture" loading="lazy" />
+    <div class="mission-overlay"></div>
+  </div>
+
+  <div class="container mission-content">
+    <h2 class="mission-title"><span class="highlight">Herausforderungen,</span> die wir kennen.</h2>
+    <p class="mission-text">
+      Der deutsche Mittelstand steht vor einem fundamentalen Dilemma: Die digitale Transformation ist überlebenswichtig, aber die verfügbaren Lösungen zwingen zur Wahl zwischen Kontrolle und Innovation.
+    </p>
+
+    <div class="mission-grid">
+      {challenges.map((card, i) => (
+        i === 1 ? (
+          <div class="mission-card mission-card--accent">
+            <div class="arrow-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7l10 10M17 7v10H7" stroke="#0F2B46" stroke-width="2"/>
+              </svg>
+            </div>
+            <p>{card.text}</p>
+          </div>
+        ) : (
+          <a href={`${base}/herausforderungen/${card.slug}`} class="mission-card mission-card--link">
+            <div class="mission-card-hover"></div>
+            <div class="mission-card-content">
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </div>
+          </a>
+        )
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission {
+    position: relative;
+    padding: 100px 0;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .mission-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .mission-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mission-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 43, 70, 0.88);
+  }
+
+  .mission-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .mission-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .mission-title .highlight {
+    color: var(--color-accent);
+  }
+
+  .mission-text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  /* Base card styles */
+  .mission-card {
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Accent card (42°OS description) */
+  .mission-card--accent {
+    background: var(--color-accent);
+    color: var(--color-dark);
+  }
+
+  .mission-card--accent p {
+    color: var(--color-dark);
+    font-weight: 500;
+  }
+
+  /* Clickable link cards */
+  .mission-card--link {
+    background: rgba(255,255,255,0.95);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .mission-card--link:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Hover color overlay - animates from bottom */
+  .mission-card-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: #D6E3FD;
+    transition: height 0.4s ease;
+    z-index: 1;
+    border-radius: 12px;
+  }
+
+  .mission-card--link:hover .mission-card-hover {
+    height: 100%;
+  }
+
+  /* Card content above hover overlay */
+  .mission-card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .mission-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-dark);
+  }
+
+  .mission-card p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .arrow-icon { margin-bottom: 12px; }
+
+  @media (max-width: 1024px) {
+    .mission-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .mission-grid { grid-template-columns: 1fr; }
+  }
+</style>
