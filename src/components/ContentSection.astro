@@ -41,6 +41,10 @@ const { labelLeft, labelRight, dark = false } = Astro.props;
 
   .content-col--accent :global(p) { color: rgba(255,255,255,0.8); }
 
+  .content-col--accent .block-label {
+    color: var(--color-accent-bright);
+  }
+
   .block-label {
     display: inline-block;
     font-size: 12px;
