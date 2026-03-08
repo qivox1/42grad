@@ -68,12 +68,14 @@ const steps = [
     padding: 0 0 32px;
     text-align: center;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    transition: box-shadow 0.3s;
+    border: 1px solid transparent;
+    transition: box-shadow 0.3s, border-color 0.3s;
     overflow: hidden;
   }
 
   .step-card:hover {
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(107, 164, 255, 0.15);
+    border: 1px solid rgba(107, 164, 255, 0.25);
   }
 
   .step-image {
