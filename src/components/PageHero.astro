@@ -1,12 +1,18 @@
 ---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
 interface Props {
   title: string;
   subtitle?: string;
   label?: string;
   image?: string;   // e.g. "kv-plattform.webp" — relative to /images/
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title, subtitle, label, image } = Astro.props;
+const { title, subtitle, label, image, breadcrumbs } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const imageSrc = image ? `${base}/images/${image}` : null;
 ---
@@ -19,6 +25,22 @@ const imageSrc = image ? `${base}/images/${image}` : null;
     </div>
   )}
   <div class="container page-hero-content">
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href={base + '/'}>Home</a></li>
+          {breadcrumbs.map((item, i) => (
+            <li>
+              <span class="sep">/</span>
+              {item.href && i < breadcrumbs.length - 1
+                ? <a href={item.href}>{item.label}</a>
+                : <span class="current">{item.label}</span>
+              }
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
     {label && <span class="section-label">{label}</span>}
     <h1 class="page-hero-title" set:html={title} />
     {subtitle && <p class="page-hero-subtitle">{subtitle}</p>}
@@ -27,7 +49,7 @@ const imageSrc = image ? `${base}/images/${image}` : null;
 
 <style>
   .page-hero {
-    padding: 120px 0 70px;
+    padding: 100px 0 70px;
     background: linear-gradient(180deg, #f0f4f8 0%, #fff 100%);
     position: relative;
     overflow: hidden;
@@ -72,6 +94,40 @@ const imageSrc = image ? `${base}/images/${image}` : null;
     max-width: 800px;
     position: relative;
     z-index: 1;
+  }
+
+  /* ── Inline Breadcrumb ── */
+  .page-hero-breadcrumb {
+    margin-bottom: 16px;
+  }
+
+  .page-hero-breadcrumb ol {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .page-hero-breadcrumb a {
+    color: var(--color-accent);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .page-hero-breadcrumb a:hover { opacity: 0.7; }
+
+  .page-hero-breadcrumb .sep {
+    color: var(--color-text-muted);
+    font-size: 12px;
+  }
+
+  .page-hero-breadcrumb .current {
+    color: var(--color-text-muted);
+    font-size: 13px;
   }
 
   .page-hero-title {

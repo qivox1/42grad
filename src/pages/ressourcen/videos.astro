@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import CTA from '../../components/CTA.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
@@ -12,14 +11,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   description="Videos und Live-Demos von 42°OS: Sehen Sie die KI-Plattform in Aktion – No-Code Designer, Agentic AI und automatisierte Geschäftsprozesse.">
   <Header />
   <main class="page">
-    <div class="container">
-      <Breadcrumb items={[{label:'Ressourcen', href: base + '/ressourcen/'}, {label:'Videos'}]} />
-
-      <PageHero
+    <PageHero
+      breadcrumbs={[{label:'Ressourcen', href: base + '/ressourcen/'}, {label:'Videos'}]}
         title="<span class='highlight'>Videos</span> & Demos"
         subtitle="Erleben Sie 42°OS in Aktion"
       image="kv-ressourcen.webp"
     />
+    <div class="container">
 
       <section class="intro-section">
         <p>
@@ -131,9 +129,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
-  .page {
-    padding-top: 20px;
-  }
 
   .intro-section {
     margin: 60px 0 80px;

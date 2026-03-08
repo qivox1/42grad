@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import FeatureCard from '../../components/FeatureCard.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
 import CTA from '../../components/CTA.astro';
@@ -19,14 +18,13 @@ const locationIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.
   description="Karriere bei 42grad GmbH: Arbeiten Sie an einer der spannendsten KI-Plattformen für den deutschen Mittelstand – in Ostwestfalen-Lippe.">
   <Header />
   <main class="page">
-    <div class="container">
-      <Breadcrumb items={[{label:'Über uns', href: base + '/ueber-uns/'}, {label:'Karriere'}]} />
-
-      <PageHero
+    <PageHero
+      breadcrumbs={[{label:'Über uns', href: base + '/ueber-uns/'}, {label:'Karriere'}]}
         title="<span class='highlight'>Karriere</span> bei 42 Grad"
         subtitle="Gestalte die Zukunft der KI für den Mittelstand"
       image="kv-ueber-uns.webp"
     />
+    <div class="container">
 
       <section class="why-section">
         <h2>Warum 42 Grad?</h2>
@@ -201,9 +199,6 @@ const locationIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.
 </Layout>
 
 <style>
-  .page {
-    padding-top: 20px;
-  }
 
   .why-section {
     margin: 80px 0;

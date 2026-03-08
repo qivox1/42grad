@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import CTA from '../../components/CTA.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -13,14 +12,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   description="Blog der 42grad GmbH: Fachartikel zu KI im Mittelstand, On-Premises-Automatisierung, DSGVO-konformer KI und digitaler Transformation.">
   <Header />
   <main class="page">
-    <div class="container">
-      <Breadcrumb items={[{label:'Ressourcen', href: base + '/ressourcen/'}, {label:'Blog'}]} />
-
-      <PageHero
+    <PageHero
+      breadcrumbs={[{label:'Ressourcen', href: base + '/ressourcen/'}, {label:'Blog'}]}
         title="<span class='highlight'>Blog</span>"
         subtitle="Insights, Updates und Wissenswertes rund um KI im Mittelstand"
       image="kv-ressourcen.webp"
     />
+    <div class="container">
 
       <section class="intro-section">
         <p>
@@ -150,9 +148,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
-  .page {
-    padding-top: 20px;
-  }
 
   .intro-section {
     margin: 60px 0 80px;

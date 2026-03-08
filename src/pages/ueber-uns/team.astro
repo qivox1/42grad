@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import CTA from '../../components/CTA.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -13,14 +12,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   description="Das Gründerteam der 42grad GmbH: Jonas Fröhleke (CEO) und Johann-Georg Vogelhuber (CTO) – KI-Experten aus Ostwestfalen mit Leidenschaft für den Mittelstand.">
   <Header />
   <main class="page">
-    <div class="container">
-      <Breadcrumb items={[{label:'Über uns', href: base + '/ueber-uns/'}, {label:'Team'}]} />
-
-      <PageHero
+    <PageHero
+      breadcrumbs={[{label:'Über uns', href: base + '/ueber-uns/'}, {label:'Team'}]}
         title="<span class='highlight'>Das</span> Team"
         subtitle="Die Menschen hinter 42°OS"
       image="kv-ueber-uns.webp"
     />
+    <div class="container">
 
       <section class="team-section">
         <div class="team-grid">
@@ -164,9 +162,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
-  .page {
-    padding-top: 20px;
-  }
 
   .team-section {
     margin: 80px 0;

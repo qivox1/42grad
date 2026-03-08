@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import FeatureCard from '../../components/FeatureCard.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
 import CTA from '../../components/CTA.astro';
@@ -20,14 +19,13 @@ const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/
   description="Ressourcen rund um 42°OS: Videos, Live-Demos, Blog-Artikel und technische Dokumentation zur KI-Plattform für den Mittelstand.">
   <Header />
   <main class="page">
-    <div class="container">
-      <Breadcrumb items={[{label:'Ressourcen'}]} />
-
-      <PageHero
+    <PageHero
+      breadcrumbs={[{label:'Ressourcen'}]}
         title="<span class='highlight'>Ressourcen</span> & Wissen"
         subtitle="Vertiefen Sie Ihr Wissen über 42°OS"
       image="kv-ressourcen.webp"
     />
+    <div class="container">
 
       <section class="resources-grid">
         <FeatureGrid columns={2}>
@@ -143,9 +141,6 @@ const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/
 </Layout>
 
 <style>
-  .page {
-    padding-top: 20px;
-  }
 
   .resources-grid {
     margin: 80px 0;

@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 import FeatureCard from '../../components/FeatureCard.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
 import CTA from '../../components/CTA.astro';
@@ -20,14 +19,13 @@ const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
   description="42grad GmbH aus Ostwestfalen-Lippe: Entwickler von 42°OS, dem KI-Betriebssystem für den Mittelstand. Unsere Mission, Werte und Technologie.">
   <Header />
   <main class="page">
-    <div class="container">
-      <Breadcrumb items={[{label:'Über uns'}]} />
-
-      <PageHero
+    <PageHero
+      breadcrumbs={[{label:'Über uns'}]}
         title="<span class='highlight'>Über</span> 42 Grad"
         subtitle="Das KI-Betriebssystem für den Mittelstand – Made in Ostwestfalen"
       image="kv-ueber-uns.webp"
     />
+    <div class="container">
 
       <section class="brand-story">
         <div class="story-content">
@@ -140,9 +138,6 @@ const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
 </Layout>
 
 <style>
-  .page {
-    padding-top: 20px;
-  }
 
   .brand-story {
     margin: 80px 0;
