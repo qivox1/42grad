@@ -19,6 +19,7 @@ const slides = [
           width="1920"
           height="816"
           loading={i === 0 ? 'eager' : 'lazy'}
+          fetchpriority={i === 0 ? 'high' : 'auto'}
         />
       </div>
     ))}
@@ -207,7 +208,9 @@ const slides = [
     border: 2px solid var(--color-dark);
     background: transparent;
     cursor: pointer;
-    padding: 0;
+    padding: 8px;
+    margin: 0 2px;
+    box-sizing: content-box;
     transition: background 0.3s, transform 0.3s;
     opacity: 0.4;
   }
