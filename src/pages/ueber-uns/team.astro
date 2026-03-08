@@ -9,11 +9,12 @@ import CTA from '../../components/CTA.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title="Das Team der 42grad GmbH – Gründer und KI-Experten aus OWL">
+<Layout title="Das Team der 42grad GmbH – Gründer und KI-Experten aus OWL"
+  description="Das Gründerteam der 42grad GmbH: Jonas Fröhleke (CEO) und Johann-Georg Vogelhuber (CTO) – KI-Experten aus Ostwestfalen mit Leidenschaft für den Mittelstand.">
   <Header />
   <main class="page">
     <div class="container">
-      <Breadcrumb items={[{label:'Über uns', href: base + '/ueber-uns'}, {label:'Team'}]} />
+      <Breadcrumb items={[{label:'Über uns', href: base + '/ueber-uns/'}, {label:'Team'}]} />
 
       <PageHero
         title="<span class='highlight'>Das</span> Team"
@@ -152,7 +153,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           Wir wachsen vorsichtig und selektiv. Qualität vor Quantität. Wenn Du interessiert bist, schau Dir unsere offenen Positionen an oder schreib uns eine Initiative.
         </p>
         <div class="join-cta">
-          <a href={base + '/ueber-uns/karriere'} class="btn-accent">Offene Positionen</a>
+          <a href={base + '/ueber-uns/karriere/'} class="btn-accent">Offene Positionen</a>
         </div>
       </section>
     </div>

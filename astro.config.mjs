@@ -6,5 +6,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://qivox1.github.io',
   base: '/42grad',
+  trailingSlash: 'always',
   integrations: [sitemap()],
 });

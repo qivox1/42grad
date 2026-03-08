@@ -15,7 +15,8 @@ const documentIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.
 const qualityIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" stroke="currentColor" stroke-width="2"/></svg>`;
 ---
 
-<Layout title="Anwendungen & Use Cases von 42°OS – KI für den Mittelstand">
+<Layout title="Anwendungen & Use Cases von 42°OS – KI für den Mittelstand"
+  description="Anwendungsgebiete von 42°OS: Prozessautomatisierung, Dokumentenmanagement und Qualitätssicherung für den deutschen Mittelstand.">
   <Header />
   <main class="page">
     <div class="container">
@@ -31,19 +32,19 @@ const qualityIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
           <FeatureCard
             title="Prozessautomatisierung"
             text="Automatisieren Sie Routineaufgaben durch KI-Agenten. Entlasten Sie Ihre Fachkräfte von zeitaufwendigen, manuellen Prozessen und steigern Sie die Produktivität um bis zu 40 %."
-            href={base + '/anwendungen/prozessautomatisierung'}
+            href={base + '/anwendungen/prozessautomatisierung/'}
             icon={processIcon}
           />
           <FeatureCard
             title="Dokumentenmanagement"
             text="Intelligente Erfassung, Klassifikation und Archivierung von Dokumenten mit KI. DSGVO-konform, sicher und vollständig automatisiert."
-            href={base + '/anwendungen/dokumentenmanagement'}
+            href={base + '/anwendungen/dokumentenmanagement/'}
             icon={documentIcon}
           />
           <FeatureCard
             title="Qualitätssicherung"
             text="Automatische Qualitätskontrolle in Echtzeit. KI-Agenten überwachen Prozesse kontinuierlich und erkennen Abweichungen sofort."
-            href={base + '/anwendungen/qualitaetssicherung'}
+            href={base + '/anwendungen/qualitaetssicherung/'}
             icon={qualityIcon}
           />
         </FeatureGrid>

@@ -8,7 +8,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Layout
   title="Kontakt – 42grad GmbH | KI-Plattform für den Mittelstand"
-  description="Kontaktieren Sie uns für eine unverbindliche Demo von 42°OS. Wir zeigen Ihnen, wie unsere On-Premises-KI-Plattform Ihre Geschäftsprozesse automatisiert."
+  description="Demo anfragen oder Kontakt aufnehmen: Erfahren Sie, wie 42°OS Ihre Geschäftsprozesse automatisiert. Wir melden uns innerhalb von 24 Stunden."
 >
   <Header />
   <main class="contact-page">
@@ -106,7 +106,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </div>
             <div class="form-checkbox">
               <input type="checkbox" id="privacy" name="privacy" required />
-              <label for="privacy">Ich habe die <a href={base + '/datenschutz'}>Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. <span class="required">*</span></label>
+              <label for="privacy">Ich habe die <a href={base + '/datenschutz/'}>Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. <span class="required">*</span></label>
             </div>
             <button type="submit" class="btn-accent btn-submit">Demo anfragen</button>
             <p class="form-note">Wir melden uns in der Regel innerhalb von 24 Stunden bei Ihnen.</p>

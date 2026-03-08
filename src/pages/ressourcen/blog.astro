@@ -9,11 +9,12 @@ import CTA from '../../components/CTA.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title="Blog – KI, Automatisierung und Mittelstand | 42grad GmbH">
+<Layout title="Blog – KI, Automatisierung und Mittelstand | 42grad GmbH"
+  description="Blog der 42grad GmbH: Fachartikel zu KI im Mittelstand, On-Premises-Automatisierung, DSGVO-konformer KI und digitaler Transformation.">
   <Header />
   <main class="page">
     <div class="container">
-      <Breadcrumb items={[{label:'Ressourcen', href: base + '/ressourcen'}, {label:'Blog'}]} />
+      <Breadcrumb items={[{label:'Ressourcen', href: base + '/ressourcen/'}, {label:'Blog'}]} />
 
       <PageHero
         title="<span class='highlight'>Blog</span>"

@@ -16,7 +16,8 @@ const studiesIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
 const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 13h6M9 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 ---
 
-<Layout title="Ressourcen & Wissen rund um 42°OS – Videos, Blog, Docs">
+<Layout title="Ressourcen & Wissen rund um 42°OS – Videos, Blog, Docs"
+  description="Ressourcen rund um 42°OS: Videos, Live-Demos, Blog-Artikel und technische Dokumentation zur KI-Plattform für den Mittelstand.">
   <Header />
   <main class="page">
     <div class="container">
@@ -32,19 +33,19 @@ const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/
           <FeatureCard
             title="Videos & Demos"
             text="Erleben Sie 42°OS in Aktion. Kurze Demonstrationen zeigen, wie die Plattform funktioniert – von der Architektur bis zur praktischen Anwendung."
-            href={base + '/ressourcen/videos'}
+            href={base + '/ressourcen/videos/'}
             icon={videosIcon}
           />
           <FeatureCard
             title="Blog"
             text="Insights, Updates und Wissenswertes rund um KI im Mittelstand. Expert-Artikel über Technologie, Best Practices und Erfolgsgeschichten."
-            href={base + '/ressourcen/blog'}
+            href={base + '/ressourcen/blog/'}
             icon={blogIcon}
           />
           <FeatureCard
             title="Case Studies"
             text="Lernen Sie von echten Anwendungsfällen. Wie andere mittelständische Unternehmen 42°OS nutzen, um ihre Prozesse zu automatisieren."
-            href={base + '/anwendungen'}
+            href={base + '/anwendungen/'}
             icon={studiesIcon}
           />
           <FeatureCard
