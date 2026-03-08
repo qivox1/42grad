@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qivox1.github.io/42grad/sitemap-index.xml

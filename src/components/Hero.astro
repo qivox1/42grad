@@ -1,18 +1,25 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const slides = [
-  `${base}/images/header_01.webp`,
-  `${base}/images/header_02.webp`,
-  `${base}/images/header_03.webp`,
+  { src: `${base}/images/header_01.webp`, alt: '42°OS KI-Plattform – Vernetzte Datenstruktur visualisiert' },
+  { src: `${base}/images/header_02.webp`, alt: '42°OS On-Premises Plattform – Intelligente digitale Infrastruktur' },
+  { src: `${base}/images/header_03.webp`, alt: '42°OS Agentic AI – Datenstrom und Prozessautomatisierung' },
 ];
 ---
 
 <section class="hero">
   <!-- Fullscreen Background Slider -->
   <div class="hero-slider">
-    {slides.map((src, i) => (
+    {slides.map((slide, i) => (
       <div class={`hero-slide ${i === 0 ? 'active' : ''}`} data-slide={i}>
-        <img src={src} alt="" class="hero-slide-img" loading={i === 0 ? 'eager' : 'lazy'} />
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          class="hero-slide-img"
+          width="1920"
+          height="816"
+          loading={i === 0 ? 'eager' : 'lazy'}
+        />
       </div>
     ))}
     <div class="hero-overlay"></div>
