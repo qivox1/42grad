@@ -11,6 +11,7 @@ status: "Freigegeben"
 
 author_name: "Johann-Georg Vogelhuber"
 author_bio: "Johann-Georg Vogelhuber ist CTO und Co-Founder der 42grad GmbH. Mit über 20 Jahren Erfahrung in KI-Systemen, Softwarearchitektur und skalierbaren Produktionsumgebungen – zuletzt als Head of AI bei GAMOMAT – entwickelt er mit 42°OS eine Plattform, die Produktionsreife nicht verspricht, sondern architektonisch liefert."
+author_image: "author-jgv.webp"
 expert_reviewer: ""
 
 seo_title: "KI-Projekte im Mittelstand: Warum 95 % scheitern – und was wirklich hilft"

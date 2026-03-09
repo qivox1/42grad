@@ -115,6 +115,16 @@ const pageDescription = data.meta_description || data.excerpt;
           <div class="article-meta">
             {data.author_name && (
               <div class="author-block">
+                {data.author_image && (
+                  <img
+                    src={`${base}/images/${data.author_image}`}
+                    alt={data.author_name}
+                    class="author-avatar"
+                    width="44"
+                    height="44"
+                    loading="lazy"
+                  />
+                )}
                 <div class="author-info">
                   <span class="author-name">{data.author_name}</span>
                   {data.author_bio && (
@@ -236,7 +246,19 @@ const pageDescription = data.meta_description || data.excerpt;
           {data.author_name && (
             <div class="sidebar-author">
               <h4>Über den Autor</h4>
-              <p class="sidebar-author-name">{data.author_name}</p>
+              <div class="sidebar-author-header">
+                <p class="sidebar-author-name">{data.author_name}</p>
+                {data.author_image && (
+                  <img
+                    src={`${base}/images/${data.author_image}`}
+                    alt={data.author_name}
+                    class="sidebar-author-avatar"
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                )}
+              </div>
               {data.author_bio && <p class="sidebar-author-bio">{data.author_bio}</p>}
             </div>
           )}
@@ -291,6 +313,15 @@ const pageDescription = data.meta_description || data.excerpt;
     align-items: center;
     gap: 12px;
     flex: 1;
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--color-bg-mint);
   }
 
   .author-info {
@@ -668,11 +699,29 @@ const pageDescription = data.meta_description || data.excerpt;
     border-radius: 12px;
   }
 
+  .sidebar-author-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--color-bg-mint);
+  }
+
   .sidebar-author-name {
     font-size: 15px;
     font-weight: 700;
     color: var(--color-dark);
-    margin-bottom: 8px;
+    margin: 0;
+    flex: 1;
   }
 
   .sidebar-author-bio {

@@ -15,6 +15,7 @@ const blog = defineCollection({
     // B — Autor & E-E-A-T
     author_name: z.string().optional().default(''),
     author_bio: z.string().optional().default(''),
+    author_image: z.string().optional().default(''),
     expert_reviewer: z.string().optional().default(''),
 
     // C — SEO
