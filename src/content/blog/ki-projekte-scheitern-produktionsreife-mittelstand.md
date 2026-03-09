@@ -2,7 +2,7 @@
 title: 'Die KI-Illusion: Warum „Startklar" noch lange nicht „Produktionsreif" bedeutet'
 excerpt: "95 % aller KI-Pilotprojekte scheitern – nicht wegen der Technologie, sondern wegen der gefährlichen Lücke zwischen Demo und Dauerbetrieb. Was Mittelstandsunternehmen jetzt wissen müssen."
 
-featured_image: ""
+featured_image: "Header_Die-KI-Illusion.webp"
 featured_image_alt: "IT-Entscheider vor einem Dashboard mit roten Fehlermeldungen – Symbol für die Kluft zwischen KI-Versprechen und produktionsreifer Realität im Mittelstand."
 
 date_published: "2026-03-09"
