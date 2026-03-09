@@ -1,0 +1,762 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CTA from '../../../components/CTA.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const data = post.data;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Datum formatieren
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(date));
+}
+
+// JSON-LD strukturierte Daten
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': data.schema_type || 'BlogPosting',
+  headline: data.seo_title || data.title,
+  description: data.meta_description || data.excerpt,
+  datePublished: new Date(data.date_published).toISOString(),
+  dateModified: data.date_modified ? new Date(data.date_modified).toISOString() : new Date(data.date_published).toISOString(),
+  author: data.author_name ? {
+    '@type': 'Person',
+    name: data.author_name,
+    description: data.author_bio || undefined,
+  } : undefined,
+  publisher: {
+    '@type': 'Organization',
+    name: '42grad GmbH',
+    url: 'https://qivox1.github.io/42grad/',
+  },
+  ...(data.featured_image ? {
+    image: `${base}/images/${data.featured_image}`,
+  } : {}),
+  ...(data.canonical_url ? { url: data.canonical_url } : {}),
+  keywords: data.tags?.join(', ') || '',
+  articleSection: data.category || '',
+};
+
+// FAQ JSON-LD (falls vorhanden)
+const faqJsonLd = data.faqs && data.faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: data.faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+} : null;
+
+const pageTitle = data.seo_title || data.title;
+const pageDescription = data.meta_description || data.excerpt;
+---
+
+<Layout title={`${pageTitle} | 42grad GmbH`} description={pageDescription}>
+  <Fragment slot="head">
+    <!-- Structured Data: BlogPosting -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {faqJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    )}
+    <!-- Open Graph -->
+    <meta property="og:title" content={data.og_title || data.title} />
+    <meta property="og:description" content={data.og_description || data.excerpt} />
+    <meta property="og:type" content="article" />
+    {data.og_image && <meta property="og:image" content={`${base}/images/${data.og_image}`} />}
+    <meta property="article:published_time" content={new Date(data.date_published).toISOString()} />
+    {data.date_modified && <meta property="article:modified_time" content={new Date(data.date_modified).toISOString()} />}
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={data.twitter_card || 'summary_large_image'} />
+    <meta name="twitter:title" content={data.twitter_title || data.title} />
+    <meta name="twitter:description" content={data.twitter_description || data.excerpt} />
+    <!-- Robots -->
+    <meta name="robots" content={data.robots || 'index, follow'} />
+    {data.canonical_url && <link rel="canonical" href={data.canonical_url} />}
+  </Fragment>
+
+  <Header />
+  <main class="page">
+    <PageHero
+      breadcrumbs={[
+        { label: 'Ressourcen', href: base + '/ressourcen/' },
+        { label: 'Blog', href: base + '/ressourcen/blog/' },
+        { label: data.title },
+      ]}
+      title={data.title}
+      subtitle={data.excerpt}
+      {... data.featured_image ? { image: data.featured_image } : {}}
+    />
+
+    <div class="container">
+      <div class="article-layout">
+
+        <!-- Artikel-Body -->
+        <article class="article-body">
+
+          <!-- Metazeile: Autor, Datum, Lesezeit -->
+          <div class="article-meta">
+            {data.author_name && (
+              <div class="author-block">
+                <div class="author-info">
+                  <span class="author-name">{data.author_name}</span>
+                  {data.author_bio && (
+                    <span class="author-bio">{data.author_bio}</span>
+                  )}
+                </div>
+              </div>
+            )}
+            <div class="article-meta-right">
+              <span class="meta-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                {formatDate(data.date_published)}
+              </span>
+              {data.estimated_read_time && (
+                <span class="meta-read-time">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  {data.estimated_read_time}
+                </span>
+              )}
+              {data.category && (
+                <span class="meta-category">{data.category}</span>
+              )}
+            </div>
+          </div>
+
+          <!-- Tags -->
+          {data.tags && data.tags.length > 0 && (
+            <div class="article-tags">
+              {data.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          )}
+
+          <!-- Artikelinhalt aus Markdown -->
+          <div class="prose">
+            <Content />
+          </div>
+
+          <!-- Quellen -->
+          {data.sources && data.sources.length > 0 && (
+            <div class="sources-section">
+              <h3>Quellen</h3>
+              <ol class="sources-list">
+                {data.sources.map((source) => (
+                  <li>
+                    <a href={source.url} target="_blank" rel="noopener noreferrer nofollow">
+                      {source.title}
+                    </a>
+                    {source.author && <span class="source-meta"> — {source.author}</span>}
+                    {source.date && <span class="source-meta"> ({source.date})</span>}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          <!-- Statistiken (maschinenlesbar, visuell) -->
+          {data.statistics && data.statistics.length > 0 && (
+            <div class="stats-block">
+              <h3>Zahlen & Fakten</h3>
+              <div class="stats-grid">
+                {data.statistics.map((stat) => (
+                  <div class="stat-card">
+                    <span class="stat-value">{stat.value}</span>
+                    <span class="stat-desc">{stat.description}</span>
+                    {stat.source && <span class="stat-source">Quelle: {stat.source}{stat.year ? ` (${stat.year})` : ''}</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="article-sidebar">
+
+          <!-- Primärer CTA -->
+          {data.primary_cta_text && data.primary_cta_url && (
+            <div class="sidebar-cta sidebar-cta--primary">
+              <p>Bereit für den nächsten Schritt?</p>
+              <a href={data.primary_cta_url} class="btn-accent" target="_blank" rel="noopener noreferrer">
+                {data.primary_cta_text}
+              </a>
+            </div>
+          )}
+
+          <!-- Sekundärer CTA -->
+          {data.secondary_cta_text && data.secondary_cta_url && (
+            <div class="sidebar-cta sidebar-cta--secondary">
+              <a href={data.secondary_cta_url}>
+                {data.secondary_cta_text} →
+              </a>
+            </div>
+          )}
+
+          <!-- Tags -->
+          {data.tags && data.tags.length > 0 && (
+            <div class="sidebar-tags">
+              <h4>Tags</h4>
+              <div class="tag-list">
+                {data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Autor -->
+          {data.author_name && (
+            <div class="sidebar-author">
+              <h4>Über den Autor</h4>
+              <p class="sidebar-author-name">{data.author_name}</p>
+              {data.author_bio && <p class="sidebar-author-bio">{data.author_bio}</p>}
+            </div>
+          )}
+
+        </aside>
+      </div>
+
+      <!-- CTA-Bereich unten (volle Breite) -->
+      {(data.primary_cta_text || data.secondary_cta_text) && (
+        <section class="article-cta-section">
+          {data.primary_cta_text && data.primary_cta_url && (
+            <a href={data.primary_cta_url} class="btn-accent cta-btn-primary" target="_blank" rel="noopener noreferrer">
+              {data.primary_cta_text}
+            </a>
+          )}
+          {data.secondary_cta_text && data.secondary_cta_url && (
+            <a href={data.secondary_cta_url} class="cta-btn-secondary">
+              {data.secondary_cta_text} →
+            </a>
+          )}
+        </section>
+      )}
+
+    </div>
+  </main>
+  <CTA />
+  <Footer />
+</Layout>
+
+<style>
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    margin: 64px 0 100px;
+    align-items: start;
+  }
+
+  /* ─── Meta-Zeile ─── */
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 32px;
+  }
+
+  .author-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .author-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-dark);
+  }
+
+  .author-bio {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    max-width: 480px;
+  }
+
+  .article-meta-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .meta-date,
+  .meta-read-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: var(--color-text-light);
+  }
+
+  .meta-category {
+    background: var(--color-bg-mint);
+    color: var(--color-dark);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* ─── Tags ─── */
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .tag {
+    background: var(--color-bg-azure);
+    color: var(--color-dark);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ─── Prose (Artikel-Inhalt) ─── */
+  .prose {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--color-text);
+    max-width: 72ch;
+  }
+
+  .prose :global(h2) {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 56px 0 20px;
+    line-height: 1.3;
+  }
+
+  .prose :global(h3) {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 40px 0 16px;
+    line-height: 1.4;
+  }
+
+  .prose :global(h4) {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 32px 0 12px;
+  }
+
+  .prose :global(p) {
+    margin: 0 0 20px;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 24px;
+    margin: 0 0 20px;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 8px;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--color-accent-bright);
+    background: var(--color-bg-mint);
+    margin: 32px 0;
+    padding: 20px 28px;
+    border-radius: 0 12px 12px 0;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 1.7;
+    color: var(--color-dark);
+  }
+
+  .prose :global(blockquote strong) {
+    color: var(--color-dark);
+  }
+
+  .prose :global(strong) {
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 48px 0;
+  }
+
+  /* Tabellen */
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 14px;
+  }
+
+  .prose :global(th) {
+    background: var(--color-dark);
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .prose :global(td) {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-light);
+  }
+
+  .prose :global(tr:nth-child(even) td) {
+    background: var(--color-bg-azure);
+  }
+
+  .prose :global(tr:last-child td) {
+    font-weight: 700;
+    color: var(--color-dark);
+    background: #fff3cd;
+  }
+
+  /* Code */
+  .prose :global(code) {
+    background: var(--color-bg-azure);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: monospace;
+  }
+
+  .prose :global(pre) {
+    background: var(--color-dark);
+    color: #e2e8f0;
+    padding: 24px;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+    font-size: 14px;
+    color: inherit;
+  }
+
+  /* Überschriften im FAQ-Bereich */
+  .prose :global(h2 + p strong) {
+    display: inline;
+  }
+
+  /* ─── Quellen ─── */
+  .sources-section {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sources-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+  }
+
+  .sources-list {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .sources-list li {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .sources-list a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .source-meta {
+    color: var(--color-text-muted);
+  }
+
+  /* ─── Statistiken-Block ─── */
+  .stats-block {
+    margin-top: 60px;
+    padding: 40px;
+    background: var(--color-bg-azure);
+    border-radius: 16px;
+  }
+
+  .stats-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(15, 43, 70, 0.06);
+  }
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-dark);
+    line-height: 1;
+  }
+
+  .stat-desc {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.4;
+  }
+
+  .stat-source {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+  }
+
+  /* ─── Sidebar ─── */
+  .article-sidebar {
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-cta--primary {
+    background: var(--color-dark);
+    color: #fff;
+    padding: 28px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .sidebar-cta--primary p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .sidebar-cta--primary .btn-accent {
+    display: block;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .sidebar-cta--secondary {
+    padding: 20px 24px;
+    background: var(--color-bg-mint);
+    border-radius: 12px;
+    border: 1px solid rgba(102, 228, 169, 0.3);
+  }
+
+  .sidebar-cta--secondary a {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .sidebar-cta--secondary a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar-tags h4,
+  .sidebar-author h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-tags {
+    padding: 20px 24px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sidebar-author {
+    padding: 20px 24px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  .sidebar-author-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .sidebar-author-bio {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  /* ─── Unterer CTA ─── */
+  .article-cta-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 80px;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #1a3d52 100%);
+    border-radius: 20px;
+  }
+
+  .cta-btn-primary {
+    flex-shrink: 0;
+    font-size: 15px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .cta-btn-secondary {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cta-btn-secondary:hover {
+    color: var(--color-accent-bright);
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .article-sidebar {
+      position: static;
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .article-layout {
+      margin: 40px 0 60px;
+    }
+
+    .article-meta {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .article-cta-section {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    .prose {
+      font-size: 15px;
+    }
+
+    .prose :global(table) {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -57,6 +57,9 @@ const ogImage = `https://qivox1.github.io${base}/images/header_03.webp`;
 
     <title>{title}</title>
 
+    <!-- Seiten-spezifische Head-Inhalte (JSON-LD, OG, Twitter etc.) -->
+    <slot name="head" />
+
     <!-- JSON-LD Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
