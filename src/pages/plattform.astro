@@ -115,25 +115,32 @@ import CTA from '../components/CTA.astro';
         </div>
         <div class="accordion-list">
           <AccordionItem title="1. Zugriffskontrolle & Authentifizierung" open={true}>
-            <p>Rollenbasierte Zugriffskontrolle (RBAC), Multi-Faktor-Authentifizierung und Single Sign-On. Jeder Nutzer sieht nur die Daten und Prozesse, die für seine Rolle relevant sind.</p>
+            <p>42°OS setzt auf granulare, rollenbasierte Zugriffskontrolle (RBAC): Jeder Nutzer erhält exakt die Berechtigungen, die seine Rolle erfordert – nicht mehr. Abteilungsleiter sehen ihre Workflows und Daten, IT-Administratoren verwalten die Plattformkonfiguration, Endanwender führen Prozesse aus, ohne in Systemeinstellungen eingreifen zu können.</p>
+            <p>Multi-Faktor-Authentifizierung (MFA) ist für alle privilegierten Konten verpflichtend. Für Unternehmen mit bestehender Active Directory- oder LDAP-Infrastruktur bietet 42°OS nahtlose SSO-Integration, sodass Mitarbeiter ihre gewohnten Unternehmensanmeldedaten verwenden – ohne separate Passwörter für die KI-Plattform. Session-Timeouts und automatische Sperrungen nach Inaktivität runden den Schutz ab.</p>
           </AccordionItem>
           <AccordionItem title="2. Datenverschlüsselung">
-            <p>AES-256-Verschlüsselung für gespeicherte Daten, TLS 1.3 für Datenübertragung. Verschlüsselung sowohl at rest als auch in transit – ohne Kompromisse.</p>
+            <p>Alle gespeicherten Daten – Dokumente, Prozessprotokolle, Konfigurationen, Vektordatenbanken – werden mit AES-256 verschlüsselt. Dieser Standard gilt als unknackbar mit heutiger Rechenkapazität und ist das gleiche Verfahren, das Banken und Behörden für höchst sensible Informationen einsetzen.</p>
+            <p>Für alle Datenübertragungen innerhalb der Plattform sowie zwischen Plattform und angebundenen Systemen wird ausschließlich TLS 1.3 verwendet – das aktuell sicherste Transportprotokoll. Ältere, kompromittierbare Protokolle wie TLS 1.0 oder 1.1 sind deaktiviert. Verschlüsselungsschlüssel werden in Ihrer eigenen Infrastruktur verwaltet und verlassen diese niemals.</p>
           </AccordionItem>
           <AccordionItem title="3. Netzwerk-Isolation">
-            <p>Die gesamte Plattform läuft in Ihrem lokalen Netzwerk. Keine eingehenden oder ausgehenden Verbindungen zu externen Servern nötig. Vollständige Air-Gap-Fähigkeit.</p>
+            <p>42°OS ist für den Betrieb vollständig innerhalb Ihres lokalen Netzwerks konzipiert. Die Plattform benötigt keine ausgehenden Verbindungen in das Internet – weder für KI-Inferenz, noch für Updates, noch für Lizenzverwaltung. Damit ist sie vollständig hinter Ihrer bestehenden Firewall-Infrastruktur betreibbar.</p>
+            <p>Für besonders sicherheitskritische Umgebungen unterstützt 42°OS den Air-Gap-Betrieb: Die Plattform läuft ohne jede Netzwerkverbindung nach außen. Alle KI-Modelle laufen lokal, alle Daten bleiben intern. Innerhalb Ihrer Netzwerkinfrastruktur sorgen Container-Netzwerke und konfigurierbare Firewall-Regeln dafür, dass einzelne Dienste nur miteinander kommunizieren können, wenn es funktional notwendig ist – nach dem Prinzip des minimalen Netzwerkzugangs.</p>
           </AccordionItem>
           <AccordionItem title="4. Audit-Logging">
-            <p>Lückenlose Protokollierung aller Systemaktivitäten: Zugriffe, Änderungen, Datenverarbeitungen. Revisionssichere Dokumentation für Compliance-Anforderungen.</p>
+            <p>Jede Aktion in 42°OS wird unveränderlich protokolliert: Wer hat wann welchen Prozess gestartet? Welche Daten wurden verarbeitet? Welche Konfigurationen wurden geändert? Welche KI-Antworten wurden generiert? Diese Logs sind tamper-evident – nachträgliche Veränderungen werden erkannt und gemeldet.</p>
+            <p>Das Audit-Log ist direkt für Compliance-Nachweise nutzbar: Bei Betriebsprüfungen, ISO-Audits oder Datenschutz-Folgeabschätzungen können vollständige, zeitgestempelte Aktivitätsprotokolle auf Knopfdruck exportiert werden. Für die Langzeitarchivierung werden Logs in unveränderlichen Speicherbereichen abgelegt, die den gesetzlichen Aufbewahrungsfristen entsprechen.</p>
           </AccordionItem>
           <AccordionItem title="5. Bedrohungserkennung">
-            <p>Echtzeit-Monitoring mit automatischer Anomalie-Erkennung. Verdächtige Aktivitäten werden sofort erkannt und gemeldet, bevor Schaden entstehen kann.</p>
+            <p>42°OS überwacht kontinuierlich das Verhalten aller Nutzer, Prozesse und API-Verbindungen. Ungewöhnliche Muster – ein Nutzer, der plötzlich auf ungewohnte Datenbereiche zugreift, ein Prozess, der außerhalb seiner definierten Laufzeiten aktiv wird, ein externer Dienst, der auffällig viele Anfragen sendet – lösen automatisch Alerts aus.</p>
+            <p>Rate-Limiting auf allen exponierten Endpunkten schützt vor Brute-Force-Angriffen und Denial-of-Service-Versuchen. Prompt-Injection-Angriffe – Versuche, KI-Agenten durch manipulierte Eingaben zu kompromittieren – werden durch vorgelagerte Eingabevalidierung und Kontext-Sanitization abgewehrt. Alle sicherheitsrelevanten Ereignisse werden priorisiert und an Ihr SIEM-System weitergeleitet.</p>
           </AccordionItem>
           <AccordionItem title="6. Compliance-Monitoring">
-            <p>Automatische Prüfung auf Einhaltung von DSGVO-Anforderungen, internen Richtlinien und Branchenstandards. Compliance-Reports auf Knopfdruck.</p>
+            <p>42°OS prüft laufend, ob der Betrieb der Plattform und die verarbeiteten Daten mit konfigurierten Regelwerken übereinstimmen: DSGVO-Anforderungen wie Löschfristen und Verarbeitungszwecke, interne Richtlinien wie Datenzugriffsregeln, sowie branchenspezifische Standards. Abweichungen werden sofort gemeldet – nicht erst beim nächsten manuellen Audit.</p>
+            <p>Compliance-Reports lassen sich automatisiert für wiederkehrende Berichtspflichten generieren: Datenschutz-Folgeabschätzungen, Verarbeitungsverzeichnisse nach Art. 30 DSGVO, Nachweise für Auftragsverarbeiter-Verträge. Das reduziert den Aufwand für Datenschutzbeauftragte und Revisoren erheblich und macht die Vorbereitung auf externe Prüfungen planbar.</p>
           </AccordionItem>
           <AccordionItem title="7. Incident Response">
-            <p>Definierte Reaktionsprozesse bei Sicherheitsvorfällen. Automatische Benachrichtigungen, Eskalationsstufen und dokumentierte Maßnahmenpläne.</p>
+            <p>Im Falle eines Sicherheitsvorfalls zählt jede Minute. 42°OS verfügt über vordefinierte Reaktionsketten: Kritische Alerts eskalieren automatisch über konfigurierbare Kanäle – E-Mail, Ticket-System, Messaging-Plattform – an die zuständigen Verantwortlichen. Parallel dazu werden betroffene Prozesse und Zugänge automatisch suspendiert, bis eine manuelle Freigabe erfolgt.</p>
+            <p>Für die forensische Nachbereitung stellt 42°OS vollständige Zeitstrahlen des Vorfalls bereit: Welche Systeme waren betroffen, welche Daten wurden berührt, welche Aktionen wurden in welcher Reihenfolge ausgeführt? Diese Informationen sind für die gesetzlich vorgeschriebene Meldepflicht bei Datenschutzverletzungen (72-Stunden-Frist nach Art. 33 DSGVO) unmittelbar nutzbar.</p>
           </AccordionItem>
         </div>
       </div>
