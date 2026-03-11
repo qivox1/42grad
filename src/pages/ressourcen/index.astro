@@ -12,7 +12,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const videosIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 7l-7 5 7 5V7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/></svg>`;
 const blogIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2"/><path d="M6 8h12M6 12h12M6 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 const studiesIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2h16v20H4V2z" stroke="currentColor" stroke-width="2"/><path d="M7 14h10M7 18h6M7 6h10v4H7V6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 13h6M9 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 ---
 
 <Layout title="Ressourcen & Wissen rund um 42°OS – Videos, Blog, Docs"
@@ -28,7 +27,7 @@ const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/
     <div class="container">
 
       <section class="resources-grid">
-        <FeatureGrid columns={2}>
+        <FeatureGrid columns={3}>
           <FeatureCard
             title="Videos & Demos"
             text="Erleben Sie 42°OS in Aktion. Kurze Demonstrationen zeigen, wie die Plattform funktioniert – von der Architektur bis zur praktischen Anwendung."
@@ -46,12 +45,6 @@ const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/
             text="Lernen Sie von echten Anwendungsfällen. Wie andere mittelständische Unternehmen 42°OS nutzen, um ihre Prozesse zu automatisieren."
             href={base + '/anwendungen/'}
             icon={studiesIcon}
-          />
-          <FeatureCard
-            title="Dokumentation"
-            text="Technische Dokumentation für Entwickler und System-Administratoren. API-Referenzen, Deployment-Guides und Best Practices."
-            href="https://docs.42-grad.com"
-            icon={docsIcon}
           />
         </FeatureGrid>
       </section>
@@ -79,7 +72,7 @@ const docsIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/
             <div class="step-number">3</div>
             <h3>Technisch tiefer einsteigen</h3>
             <p>
-              Mit der Dokumentation und technischen Artikeln verstehen Sie die Architektur und wie Sie 42°OS implementieren und konfigurieren.
+              Mit unseren Blog-Artikeln verstehen Sie die Architektur hinter 42°OS und was produktionsreife KI-Automatisierung konkret bedeutet.
             </p>
           </div>
           <div class="step-arrow">→</div>
