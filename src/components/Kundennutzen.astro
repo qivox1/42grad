@@ -1,0 +1,266 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const nutzen = [
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/><path d="M16 8v8l5 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Mehr Zeit',
+    text: 'Routineaufgaben werden automatisiert. Ihre Mitarbeiter gewinnen Stunden zurück – jeden Tag. Zeit für Arbeit, die wirklich zählt.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 2L28 8v16L16 30 4 24V8L16 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 10v12M10 13l6-3 6 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Selbstbestimmung',
+    text: 'Keine Abhängigkeit von Cloud-Anbietern, keine versteckten Vertragsklauseln. Sie entscheiden – über Ihre Daten, Ihre Prozesse, Ihre Zukunft.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 24L12 14l6 6 6-10 4 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Echte Effizienz',
+    text: 'KI-gestützte Prozesse sind nicht nur schneller – sie sind konsistenter, fehlerfreier und rund um die Uhr verfügbar. Ohne zusätzlichen Personalaufwand.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 28h24M8 20v8M14 16v12M20 12v16M26 8v20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+    title: 'Zukunftssicherheit',
+    text: 'Modulare Architektur und offene Standards bedeuten: Sie wachsen mit der Technologie, nicht gegen sie. Made in Germany, zukunftsfähig von Beginn an.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 2l3 9h9l-7 5 3 9-8-6-8 6 3-9L4 11h9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+    title: 'Seelenfrieden',
+    text: 'DSGVO-konform. On-Premises. Audit-sicher. Wissen, dass Ihre Daten sicher sind – nicht als Marketingversprechen, sondern als technische Tatsache.',
+  },
+];
+---
+
+<section class="kundennutzen">
+  <div class="container">
+    <div class="nutzen-header">
+      <span class="section-label">Was Sie wirklich gewinnen</span>
+      <h2 class="nutzen-title">
+        Mehr als Effizienz.<br /><span class="highlight">Echte unternehmerische Freiheit.</span>
+      </h2>
+      <p class="nutzen-intro">
+        42°OS ist kein weiteres Tool in Ihrem IT-Stack. Es ist die Grundlage, auf der Sie Ihr Unternehmen
+        so führen, wie Sie es schon immer wollten: souverän, effizient, zukunftssicher.
+      </p>
+    </div>
+
+    <div class="nutzen-layout">
+      <!-- Left: hero image 1 -->
+      <div class="nutzen-visual nutzen-visual--top">
+        <img
+          src={`${base}/images/nutzen-zeit.webp`}
+          alt="Mitarbeiter im Mittelstand – gewonnene Zeit und Fokus durch KI-Automatisierung"
+          class="nutzen-img"
+          loading="lazy"
+          width="520"
+          height="360"
+        />
+        <div class="nutzen-img-caption">
+          <span>Ihr Team. Befreit für das Wesentliche.</span>
+        </div>
+      </div>
+
+      <!-- Center: 5 value items -->
+      <div class="nutzen-items">
+        {nutzen.map((item) => (
+          <div class="nutzen-item">
+            <div class="nutzen-icon" set:html={item.icon} />
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Right: hero image 2 -->
+      <div class="nutzen-visual nutzen-visual--bottom">
+        <img
+          src={`${base}/images/nutzen-seelenfrieden.webp`}
+          alt="Geschäftsführer im Mittelstand – Seelenfrieden durch DSGVO-konforme On-Premises-KI"
+          class="nutzen-img"
+          loading="lazy"
+          width="520"
+          height="360"
+        />
+        <div class="nutzen-img-caption">
+          <span>Souveränität als Wettbewerbsvorteil.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA strip -->
+    <div class="nutzen-cta-strip">
+      <p class="nutzen-cta-text">
+        Bereit für den ersten Schritt? Zeigen Sie uns Ihren wichtigsten Prozess –<br />
+        und wir zeigen Ihnen, was 42°OS daraus macht.
+      </p>
+      <a
+        href="https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form"
+        class="btn-accent"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Demo vereinbaren
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .kundennutzen {
+    padding: var(--section-padding);
+    background: #0F2B46;
+    color: #fff;
+  }
+
+  .nutzen-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 72px;
+  }
+
+  .nutzen-header .section-label {
+    color: var(--color-accent-bright);
+    opacity: 1;
+  }
+
+  .nutzen-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .nutzen-title .highlight {
+    color: var(--color-accent-bright);
+  }
+
+  .nutzen-intro {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+  }
+
+  /* Layout */
+  .nutzen-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+
+  /* Visual panels */
+  .nutzen-visual {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .nutzen-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .nutzen-img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 16px;
+    background: linear-gradient(to top, rgba(15, 43, 70, 0.9), transparent);
+  }
+
+  .nutzen-img-caption span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent-bright);
+  }
+
+  .nutzen-visual--top {
+    align-self: start;
+  }
+
+  .nutzen-visual--bottom {
+    align-self: end;
+  }
+
+  /* Item list */
+  .nutzen-items {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .nutzen-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .nutzen-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(102, 228, 169, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent-bright);
+  }
+
+  .nutzen-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .nutzen-item p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA strip */
+  .nutzen-cta-strip {
+    text-align: center;
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(102, 228, 169, 0.2);
+    border-radius: 20px;
+  }
+
+  .nutzen-cta-text {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 1200px) {
+    .nutzen-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .nutzen-visual--top,
+    .nutzen-visual--bottom {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nutzen-cta-strip {
+      padding: 32px 20px;
+    }
+    .nutzen-cta-text br { display: none; }
+  }
+</style>

@@ -9,10 +9,48 @@ import CTA from '../../components/CTA.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const sovereigntyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-const transparencyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>`;
-const innovationIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10h6M9 14h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" stroke="currentColor" stroke-width="2"/></svg>`;
+const brandValues = [
+  {
+    num: '01',
+    title: 'Souveränität',
+    text: 'Ihre Daten verlassen nie Ihr Haus. Wir liefern eine Plattform, die Ihnen gehört – keine Dienstleistung, die Sie abhängig macht. On-Premises ist keine technische Option, sondern unser Grundprinzip.',
+    image: 'wert-souveraenitaet.webp',
+    imageAlt: 'Digitale Souveränität – sichere On-Premises-Infrastruktur für den Mittelstand',
+    color: 'val--azure',
+  },
+  {
+    num: '02',
+    title: 'Qualität',
+    text: 'Made in Ostwestfalen. Mit dem Anspruch des deutschen Ingenieurwesens: Keine Beta-Features im Produktivbetrieb, keine Kompromisse bei Sicherheit. Wir bauen Software, die jahrelang trägt.',
+    image: 'wert-qualitaet.webp',
+    imageAlt: 'Deutsche Qualität in der Softwareentwicklung – präzise, verlässlich, zukunftssicher',
+    color: 'val--mint',
+  },
+  {
+    num: '03',
+    title: 'Partnerschaft',
+    text: 'Wir sind kein Ticketsystem. Wir sind Ihr technologischer Partner – auf Augenhöhe, langfristig, erreichbar. Wenn Ihr Prozess nicht funktioniert, ist das unser Problem.',
+    image: 'wert-partnerschaft.webp',
+    imageAlt: 'Partnerschaft auf Augenhöhe – 42 Grad als langfristiger technologischer Begleiter',
+    color: 'val--light',
+  },
+  {
+    num: '04',
+    title: 'Nachhaltigkeit',
+    text: 'On-Premises bedeutet weniger Energie als Hyperscaler-Rechenzentren. Technologie, die ökonomisch und ökologisch Sinn ergibt – für heute und für die nächste Generation.',
+    image: 'wert-nachhaltigkeit.webp',
+    imageAlt: 'Nachhaltige KI-Technologie – energieeffizient und zukunftsorientiert',
+    color: 'val--dark',
+  },
+  {
+    num: '05',
+    title: 'Innovation',
+    text: 'Vorreiter der europäischen KI-Souveränität. Wir setzen keine Trends – wir antizipieren, was mittelständische Unternehmen in drei Jahren brauchen. Und wir bauen es heute.',
+    image: 'wert-innovation.webp',
+    imageAlt: 'Innovation mit Verantwortung – europäische KI-Souveränität Made in Germany',
+    color: 'val--azure',
+  },
+];
 ---
 
 <Layout title="Über 42grad GmbH – KI-Technologie Made in Ostwestfalen"
@@ -68,29 +106,35 @@ const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
       </section>
 
       <section class="values-section">
-        <h2>Unsere Werte</h2>
-        <FeatureGrid columns={4}>
-          <FeatureCard
-            title="Digitale Souveränität"
-            text="On-Premises, nicht SaaS. Ihre Daten gehören Ihnen. Keine Cloud-Abhängigkeit, keine versteckten Abhängigkeiten. Sie haben die Kontrolle."
-            icon={sovereigntyIcon}
-          />
-          <FeatureCard
-            title="Transparenz & Fairness"
-            text="Keine Black-Box-Algorithmen. Sie verstehen, wie 42°OS funktioniert. Faire Preismodelle, ehrliche Kommunikation, keine Überraschungen."
-            icon={transparencyIcon}
-          />
-          <FeatureCard
-            title="Innovation mit Verantwortung"
-            text="Wir entwickeln KI-Features, die wirklich helfen. Nicht für Hype, sondern für echte Geschäftsprobleme. Mit Sicherheit und Verantwortung."
-            icon={innovationIcon}
-          />
-          <FeatureCard
-            title="Made in Germany"
-            text="Entwickelt in Ostwestfalen nach europäischen Standards. DSGVO-konform von Grund auf. Das ist kein Marketing-Gimmick – das ist unsere DNA."
-            icon={germanyIcon}
-          />
-        </FeatureGrid>
+        <div class="values-section-header">
+          <span class="section-label">Unsere Werte</span>
+          <h2>Was uns antreibt –<br /><span class="highlight">und was uns unterscheidet.</span></h2>
+          <p>
+            Werte sind keine Marketingformeln. Das hier ist, wie wir arbeiten, was wir versprechen und woran wir uns messen lassen.
+          </p>
+        </div>
+
+        <div class="brand-values-grid">
+          {brandValues.map((val) => (
+            <div class={`brand-value-card ${val.color}`}>
+              <div class="bv-image-wrapper">
+                <img
+                  src={`${base}/images/${val.image}`}
+                  alt={val.imageAlt}
+                  class="bv-img"
+                  loading="lazy"
+                  width="480"
+                  height="280"
+                />
+              </div>
+              <div class="bv-content">
+                <span class="bv-num">{val.num}</span>
+                <h3 class="bv-title">{val.title}</h3>
+                <p class="bv-text">{val.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section class="team-preview-section">
@@ -204,15 +248,116 @@ const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
     color: var(--color-accent);
   }
 
+  /* Values section */
   .values-section {
     margin: 100px 0;
   }
 
-  .values-section h2 {
-    font-size: 36px;
+  .values-section-header {
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .values-section-header h2 {
+    font-size: clamp(28px, 3.5vw, 42px);
     font-weight: 700;
     color: var(--color-dark);
-    margin-bottom: 50px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .values-section-header h2 .highlight {
+    color: var(--color-accent);
+  }
+
+  .values-section-header p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .brand-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* 5th card spans full width of the last "row" on desktop, centered */
+  .brand-values-grid .brand-value-card:nth-child(4) {
+    grid-column: 1 / 2;
+  }
+  .brand-values-grid .brand-value-card:nth-child(5) {
+    grid-column: 2 / 3;
+  }
+
+  .brand-value-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .brand-value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 43, 70, 0.1);
+  }
+
+  .bv-image-wrapper {
+    aspect-ratio: 12 / 7;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0F2B46, #1a3d58);
+  }
+
+  .bv-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .brand-value-card:hover .bv-img {
+    transform: scale(1.04);
+  }
+
+  .bv-content {
+    padding: 24px 28px 28px;
+    flex: 1;
+  }
+
+  .val--azure .bv-content { background: var(--color-bg-azure); }
+  .val--mint .bv-content  { background: var(--color-bg-mint); }
+  .val--light .bv-content { background: #fff; }
+  .val--dark .bv-content  { background: #0F2B46; }
+  .val--dark .bv-title,
+  .val--dark .bv-text     { color: #fff; }
+  .val--dark .bv-num      { color: var(--color-accent-bright); }
+  .val--dark .bv-text     { color: rgba(255,255,255,0.8); }
+
+  .bv-num {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .bv-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+  }
+
+  .bv-text {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
   }
 
   .team-preview-section {
@@ -322,6 +467,16 @@ const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
     margin-bottom: 0;
   }
 
+  @media (max-width: 1024px) {
+    .brand-values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .brand-values-grid .brand-value-card:nth-child(4),
+    .brand-values-grid .brand-value-card:nth-child(5) {
+      grid-column: auto;
+    }
+  }
+
   @media (max-width: 768px) {
     .brand-story {
       margin: 60px 0;
@@ -335,11 +490,14 @@ const germanyIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.o
     }
 
     .stats-section h2,
-    .values-section h2,
     .team-preview-section h2,
     .mission-section h2,
     .story-content h2 {
       font-size: 28px;
+    }
+
+    .brand-values-grid {
+      grid-template-columns: 1fr;
     }
 
     .team-preview-grid {

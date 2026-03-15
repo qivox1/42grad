@@ -1,0 +1,192 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pillars = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/><path d="M7 14h14M14 7v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+    title: 'Orchestrierung',
+    text: 'Wie ein Betriebssystem alle Programme koordiniert, verbindet 42°OS alle Ihre KI-Agenten, Workflows und Systeme zu einem intelligenten Ganzen.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="2"/><path d="M9 14l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Kontrolle',
+    text: 'Sie entscheiden, was automatisiert wird – und was nicht. Human-in-the-Loop ist keine Option, sondern Prinzip. Ihre Geschäftsprozesse, Ihre Regeln.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 8v12L14 26 2 20V8L14 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v24M2 8l12 6 12-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+    title: 'Souveränität',
+    text: 'On-Premises bedeutet: Ihre Daten verlassen nie Ihr Haus. Keine US-Cloud, keine DSGVO-Grauzone, keine versteckten Abhängigkeiten.',
+  },
+];
+---
+
+<section class="versprechen">
+  <div class="container versprechen-inner">
+    <div class="versprechen-visual">
+      <div class="versprechen-image-wrapper">
+        <img
+          src={`${base}/images/os-metapher.webp`}
+          alt="42°OS als digitales Betriebssystem – abstrakte Darstellung intelligenter Datenflüsse im Unternehmen"
+          class="versprechen-img"
+          loading="lazy"
+          width="600"
+          height="480"
+        />
+        <div class="versprechen-badge">
+          <span class="badge-label">On-Premises</span>
+          <span class="badge-sub">100% in Ihrer Infrastruktur</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="versprechen-content">
+      <span class="section-label">Das Versprechen</span>
+      <h2 class="versprechen-title">
+        42°OS ist das<br /><span class="highlight">Betriebssystem</span><br />Ihrer Unternehmens-Intelligenz.
+      </h2>
+      <p class="versprechen-text">
+        So wie ein Betriebssystem Ihren Computer erst vollständig macht – alle Anwendungen koordiniert,
+        Ressourcen verwaltet, Prozesse steuert – übernimmt 42°OS diese Rolle für Ihre KI-gestützte
+        Unternehmensautomatisierung. Komplett auf Ihrer eigenen Infrastruktur.
+      </p>
+
+      <div class="versprechen-pillars">
+        {pillars.map((pillar) => (
+          <div class="pillar-item">
+            <div class="pillar-icon" set:html={pillar.icon} />
+            <div class="pillar-text">
+              <h3>{pillar.title}</h3>
+              <p>{pillar.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .versprechen {
+    padding: var(--section-padding);
+    background: var(--color-bg-mint);
+  }
+
+  .versprechen-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  /* Visual side */
+  .versprechen-visual {
+    position: relative;
+  }
+
+  .versprechen-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 5 / 4;
+    background: linear-gradient(135deg, #0F2B46 0%, #1a3d58 100%);
+  }
+
+  .versprechen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .versprechen-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 20px rgba(15, 43, 70, 0.15);
+  }
+
+  .badge-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  .badge-sub {
+    display: block;
+    font-size: 11px;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* Content side */
+  .versprechen-title {
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .versprechen-title .highlight {
+    color: var(--color-accent);
+  }
+
+  .versprechen-text {
+    font-size: 16px;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  /* Pillars */
+  .versprechen-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .pillar-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .pillar-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    box-shadow: 0 2px 8px rgba(15, 43, 70, 0.08);
+  }
+
+  .pillar-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 4px;
+  }
+
+  .pillar-text p {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .versprechen-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+</style>

@@ -1,17 +1,19 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const values = [
-  { num: '01', title: 'On-Premises', text: '100% Kontrolle über Ihre Daten. Keine Cloud-Abhängigkeit. Ihre Infrastruktur, Ihre Regeln.' },
-  { num: '02', title: 'Skalierbar', text: 'Von ersten Pilotprozessen bis zur unternehmensweiten Automatisierung – 42°OS wächst mit Ihnen.' },
-  { num: '03', title: 'No-Code', text: 'Visual Workflow Designer und Agent-Bibliothek – ohne Programmierkenntnisse einsatzbereit.' },
-  { num: '04', title: 'Made in Germany', text: 'Entwickelt in Ostwestfalen. DSGVO-konform. Faire Vertragsbedingungen.' },
+  { num: '01', title: 'Souveränität', text: 'Ihre Daten, Ihre Infrastruktur, Ihre Entscheidungen. Wir liefern Technologie, die Ihnen gehört – nicht eine Dienstleistung, die Sie mieten.' },
+  { num: '02', title: 'Qualität', text: 'Entwickelt in Ostwestfalen, mit dem Anspruch des deutschen Ingenieurwesens. Keine Beta-Features in der Produktion. Kein Kompromiss bei Sicherheit.' },
+  { num: '03', title: 'Partnerschaft', text: 'Wir sind kein SaaS-Anbieter, der Tickets bearbeitet. Wir sind Ihr technologischer Partner – langfristig, auf Augenhöhe, erreichbar.' },
+  { num: '04', title: 'Nachhaltigkeit', text: 'On-Premises bedeutet geringerer CO₂-Fußabdruck als Hyperscaler. Technologie, die ökonomisch und ökologisch Sinn ergibt.' },
+  { num: '05', title: 'Innovation', text: 'Vorreiter der europäischen KI-Souveränität. Wir setzen keine Trends – wir antizipieren, was Mittelständler in drei Jahren brauchen werden.' },
 ];
 ---
 
 <section class="values">
   <div class="container values-grid">
     <div class="values-left">
-      <h2 class="values-title">Technologie, der Sie<br />vertrauen können.</h2>
+      <h2 class="values-title">Werte, die wir<br />wirklich leben.</h2>
+      <p class="values-sub">Nicht nur Technologie – eine Haltung. Was uns antreibt und wie wir mit unseren Kunden arbeiten.</p>
       <a href="https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form" class="btn-accent values-btn" target="_blank" rel="noopener noreferrer">Jetzt Kontakt aufnehmen</a>
     </div>
 
@@ -46,6 +48,13 @@ const values = [
     font-size: clamp(32px, 4vw, 48px);
     font-weight: 700;
     color: var(--color-dark);
+    margin-bottom: 16px;
+  }
+
+  .values-sub {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
     margin-bottom: 32px;
   }
 
