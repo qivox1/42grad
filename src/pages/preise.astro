@@ -1,13 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// ── Tabler icon SVG paths ──
+const icons = {
+  bolt: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />`,
+  layers: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l8 4l-8 4l-8 -4z" /><path d="M4 10l8 4l8 -4" /><path d="M4 18l8 4l8 -4" />`,
+  diamond: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" /><path d="M10 12l-2 -2.2l.6 -1" />`,
+  building: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0" /><path d="M5 21v-14l8 -4v18" /><path d="M19 21v-10l-6 -4" /><path d="M9 9l0 .01" /><path d="M9 12l0 .01" /><path d="M9 15l0 .01" /><path d="M9 18l0 .01" />`,
+  server: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="4" width="18" height="8" rx="3" /><rect x="3" y="12" width="18" height="8" rx="3" /><line x1="7" y1="8" x2="7.01" y2="8" /><line x1="7" y1="16" x2="7.01" y2="16" />`,
+  mapPin: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="11" r="3" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />`,
+  receipt: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2" /><path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5m2 0v1.5m0 -9v1.5" />`,
+  rocket: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" /><path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" /><circle cx="15" cy="9" r="1" />`,
+  headset: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 14v-3a8 8 0 1 1 16 0v3" /><path d="M18 19c0 1.657 -2.686 3 -6 3" /><rect x="2" y="14" width="4" height="6" rx="2" /><rect x="18" y="14" width="4" height="6" rx="2" />`,
+  trendingUp: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="3 17 9 11 13 15 21 7" /><polyline points="14 7 21 7 21 14" />`,
+};
 
 const plans = [
   {
     key: 'mini',
     name: 'Workflow Engine',
     tier: 'mini',
-    icon: '🚀',
+    icon: 'bolt',
     tagline: 'Schnell starten, sofort Ergebnisse sehen.',
     price: '850',
     priceNote: 'mtl. inkl. Hosting',
@@ -33,7 +49,7 @@ const plans = [
     key: 'base',
     name: 'Workflow Engine',
     tier: 'Base',
-    icon: '🔧',
+    icon: 'layers',
     tagline: 'On-Premises. Ihre Daten, Ihre Kontrolle.',
     price: '1.450',
     priceNote: 'mtl. zzgl. MwSt.',
@@ -60,7 +76,7 @@ const plans = [
     key: 'pro',
     name: 'Workflow Engine',
     tier: 'Pro',
-    icon: '💎',
+    icon: 'diamond',
     tagline: 'Volle Kontrolle über komplexe Automatisierungen.',
     price: null,
     priceNote: 'Preis auf Anfrage',
@@ -89,7 +105,7 @@ const plans = [
     key: 'enterprise',
     name: 'Workflow Engine',
     tier: 'Enterprise',
-    icon: '🏢',
+    icon: 'building',
     tagline: 'Unbegrenzte Skalierung für den gesamten Betrieb.',
     price: null,
     priceNote: 'Preis auf Anfrage',
@@ -117,16 +133,17 @@ const plans = [
 ];
 
 const included = [
-  { icon: '🔒', label: '100% On-Premises', desc: 'Alle Daten bleiben auf Ihrer Infrastruktur.' },
-  { icon: '🇩🇪', label: 'Made in Germany', desc: 'DSGVO-konform entwickelt und gehostet.' },
-  { icon: '📊', label: 'Planbare Jahreslizenz', desc: 'Keine versteckten Kosten, kein Pay-per-Use.' },
-  { icon: '🚀', label: 'Schneller Rollout', desc: 'Erster Workflow innerhalb von 2 Wochen live.' },
-  { icon: '🤝', label: 'Persönliche Betreuung', desc: 'Direkter Ansprechpartner aus OWL.' },
-  { icon: '🔄', label: 'Freie Skalierung', desc: 'Jederzeit auf höheres Paket upgraden.' },
+  { icon: 'server',     label: '100% On-Premises',      desc: 'Alle Daten bleiben auf Ihrer Infrastruktur.' },
+  { icon: 'mapPin',     label: 'Made in Germany',        desc: 'DSGVO-konform entwickelt und gehostet.' },
+  { icon: 'receipt',    label: 'Planbare Jahreslizenz',  desc: 'Keine versteckten Kosten, kein Pay-per-Use.' },
+  { icon: 'rocket',     label: 'Schneller Rollout',      desc: 'Erster Workflow innerhalb von 2 Wochen live.' },
+  { icon: 'headset',    label: 'Persönliche Betreuung',  desc: 'Direkter Ansprechpartner aus OWL.' },
+  { icon: 'trendingUp', label: 'Freie Skalierung',       desc: 'Jederzeit auf höheres Paket upgraden.' },
 ];
 ---
 
 <Layout title="Preise – 42°OS Workflow Engine | 42grad" description="Transparente Preismodelle für die 42°OS Workflow Engine. Von Mini bis Enterprise – finden Sie das passende Paket für Ihren Mittelstandsbetrieb.">
+  <Header />
 
   <!-- ── Page Hero ── -->
   <section class="pricing-hero">
@@ -151,7 +168,9 @@ const included = [
             {plan.badge && <div class="plan-badge">{plan.badge}</div>}
 
             <div class="plan-header">
-              <div class="plan-icon">{plan.icon}</div>
+              <div class="plan-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" set:html={icons[plan.icon as keyof typeof icons]} />
+              </div>
               <p class="plan-name">{plan.name}</p>
               <h2 class="plan-tier">{plan.tier}</h2>
               <p class="plan-tagline">{plan.tagline}</p>
@@ -213,7 +232,9 @@ const included = [
       <div class="included-grid">
         {included.map(item => (
           <div class="included-card">
-            <span class="included-icon">{item.icon}</span>
+            <div class="included-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" set:html={icons[item.icon as keyof typeof icons]} />
+            </div>
             <h3 class="included-label">{item.label}</h3>
             <p class="included-desc">{item.desc}</p>
           </div>
@@ -279,6 +300,7 @@ const included = [
     </div>
   </section>
 
+  <Footer />
 </Layout>
 
 <style>
@@ -401,8 +423,15 @@ const included = [
   }
 
   .plan-icon {
-    font-size: 28px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+  }
+
+  .plan--dark .plan-icon,
+  .plan--navy .plan-icon {
+    color: var(--color-accent-bright, #66E4A9);
   }
 
   .plan-name {
@@ -661,9 +690,10 @@ const included = [
   }
 
   .included-icon {
-    font-size: 28px;
-    display: block;
-    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    color: var(--color-accent);
   }
 
   .included-label {
