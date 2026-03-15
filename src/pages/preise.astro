@@ -6,25 +6,23 @@ const plans = [
   {
     key: 'mini',
     name: 'Workflow Engine',
-    tier: 'Mini',
-    icon: '⚡',
-    tagline: 'Der perfekte Einstieg in die Automatisierung.',
-    price: '490',
-    priceNote: 'mtl. zzgl. MwSt.',
+    tier: 'mini',
+    icon: '🚀',
+    tagline: 'Schnell starten, sofort Ergebnisse sehen.',
+    price: '850',
+    priceNote: 'mtl. inkl. Hosting',
     highlight: false,
-    badge: null,
+    badge: 'Begrenztes Kontingent',
     features: [
-      'Visual Workflow Designer (No-Code)',
-      'Standard-Agenten (E-Mail, Dokumente)',
-      'Bis zu 5 User',
-      '1 virtueller Mitarbeiter (= 200 Agents)',
-      'Basis-Monitoring Dashboard',
-      'Human-in-the-Loop Validierung',
+      'Shared SaaS – sofort verfügbar',
+      'Visueller Workflow-Designer (No-Code)',
+      'Standard-Prozessagenten',
+      'Wissensmanagement',
+      'Begrenztes Nutzungskontingent',
     ],
     extras: [
-      'Support & Hosting mtl. 150 €',
-      'Einrichtung einmalig ab 1.950 €',
-      'Vertragslaufzeit 24 Monate',
+      'Hosting inklusive',
+      'Vertragslaufzeit 12 Monate',
     ],
     cta: 'Demo vereinbaren',
     ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
@@ -36,23 +34,21 @@ const plans = [
     name: 'Workflow Engine',
     tier: 'Base',
     icon: '🔧',
-    tagline: 'Für wachsende Teams mit mehreren Prozessen.',
-    price: '990',
+    tagline: 'On-Premises. Ihre Daten, Ihre Kontrolle.',
+    price: '1.450',
     priceNote: 'mtl. zzgl. MwSt.',
     highlight: false,
     badge: null,
     features: [
-      'Visual Workflow Designer (No-Code)',
-      'Erweiterte Standard-Agenten',
-      'Bis zu 20 User',
-      '2 virtuelle Mitarbeiter (= 500 Agents)',
-      'Performance Analytics & Monitoring',
-      'Agent-Bibliothek (wiederverwendbar)',
-      'Human-in-the-Loop Validierung',
+      'Visueller Workflow-Designer (No-Code)',
+      'Wissensmanagement (gus:tav)',
+      '50+ Standard-Prozessagenten',
+      'Bis zu 10 User',
+      '1 virtueller Mitarbeiter (= 250 Agents)',
     ],
     extras: [
-      'Support & Hosting mtl. 250 €',
-      'Einrichtung einmalig ab 2.950 €',
+      'Support & Hosting mtl. 350 €',
+      'Einrichtung einmalig ab 4.950 €',
       'Vertragslaufzeit 24 Monate',
     ],
     cta: 'Demo vereinbaren',
@@ -368,7 +364,7 @@ const included = [
     border: 1.5px solid rgba(102, 228, 169, 0.2);
   }
 
-  /* Featured badge */
+  /* Featured / info badge */
   .plan-badge {
     position: absolute;
     top: -14px;
@@ -383,6 +379,12 @@ const included = [
     padding: 4px 16px;
     border-radius: 20px;
     white-space: nowrap;
+  }
+
+  /* Mini "Begrenztes Kontingent" badge – orange/amber tone */
+  .plan--light .plan-badge {
+    background: #FF9F43;
+    color: #fff;
   }
 
   .is-featured {
