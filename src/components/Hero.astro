@@ -46,11 +46,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <div class="container hero-clients">
     <p class="clients-label">Internationale Unternehmen vertrauen uns</p>
     <div class="clients-logos">
-      <span class="client-logo">heroal</span>
-      <span class="client-logo">K60</span>
-      <span class="client-logo">REME</span>
-      <span class="client-logo">DarKo</span>
-      <span class="client-logo">BIO-CIRCLE</span>
+      <img src={`${base}/images/heroal_logo.webp`} alt="heroal" class="client-logo-img" width="100" height="40" loading="lazy" decoding="async" />
+      <img src={`${base}/images/K60_logo.webp`} alt="K60" class="client-logo-img" width="100" height="40" loading="lazy" decoding="async" />
+      <img src={`${base}/images/reme_logo.webp`} alt="REME" class="client-logo-img" width="100" height="40" loading="lazy" decoding="async" />
+      <img src={`${base}/images/darko_logo.webp`} alt="DarKo" class="client-logo-img" width="100" height="40" loading="lazy" decoding="async" />
+      <img src={`${base}/images/biocircle_logo.webp`} alt="BIO-CIRCLE" class="client-logo-img" width="100" height="40" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>
@@ -182,11 +182,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     flex-wrap: wrap;
   }
 
-  .client-logo {
-    font-size: 18px;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.65);
-    letter-spacing: 1px;
+  .client-logo-img {
+    max-width: 100px;
+    width: auto;
+    height: 36px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .client-logo-img:hover {
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
