@@ -70,7 +70,7 @@ const plans = [
     cta: 'Demo vereinbaren',
     ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
     ctaExternal: true,
-    colorClass: 'plan--azure',
+    colorClass: 'plan--light',
   },
   {
     key: 'pro',
@@ -128,7 +128,7 @@ const plans = [
     cta: 'Gespräch vereinbaren',
     ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
     ctaExternal: true,
-    colorClass: 'plan--navy',
+    colorClass: 'plan--light',
   },
 ];
 
@@ -542,6 +542,10 @@ const included = [
     font-size: 11px;
     color: rgba(255, 255, 255, 0.45);
     margin-top: 4px;
+  }
+
+  .plan--light .price-note-inquiry {
+    color: var(--color-text-light);
   }
 
   .plan--light .price-note-inquiry,
