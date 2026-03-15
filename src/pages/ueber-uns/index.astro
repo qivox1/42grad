@@ -32,7 +32,7 @@ const brandValues = [
     text: 'Wir sind kein Ticketsystem. Wir sind Ihr technologischer Partner – auf Augenhöhe, langfristig, erreichbar. Wenn Ihr Prozess nicht funktioniert, ist das unser Problem.',
     image: 'wert-partnerschaft.webp',
     imageAlt: 'Partnerschaft auf Augenhöhe – 42 Grad als langfristiger technologischer Begleiter',
-    color: 'val--light',
+    color: 'val--copper',
   },
   {
     num: '04',
@@ -327,14 +327,19 @@ const brandValues = [
     flex: 1;
   }
 
-  .val--azure .bv-content { background: var(--color-bg-azure); }
-  .val--mint .bv-content  { background: var(--color-bg-mint); }
-  .val--light .bv-content { background: #fff; }
-  .val--dark .bv-content  { background: #0F2B46; }
+  .val--azure .bv-content  { background: var(--color-bg-azure); }
+  .val--mint .bv-content   { background: var(--color-bg-mint); }
+  .val--light .bv-content  { background: #fff; }
+  .val--dark .bv-content   { background: #0F2B46; }
   .val--dark .bv-title,
-  .val--dark .bv-text     { color: #fff; }
-  .val--dark .bv-num      { color: var(--color-accent-bright); }
-  .val--dark .bv-text     { color: rgba(255,255,255,0.8); }
+  .val--dark .bv-text      { color: #fff; }
+  .val--dark .bv-num       { color: var(--color-accent-bright); }
+  .val--dark .bv-text      { color: rgba(255,255,255,0.8); }
+
+  /* Copper variant – Partnerschaft */
+  .val--copper .bv-content { background: #faf3f0; }
+  .val--copper .bv-num     { color: var(--color-copper); }
+  .val--copper .bv-title   { color: var(--color-copper); }
 
   .bv-num {
     display: block;
