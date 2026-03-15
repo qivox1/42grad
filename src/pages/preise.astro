@@ -1,0 +1,825 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const plans = [
+  {
+    key: 'mini',
+    name: 'Workflow Engine',
+    tier: 'Mini',
+    icon: '⚡',
+    tagline: 'Der perfekte Einstieg in die Automatisierung.',
+    price: '490',
+    priceNote: 'mtl. zzgl. MwSt.',
+    highlight: false,
+    badge: null,
+    features: [
+      'Visual Workflow Designer (No-Code)',
+      'Standard-Agenten (E-Mail, Dokumente)',
+      'Bis zu 5 User',
+      '1 virtueller Mitarbeiter (= 200 Agents)',
+      'Basis-Monitoring Dashboard',
+      'Human-in-the-Loop Validierung',
+    ],
+    extras: [
+      'Support & Hosting mtl. 150 €',
+      'Einrichtung einmalig ab 1.950 €',
+      'Vertragslaufzeit 24 Monate',
+    ],
+    cta: 'Demo vereinbaren',
+    ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
+    ctaExternal: true,
+    colorClass: 'plan--light',
+  },
+  {
+    key: 'base',
+    name: 'Workflow Engine',
+    tier: 'Base',
+    icon: '🔧',
+    tagline: 'Für wachsende Teams mit mehreren Prozessen.',
+    price: '990',
+    priceNote: 'mtl. zzgl. MwSt.',
+    highlight: false,
+    badge: null,
+    features: [
+      'Visual Workflow Designer (No-Code)',
+      'Erweiterte Standard-Agenten',
+      'Bis zu 20 User',
+      '2 virtuelle Mitarbeiter (= 500 Agents)',
+      'Performance Analytics & Monitoring',
+      'Agent-Bibliothek (wiederverwendbar)',
+      'Human-in-the-Loop Validierung',
+    ],
+    extras: [
+      'Support & Hosting mtl. 250 €',
+      'Einrichtung einmalig ab 2.950 €',
+      'Vertragslaufzeit 24 Monate',
+    ],
+    cta: 'Demo vereinbaren',
+    ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
+    ctaExternal: true,
+    colorClass: 'plan--azure',
+  },
+  {
+    key: 'pro',
+    name: 'Workflow Engine',
+    tier: 'Pro',
+    icon: '💎',
+    tagline: 'Volle Kontrolle über komplexe Automatisierungen.',
+    price: null,
+    priceNote: 'Preis auf Anfrage',
+    highlight: true,
+    badge: 'Empfohlen',
+    features: [
+      'No-Code App Builder für interne Tools',
+      'Erweiterte Agenten (z.B. Datenbank, API)',
+      'Performance Analytics & Monitoring',
+      'Bis zu 50 User',
+      '3 virtuelle Mitarbeiter + 1 Admin (= 1.000 Agents)',
+      'Echtzeit-Monitoring Dashboard',
+      'REST APIs & Webhook Support',
+    ],
+    extras: [
+      'Support & Hosting mtl. 350 €',
+      'Einrichtung einmalig ab 4.950 €',
+      'Vertragslaufzeit 24 Monate',
+    ],
+    cta: 'Angebot anfordern',
+    ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
+    ctaExternal: true,
+    colorClass: 'plan--dark',
+  },
+  {
+    key: 'enterprise',
+    name: 'Workflow Engine',
+    tier: 'Enterprise',
+    icon: '🏢',
+    tagline: 'Unbegrenzte Skalierung für den gesamten Betrieb.',
+    price: null,
+    priceNote: 'Preis auf Anfrage',
+    highlight: false,
+    badge: null,
+    features: [
+      'Agentic AI (Supervisor & State Machine)',
+      'Premium Support (Dedizierter Ansprechpartner)',
+      'Individuelle SLA & Skalierung',
+      'Unbegrenzte Benutzer & virtuelle Mitarbeiter',
+      'Multi-Layer Security (Verschlüsselung, RBAC)',
+      'Docker-basierte Architektur',
+      'Individuelle Integrationen auf Anfrage',
+    ],
+    extras: [
+      'Support & Hosting mtl. 350 €',
+      'Einrichtung einmalig ab 4.950 €',
+      'Vertragslaufzeit 24 Monate',
+    ],
+    cta: 'Gespräch vereinbaren',
+    ctaHref: 'https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form',
+    ctaExternal: true,
+    colorClass: 'plan--navy',
+  },
+];
+
+const included = [
+  { icon: '🔒', label: '100% On-Premises', desc: 'Alle Daten bleiben auf Ihrer Infrastruktur.' },
+  { icon: '🇩🇪', label: 'Made in Germany', desc: 'DSGVO-konform entwickelt und gehostet.' },
+  { icon: '📊', label: 'Planbare Jahreslizenz', desc: 'Keine versteckten Kosten, kein Pay-per-Use.' },
+  { icon: '🚀', label: 'Schneller Rollout', desc: 'Erster Workflow innerhalb von 2 Wochen live.' },
+  { icon: '🤝', label: 'Persönliche Betreuung', desc: 'Direkter Ansprechpartner aus OWL.' },
+  { icon: '🔄', label: 'Freie Skalierung', desc: 'Jederzeit auf höheres Paket upgraden.' },
+];
+---
+
+<Layout title="Preise – 42°OS Workflow Engine | 42grad" description="Transparente Preismodelle für die 42°OS Workflow Engine. Von Mini bis Enterprise – finden Sie das passende Paket für Ihren Mittelstandsbetrieb.">
+
+  <!-- ── Page Hero ── -->
+  <section class="pricing-hero">
+    <div class="container">
+      <span class="section-label">Transparente Preisgestaltung</span>
+      <h1 class="pricing-hero-title">
+        Das richtige Paket<br />
+        <span class="highlight">für Ihren Betrieb.</span>
+      </h1>
+      <p class="pricing-hero-sub">
+        Planbare Jahreslizenz. Keine Pay-per-Use-Fallen. Skalierbar vom Pilotprozess bis zur unternehmensweiten Automatisierung.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Pricing Cards ── -->
+  <section class="pricing-cards-section">
+    <div class="container">
+      <div class="pricing-grid">
+        {plans.map(plan => (
+          <div class={`plan-card ${plan.colorClass} ${plan.highlight ? 'is-featured' : ''}`}>
+            {plan.badge && <div class="plan-badge">{plan.badge}</div>}
+
+            <div class="plan-header">
+              <div class="plan-icon">{plan.icon}</div>
+              <p class="plan-name">{plan.name}</p>
+              <h2 class="plan-tier">{plan.tier}</h2>
+              <p class="plan-tagline">{plan.tagline}</p>
+            </div>
+
+            <div class="plan-price-block">
+              {plan.price ? (
+                <>
+                  <div class="plan-price">
+                    <span class="price-amount">{plan.price} €</span>
+                    <span class="price-period">/mtl.</span>
+                  </div>
+                  <p class="price-note">{plan.priceNote}</p>
+                </>
+              ) : (
+                <>
+                  <div class="plan-price-inquiry">{plan.priceNote}</div>
+                  <p class="price-note-inquiry">Individuelles Angebot nach Beratungsgespräch</p>
+                </>
+              )}
+            </div>
+
+            <ul class="plan-features">
+              {plan.features.map(f => (
+                <li class="plan-feature">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <div class="plan-extras">
+              {plan.extras.map(e => (
+                <p class="plan-extra-line">{e}</p>
+              ))}
+            </div>
+
+            <a
+              href={plan.ctaHref}
+              class={`plan-cta ${plan.highlight ? 'btn-accent' : 'btn-outline-plan'}`}
+              target={plan.ctaExternal ? '_blank' : undefined}
+              rel={plan.ctaExternal ? 'noopener noreferrer' : undefined}
+            >
+              {plan.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Included in all packages ── -->
+  <section class="included-section">
+    <div class="container">
+      <span class="section-label">In jedem Paket enthalten</span>
+      <h2 class="included-title">Ihr Fundament für digitale Souveränität.</h2>
+      <div class="included-grid">
+        {included.map(item => (
+          <div class="included-card">
+            <span class="included-icon">{item.icon}</span>
+            <h3 class="included-label">{item.label}</h3>
+            <p class="included-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ── -->
+  <section class="pricing-cta-section">
+    <div class="container pricing-cta-inner">
+      <div class="pricing-cta-text">
+        <h2 class="pricing-cta-title">Noch unsicher, welches Paket passt?</h2>
+        <p class="pricing-cta-sub">
+          In einem kostenlosen 30-Minuten-Gespräch analysieren wir gemeinsam Ihren wichtigsten Prozess und zeigen, welches Paket den schnellsten ROI liefert.
+        </p>
+      </div>
+      <div class="pricing-cta-actions">
+        <a
+          href="https://heartofgold.42-grad.com/apps/appointments/pub/Yy9ZvN4aA3A7v0qN/form"
+          class="btn-accent cta-btn-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Kostenloses Beratungsgespräch
+        </a>
+        <p class="cta-sub-note">Kein Angebot. Kein Druck. Nur ehrliche Beratung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="faq-section">
+    <div class="container faq-inner">
+      <span class="section-label">Häufige Fragen</span>
+      <h2 class="faq-title">Alles Wichtige auf einen Blick.</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Kann ich jederzeit das Paket wechseln?</h3>
+          <p>Ja. Sie können jederzeit auf ein höheres Paket upgraden. Ein Downgrade ist zum Ende der Vertragslaufzeit möglich.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Was ist in „Support & Hosting" enthalten?</h3>
+          <p>Laufendes Hosting der Plattform auf Ihrer Infrastruktur, technischer Support, Updates sowie ein persönlicher Ansprechpartner für Betriebsfragen.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Was bedeutet „virtueller Mitarbeiter"?</h3>
+          <p>Ein virtueller Mitarbeiter ist ein vorkonfigurierter KI-Agent, der einen definierten Prozess eigenständig und dauerhaft bearbeitet – z.B. E-Mail-Routing oder ERP-Dateneingabe.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Fallen Zusatzkosten bei mehr Nutzung an?</h3>
+          <p>Nein. Die Jahreslizenz ist fix – keine Pay-per-Use-Gebühren, keine Überraschungsrechnungen. Sie wissen immer, was Sie zahlen.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Wie lange dauert die Einrichtung?</h3>
+          <p>In der Regel sind erste Workflows innerhalb von 2 Wochen produktiv. Die Einmalgebühr umfasst Setup, Konfiguration und Schulung Ihres Teams.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Ist 42°OS DSGVO-konform?</h3>
+          <p>Ja. Da 42°OS vollständig On-Premises betrieben wird, verlassen Ihre Daten niemals das eigene Rechenzentrum – maximale Datenhoheit garantiert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .pricing-hero {
+    padding: 80px 0 60px;
+    background: linear-gradient(160deg, #f8fafb 0%, #eef4ff 100%);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-hero .section-label {
+    margin-bottom: 20px;
+  }
+
+  .pricing-hero-title {
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .pricing-hero-title .highlight {
+    color: var(--color-accent);
+  }
+
+  .pricing-hero-sub {
+    font-size: 18px;
+    color: var(--color-text-light);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── Cards section ── */
+  .pricing-cards-section {
+    padding: 64px 0 80px;
+    background: #fff;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* ── Individual card ── */
+  .plan-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Light / Azure / Dark / Navy card themes */
+  .plan--light {
+    background: #f8fafb;
+    border: 1.5px solid var(--color-border);
+  }
+
+  .plan--azure {
+    background: var(--color-bg-azure, #D6E3FD);
+    border: 1.5px solid rgba(102, 140, 220, 0.25);
+  }
+
+  .plan--dark {
+    background: var(--color-accent, #0F2B46);
+    border: 2.5px solid var(--color-accent-bright, #66E4A9);
+    box-shadow: 0 20px 60px rgba(15, 43, 70, 0.25);
+  }
+
+  .plan--navy {
+    background: #0a1626;
+    border: 1.5px solid rgba(102, 228, 169, 0.2);
+  }
+
+  /* Featured badge */
+  .plan-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent-bright, #66E4A9);
+    color: var(--color-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .is-featured {
+    transform: translateY(-8px);
+  }
+
+  .is-featured:hover {
+    transform: translateY(-14px);
+  }
+
+  /* Plan header */
+  .plan-header {
+    margin-bottom: 24px;
+  }
+
+  .plan-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .plan-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--color-text-light);
+  }
+
+  .plan--dark .plan-name,
+  .plan--navy .plan-name {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .plan-tier {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+
+  .plan--dark .plan-tier,
+  .plan--navy .plan-tier {
+    color: #fff;
+  }
+
+  .plan-tagline {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .plan--dark .plan-tagline,
+  .plan--navy .plan-tagline {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Price block */
+  .plan-price-block {
+    padding: 20px 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+  }
+
+  .plan--dark .plan-price-block,
+  .plan--navy .plan-price-block {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .price-amount {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1;
+  }
+
+  .plan--dark .price-amount,
+  .plan--navy .price-amount {
+    color: var(--color-accent-bright, #66E4A9);
+  }
+
+  .price-period {
+    font-size: 15px;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  .plan--dark .price-period,
+  .plan--navy .price-period {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .price-note {
+    font-size: 11px;
+    color: var(--color-text-light);
+    margin-top: 4px;
+  }
+
+  .plan--dark .price-note,
+  .plan--navy .price-note {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .plan-price-inquiry {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-accent-bright, #66E4A9);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan--light .plan-price-inquiry,
+  .plan--azure .plan-price-inquiry {
+    color: var(--color-accent);
+  }
+
+  .price-note-inquiry {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 4px;
+  }
+
+  .plan--light .price-note-inquiry,
+  .plan--azure .price-note-inquiry {
+    color: var(--color-text-light);
+  }
+
+  /* Features list */
+  .plan-features {
+    list-style: none;
+    margin-bottom: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .plan-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.45;
+  }
+
+  .plan--dark .plan-feature,
+  .plan--navy .plan-feature {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--color-accent-bright, #66E4A9);
+  }
+
+  .plan--light .check-icon,
+  .plan--azure .check-icon {
+    color: var(--color-accent);
+  }
+
+  /* Extras */
+  .plan-extras {
+    padding: 16px 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .plan--dark .plan-extras,
+  .plan--navy .plan-extras {
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .plan-extra-line {
+    font-size: 11.5px;
+    color: var(--color-text-light);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .plan--dark .plan-extra-line,
+  .plan--navy .plan-extra-line {
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* CTA buttons */
+  .plan-cta {
+    display: block;
+    text-align: center;
+    padding: 13px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-accent {
+    background: var(--color-accent-bright, #66E4A9);
+    color: var(--color-dark) !important;
+  }
+
+  .btn-accent:hover {
+    background: #4fd49a;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline-plan {
+    background: transparent;
+    border: 1.5px solid currentColor;
+    color: var(--color-accent);
+  }
+
+  .plan--dark .btn-outline-plan,
+  .plan--navy .btn-outline-plan {
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .plan--dark .btn-outline-plan:hover,
+  .plan--navy .btn-outline-plan:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .btn-outline-plan:hover {
+    background: var(--color-bg-light, #f0f4f8);
+  }
+
+  /* ── Included section ── */
+  .included-section {
+    padding: 72px 0;
+    background: var(--color-bg-light, #f8fafb);
+    text-align: center;
+  }
+
+  .included-section .section-label {
+    margin-bottom: 16px;
+  }
+
+  .included-title {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 48px;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .included-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .included-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .included-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 6px;
+  }
+
+  .included-desc {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  /* ── CTA Banner ── */
+  .pricing-cta-section {
+    background: var(--color-accent, #0F2B46);
+    padding: 72px 0;
+  }
+
+  .pricing-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .pricing-cta-text {
+    flex: 1;
+  }
+
+  .pricing-cta-title {
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .pricing-cta-sub {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.65;
+    max-width: 520px;
+  }
+
+  .pricing-cta-actions {
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .cta-btn-lg {
+    display: inline-block;
+    background: var(--color-accent-bright, #66E4A9);
+    color: var(--color-dark) !important;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .cta-btn-lg:hover {
+    background: #4fd49a;
+    transform: translateY(-2px);
+  }
+
+  .cta-sub-note {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 10px;
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .faq-inner {
+    text-align: center;
+  }
+
+  .faq-inner .section-label {
+    margin-bottom: 16px;
+  }
+
+  .faq-title {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 48px;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    text-align: left;
+  }
+
+  .faq-item {
+    background: var(--color-bg-light, #f8fafb);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .faq-item h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+  }
+
+  .faq-item p {
+    font-size: 13.5px;
+    color: var(--color-text-light);
+    line-height: 1.65;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .is-featured {
+      transform: none;
+    }
+
+    .is-featured:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .included-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-cta-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .pricing-cta-sub {
+      max-width: 100%;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
